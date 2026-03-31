@@ -3,102 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <title>VG Tech & Security Solutions</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .logo {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      transition: 0.3s ease;
+    }
+
+    /* BODY */
+    body {
+      background: #0a0f1c;
+      color: #e6f1ff;
+      line-height: 1.6;
+    }
+
+    /* HEADER (HERO) */
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle at top, #0f1f3d, #050910);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00bfff;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 10px auto;
+      color: #bcd4ff;
+    }
+
+    /* BUTTON */
+    header a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #00bfff, #0077ff);
+      transition: 0.3s ease;
+    }
+
+    header a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* SERVICES GRID */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    /* CARD STYLE */
+    .card {
+      background: rgba(17, 26, 46, 0.7);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 191, 255, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* GLOW EFFECT */
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(0,191,255,0.2), transparent 70%);
+      top: -50%;
+      left: -50%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    /* HOVER EFFECT */
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #00bfff;
+      box-shadow: 0 0 20px rgba(0,191,255,0.3);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* CARD TEXT */
+    .card h3 {
+      color: #00bfff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #bcd4ff;
+    }
+
+    /* SECTION HEADINGS */
+    h2 {
+      font-size: 1.8rem;
+      color: #00bfff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* LISTS */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #111a2e;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    ul li:hover {
+      background: #162447;
+      transform: translateX(5px);
+    }
+
+    /* VISUAL GRAPHICS SECTION (SPECIAL STYLE) */
+    #visual-graphics {
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #00bfff;
+      margin-bottom: 15px;
+    }
+
+    /* CONTACT */
+    section:last-of-type {
+      text-align: center;
+    }
+
+    section:last-of-type p {
+      margin: 10px 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #050910;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* ensures navbar is above everything */
+}
+
+    /* PORTFOLIO SECTION */
+    .portfolio {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* CARD BADGES */
+    .card .card-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(45deg, #00bfff, #0077ff);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,191,255,0.4);
+      pointer-events: none; /* allows buttons to be clickable */
+      z-index: 10;
+    }
+
+    /* BUTTONS IN CARDS */
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      color: #fff;
+      background: linear-gradient(45deg, #00bfff, #0077ff);
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      position: relative;
+      z-index: 20;
+    }
+
+    .card a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    /* NAV */
+    nav h3 {
+      color: #00bfff;
+    }
+
+    nav a {
+      color: #bcd4ff;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #00bfff;
+        z-index: 30;
+    }
+
+    /* ANIMATION BASE */
+    .fade-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050910;
+      color: #bcd4ff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,191,255,0.2);
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-<h3>VG TECH</h3>
-  <a href="#">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-    <a href="#">Contact</a>
-  </div>
-</nav>
-    
-<header>
-  <h1>VG Tech & Security Solutions</h1>
+  <nav>
+    <h3>VG TECH</h3>
+    <div>
+      <a href="#">Home</a>
+      <a href="visual-graphics.html">Visual Graphics</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>VG Tech & Security Solutions</h1>
     <p><strong>Powering Your Business with Smart Technology & Strong Security</strong></p>
+    <p>At VG Tech & Security Solutions, we help businesses stay connected, protected, and visible in today’s digital world. 
+        From modern website development, SEO and AI Visibility to IT support and security systems, we provide reliable solutions designed 
+        to help you grow with confidence.</p>
+    <p>Whether you're starting out or scaling up, we build and optimize your technology so your business runs smoother, 
+        reaches more customers, and stands out online.</p>    
+    <h2>Ready to Grow Your Business?</h2>
+    <p>Let’s build something powerful together.</p>
+    <a href="https://wa.me/5016220740">Get a Quote</a>
+  </header>
 
-<p>At VG Tech & Security Solutions, we help businesses stay connected, protected, and visible in today’s digital world. 
-    From modern website development, SEO and AI Visibility to IT support and security systems, we provide reliable solutions designed 
-    to help you grow with confidence.</p>
-
-<p>Whether you're starting out or scaling up, we build and optimize your technology so your business runs smoother, 
-    reaches more customers, and stands out online.</p>
-  <a href="https://wa.me/5016220740">Contact Us</a>
-</header>
-
-<section class="services">
-  <h2>Our Services</h2>
-
-  <div class="card fade-up">
-
-    <div class="card">
-      <h3>🌐 Web Design & Development</h3>
-      <p>Modern, responsive websites designed to represent your brand and convert visitors into customers.</p>
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="card fade-up">
+      <div class="card">
+        <h3>🌐 Web Design & Development</h3>
+        <p>Modern, responsive websites designed to represent your brand and convert visitors into customers.</p>
+      </div>
+      <div class="card">
+        <h3>📈 SEO & AI Visibility</h3>
+        <p>Get discovered on Google and AI platforms with optimized content and search presence.</p>
+      </div>
+      <div class="card">
+        <h3>🛠 IT Support & Networking</h3>
+        <p>Reliable tech support, WiFi setup, and network optimization to keep your business running smoothly.</p>
+      </div>
+      <div class="card">
+        <h3>🔐 Security Solutions</h3>
+        <p>Camera systems and security setups to protect your business and give peace of mind.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>📈 SEO & AI Visibility</h3>
-      <p>Get discovered on Google and AI platforms with optimized content and search presence.</p>
+  <section class="portfolio">
+    <h2>Our Work</h2>
+    <div class="card-container">
+      <div class="card fade-up">
+        <div class="card-badge">From Scratch</div>
+        <h3>🌐 M & N Guesthouse</h3>
+        <p>Full design and development from the ground up. Modern, responsive layout with custom graphics.</p>
+        <a href="https://mnguesthouse.com" target="_blank">View Website</a>
+      </div>
+      <div class="card fade-up">
+        <div class="card-badge">Improved</div>
+        <h3>⚡ E-Z Boy Tours</h3>
+        <p>Optimized the website for SEO & AI visibility boosting search rankings and online presence, improved user experience, and set up Google Workspace to make the business appear more professional and trustworthy.</p>
+        <a href="https://ezboytours.com" target="_blank">View Website</a>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🛠 IT Support & Networking</h3>
-      <p>Reliable tech support, WiFi setup, and network optimization to keep your business running smoothly.</p>
-    </div>
+  <section>
+    <h2>Why Choose Us</h2>
+    <p>Reliable, affordable, and built for small businesses.</p>
+  </section>
 
-    <div class="card">
-      <h3>🔐 Security Solutions</h3>
-      <p>Camera systems and security setups to protect your business and give peace of mind.</p>
-    </div>
+  <section id="visual-graphics">
+    <h2>Visual Graphics</h2>
+    <p class="subtitle">Creative Design Partner of VG Tech</p>
+    <p>Through our partner brand <strong>Visual Graphics</strong>, we provide professional graphic design services that support and enhance your digital presence. Together, we deliver both the technical and creative solutions your business needs to stand out.</p>
+    <ul>
+      <li>Logo Design & Branding</li>
+      <li>Social Media Graphics</li>
+      <li>Marketing Materials (Flyers, Posters)</li>
+      <li>Website Visual Design</li>
+    </ul>
+  </section>
 
-  </div>
-</section>
-    
-<section>
-  <h2>Why Choose Us</h2>
-  <p>Reliable, affordable, and built for small businesses.</p>
-</section>
+  <section>
+    <h2>Contact</h2>
+    <p>Email: visualgraphicscc@gmail.com</p>
+  </section>
 
-<section id="visual-graphics">
-  <h2>Visual Graphics</h2>
-  <p class="subtitle">Creative Design Partner of VG Tech</p>
+  <script>
+    const elements = document.querySelectorAll('.fade-up');
+    const reveal = () => {
+      elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+        if (position < screenHeight - 100) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
 
-  <p>
-    Through our partner brand <strong>Visual Graphics</strong>, we provide professional graphic design services that support and enhance your digital presence. Together, we deliver both the technical and creative solutions your business needs to stand out.
-  </p>
+  <footer>
+    <p>© 2026 VG Tech & Security Solutions. Designed by Jordy Gonzalez.</p>
+  </footer>
 
-  <ul>
-    <li>Logo Design & Branding</li>
-    <li>Social Media Graphics</li>
-    <li>Marketing Materials (Flyers, Posters)</li>
-    <li>Website Visual Design</li>
-  </ul>
-</section>
-    
-<section>
-  <h2>Contact</h2>
-  <p>Email: visualgraphicscc@gmail.com</p>
-</section>
-
-   <script>
-const elements = document.querySelectorAll('.fade-up');
-
-const reveal = () => {
-  elements.forEach(el => {
-    const position = el.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (position < screenHeight - 100) {
-      el.classList.add('show');
-    }
-  });
-};
-
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal); // 👈 THIS FIXES IT
-</script>
-    
 </body>
 </html>
