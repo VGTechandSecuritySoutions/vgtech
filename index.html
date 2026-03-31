@@ -11,7 +11,7 @@
   <h3>VG Tech</h3>
   <div>
     <a href="#">Home</a>
-    <a href="#visual-graphics">Visual Graphics</a>
+    <a href="visual-graphics.html">Visual Graphics</a>
     <a href="#">Contact</a>
   </div>
 </nav>
@@ -29,14 +29,32 @@
   <a href="https://wa.me/5016220740">Contact Us</a>
 </header>
 
-<section>
-  <h2>Services</h2>
-  <ul>
-    <li>Website Design, Improvement & Development</li>
-    <li>SEO & AI Visibility</li>
-    <li>IT Support & Networking</li>
-    <li>Email Setup & Security</li>
-  </ul>
+<section class="services">
+  <h2>Our Services</h2>
+
+  <div class="card fade-up">
+
+    <div class="card">
+      <h3>🌐 Web Design & Development</h3>
+      <p>Modern, responsive websites designed to represent your brand and convert visitors into customers.</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 SEO & AI Visibility</h3>
+      <p>Get discovered on Google and AI platforms with optimized content and search presence.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛠 IT Support & Networking</h3>
+      <p>Reliable tech support, WiFi setup, and network optimization to keep your business running smoothly.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔐 Security Solutions</h3>
+      <p>Camera systems and security setups to protect your business and give peace of mind.</p>
+    </div>
+
+  </div>
 </section>
     
 <section>
@@ -65,5 +83,23 @@
   <p>Email: visualgraphicscc@gmail.com</p>
 </section>
 
+   <script>
+const elements = document.querySelectorAll('.fade-up');
+
+const reveal = () => {
+  elements.forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+};
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal); // 👈 THIS FIXES IT
+</script>
+    
 </body>
 </html>
