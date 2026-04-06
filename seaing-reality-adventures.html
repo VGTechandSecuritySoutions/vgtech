@@ -2,39 +2,302 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Flyer</title>
+  <title>Seaing Reality Adventures | Visual Graphics Project</title>
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
       background: #0a0f1c;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      color: #e6f1ff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #050910;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h3 {
+      color: #fa0035;
+    }
+
+    nav a {
+      color: #e6f1ff;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #fa0035;
+    }
+
+    header {
       text-align: center;
-      padding: 40px;
+      padding: 60px 20px;
+      background: radial-gradient(circle at top, #00334d, #050910);
     }
 
-    img {
-      max-width: 50%;
+    header h1 {
+      font-size: 2.5rem;
+      color: #00e0ff;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 10px auto;
+      color: #bdf6ff;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #00e0ff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(0, 51, 77, 0.5);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,224,255,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(0,224,255,0.2), transparent 70%);
+      top: -50%;
+      left: -50%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #00e0ff;
+      box-shadow: 0 0 20px rgba(0,224,255,0.3);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
+      color: #00e0ff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #d6faff;
+    }
+
+    .card img {
+      width: 100%;
       border-radius: 10px;
-      margin-top: 20px;
+      margin-bottom: 15px;
     }
 
-    a {
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: #050910;
+      color: #bdf6ff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,224,255,0.2);
+    }
+
+    .cta-button {
       display: inline-block;
       margin-top: 20px;
-      color: #fa0035;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background: #25D366;
+      border-radius: 8px;
       text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
     }
   </style>
 </head>
+
 <body>
 
+<nav>
+  <h3>Visual Graphics</h3>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="visual-graphics.html">Visual Graphics</a>
+  </div>
+</nav>
+
+<main>
+
+<header>
   <h1>Seaing Reality Adventures</h1>
-  <p>This logo was designed to brand and represent a local Tour Company</p>
+  <p><strong>Full Brand Identity & Marketing Setup</strong></p>
+  <p>
+    A complete branding and launch project for a local tour company in Caye Caulker, Belize.
+  </p>
+</header>
 
-  <img src="images/SeaingRealityLogo.png" alt="Logo Design">
+<section>
+  <h2>Project Story</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Seaing Reality Adventures is a snorkeling, fishing, and private tour company focused on delivering authentic and adventurous island experiences.
+    The goal was to create a strong, professional identity that reflects both the local culture and the excitement of marine tours.
+  </p>
+  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
+    The client originally had a low-quality logo made from layered images. This project involved completely redesigning the brand into a clean,
+    meaningful, and scalable identity, along with creating marketing materials and setting up their online presence.
+  </p>
+</section>
 
-  <br>
-  <a href="visual-graphics.html">← Back</a>
+<section>
+  <h2>Project Breakdown</h2>
+  <div class="card-container">
+
+    <div class="card fade-up">
+      <h3>Logo Design</h3>
+      <p>
+        A completely redesigned logo featuring a circular ocean-inspired layout, incorporating marine life, snorkeling elements,
+        and a fishing boat silhouette. The Belize map was creatively integrated into the typography to represent location and identity.
+      </p>
+      <img src="images/SeaingRealityLogo.png">
+    </div>
+
+    <div class="card fade-up">
+      <h3>Business Card Design</h3>
+      <p>
+        Designed a clean and functional business card including WhatsApp contact, location, and Facebook presence,
+        making it easy for customers to connect and book tours.
+      </p>
+   
+    </div>
+
+    <div class="card fade-up">
+      <h3>Flyer Design</h3>
+      <p>
+        Created promotional flyers to be distributed at hotels, highlighting available tours and services.
+        The design focused on attracting tourists and encouraging referrals from hotel staff.
+      </p>
+   
+    </div>
+
+    <div class="card fade-up">
+      <h3>Facebook Page Setup</h3>
+      <p>
+        Complete setup including profile and cover design, business description, and initial content,
+        giving the company a professional and trustworthy online presence.
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>Video Editing</h3>
+      <p>
+        Edited promotional video content from raw footage provided by the client, helping showcase real tour experiences
+        and attract potential customers online.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Results & Impact</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    The new branding and marketing materials significantly improved the company's professional image,
+    helping build trust with potential customers. The business began receiving inquiries and gained visibility
+    both through physical promotion and online presence.
+  </p>
+</section>
+
+<section>
+  <h2>Interested in Your Own Branding?</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Launch your business with a complete professional identity and marketing setup.
+  </p>
+  <div style="text-align:center;">
+    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
+      WhatsApp Visual Graphics
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-up');
+  const reveal = () => {
+    elements.forEach(el => {
+      const position = el.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+      if (position < screenHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
 
 </body>
 </html>
