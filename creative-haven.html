@@ -2,39 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Flyer</title>
+  <title>Creative Haven | Visual Graphics Project</title>
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
       background: #0a0f1c;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      color: #e6f1ff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #050910;
+      position: sticky;
+      top: 0;
+    }
+
+    nav h3 {
+      color: #fa0035;
+    }
+
+    nav a {
+      color: #e6f1ff;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    header {
       text-align: center;
-      padding: 40px;
+      padding: 60px 20px;
+      background: radial-gradient(circle at top, #4b1f5e, #050910);
     }
 
-    img {
-      max-width: 50%;
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff7bff;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 10px auto;
+      color: #f3cfff;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff7bff;
+    }
+
+    .card-container {
+      display: grid;
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(75, 31, 94, 0.5);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,123,255,0.2);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(255,123,255,0.3);
+    }
+
+    .card img {
+      width: 100%;
       border-radius: 10px;
-      margin-top: 20px;
+      margin-bottom: 15px;
     }
 
-    a {
+    .card h3 {
+      color: #ff7bff;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #050910;
+      text-align: center;
+      padding: 20px;
+      color: #f3cfff;
+      border-top: 1px solid rgba(255,123,255,0.2);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.6s;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-button {
       display: inline-block;
       margin-top: 20px;
-      color: #fa0035;
+      padding: 14px 28px;
+      background: #25D366;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
     }
   </style>
 </head>
+
 <body>
 
+<nav>
+  <h3>Visual Graphics</h3>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="visual-graphics.html">Visual Graphics</a>
+  </div>
+</nav>
+
+<main>
+
+<header>
   <h1>Creative Haven</h1>
-  <p>This logo was designed to brand and represent a local printing and engraving company.</p>
+  <p><strong>Logo Design for a Custom Printing & Engraving Business</strong></p>
+  <p>
+    A clean and professional brand identity created for a growing small business specializing in customized products.
+  </p>
+</header>
 
-  <img src="images/CreativeHeavenLogoOriginal.png" alt="Logo Design">
+<section>
+  <h2>Project Story</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Creative Haven is a small but fast-growing business offering custom printing and engraving services,
+    including personalized cups, bags, keychains, party items, and more.
+  </p>
 
-  <br>
-  <a href="visual-graphics.html">← Back</a>
+  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
+    With a high demand for custom orders and limited time for marketing, the goal was to create a strong,
+    professional logo that could represent the business consistently across all products.
+  </p>
+</section>
+
+<section>
+  <h2>Design Approach</h2>
+
+  <div class="card-container">
+
+    <div class="card fade-up">
+      <h3>Logo Design</h3>
+
+      <img src="images/CreativeHeavenLogoOriginal.png">
+
+      <p>
+        The logo was designed from scratch with a focus on simplicity, clarity, and professionalism.
+        The goal was to create a flexible identity that works across a wide range of custom products.
+      </p>
+
+      <p style="margin-top:10px;">
+        Since the business produces a variety of items—from engraved products to printed packaging—the design needed
+        to remain clean and adaptable for different sizes, surfaces, and materials.
+      </p>
+
+      <p style="margin-top:10px;">
+        The final result is a modern and recognizable brand mark that supports the business as it continues to grow.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Real Business Impact</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Even without heavy marketing, Creative Haven continues to receive a steady flow of orders,
+    showing strong demand for their services. The new logo provides a consistent and professional
+    identity that supports customer trust and brand recognition.
+  </p>
+</section>
+
+<section>
+  <h2>Interested in Your Own Branding?</h2>
+  <p style="text-align:center;">
+    Build a professional identity that grows with your business.
+  </p>
+
+  <div style="text-align:center;">
+    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
+      WhatsApp Visual Graphics
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-up');
+  const reveal = () => {
+    elements.forEach(el => {
+      const pos = el.getBoundingClientRect().top;
+      if (pos < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
 
 </body>
 </html>
