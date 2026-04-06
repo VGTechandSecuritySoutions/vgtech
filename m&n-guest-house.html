@@ -2,39 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Flyer</title>
+  <title>M&N Guest House Logo</title>
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
       background: #0a0f1c;
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
       text-align: center;
-      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #00bfff;
+      margin-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #ccc;
     }
 
     img {
-      max-width: 50%;
-      border-radius: 10px;
-      margin-top: 20px;
+      max-width: 60%;
+      border-radius: 12px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: 0.3s ease;
     }
 
-    a {
+    img:hover {
+      transform: scale(1.03);
+    }
+
+    .back-btn {
       display: inline-block;
       margin-top: 20px;
-      color: #fa0035;
+      padding: 10px 20px;
+      border: 1px solid #00bfff;
+      border-radius: 25px;
+      color: #00bfff;
       text-decoration: none;
+      transition: 0.3s;
     }
+
+    .back-btn:hover {
+      background: #00bfff;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #050814;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
   </style>
 </head>
+
 <body>
 
-  <h1>M&N Guest House</h1>
-  <p>This logo was designed to represent a local Guest House</p>
+  <div class="container">
 
-  <img src="images/M&NLogo.png" alt="Logo Design">
+<h1>M&N Guest House</h1>
+<p class="subtitle">Logo Vectorization & Brand Restoration</p>
 
-  <br>
-  <a href="visual-graphics.html">← Back</a>
+<p>
+  This project focused on digitally recreating and restoring the existing logo of M&N Guest House,
+  which was originally hand-painted on a physical sign and had begun to fade over time.
+</p>
+
+<p>
+  To preserve its recognizable identity, we carefully analyzed the original artwork, matched the closest possible fonts,
+  and manually traced each element to produce a clean and accurate vector version.
+  During this process, we also enhanced the color tones—maintaining the original palette while improving vibrancy and consistency for digital use.
+</p>
+
+<p>
+  The final logo retains the authentic look of the original design while being fully optimized for modern applications,
+  ensuring it can be used across web, print, and promotional materials without quality loss.
+</p>
+
+<h3 style="margin-top:30px;">Deliverables</h3>
+<p>
+  • Scalable SVG file for high-quality use at any size<br>
+  • PNG files for web and digital platforms<br>
+  • Optimized layout for both print and online use
+</p>
+
+<h3 style="margin-top:30px;">Additional Work</h3>
+<p>
+  In addition to the logo restoration, we also designed and developed the official website for M&N Guest House
+  through VG Tech & Security Solutions, creating a complete digital presence for the business.
+</p>
+    <img src="images/M&NLogo.png" alt="M&N Guest House Logo">
+
+  </div>
+
+  <footer>
+    © 2026 VG Tech & Security Solutions. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
