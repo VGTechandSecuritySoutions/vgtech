@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Island Boy Ice Factory | Visual Graphics Project</title>
+
   <style>
-    /* RESET */
     * {
       margin: 0;
       padding: 0;
@@ -16,6 +16,11 @@
       background: #0a0f1c;
       color: #e6f1ff;
       line-height: 1.6;
+
+      /* 🔥 THIS FIXES FOOTER */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     nav {
@@ -60,20 +65,9 @@
       color: #ffbcd4;
     }
 
-    header a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      transition: 0.3s ease;
-    }
-
-    header a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fa0035;
+    /* 🔥 MAIN CONTENT WRAPPER */
+    main {
+      flex: 1;
     }
 
     section {
@@ -144,24 +138,6 @@
       margin-bottom: 15px;
     }
 
-    .card a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      color: #fff;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      border-radius: 25px;
-      text-decoration: none;
-      transition: 0.3s ease;
-      position: relative;
-      z-index: 20;
-    }
-
-    .card a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fa0035;
-    }
-
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -173,17 +149,13 @@
       transform: translateY(0);
     }
 
-        footer {
+    footer {
       background: #050910;
       color: #ffbcd4;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
       border-top: 1px solid rgba(0,191,255,0.2);
-    }
-
-    footer p {
-      margin: 0;
     }
 
     .cta-button {
@@ -205,6 +177,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <nav>
@@ -215,6 +188,8 @@
   </div>
 </nav>
 
+<main>
+
 <header>
   <h1>Island Boy Ice Factory</h1>
   <p><strong>Brand Identity</strong></p>
@@ -223,35 +198,39 @@
   </p>
 </header>
 
-<section class="project-story">
+<section>
   <h2>Project Story</h2>
   <p style="text-align:center; max-width:750px; margin:auto;">
-    Island Boy Ice Factory, a wholesale ice business in Caye Caulker, Belize, wanted a brand that would reflect both its heritage and professionalism. The client requested a logo featuring a lobster, referencing the owner’s fishing and lobster business, as well as an ice box. 
-    Visual Graphics took this direction and crafted a unique, eye-catching identity.
-  </p>
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    Since launch, the branding has helped Island Boy Ice Factory stand out and be widely recognized across the island, elevating the business’s image and customer trust.
+    Island Boy Ice Factory, a wholesale ice business in Caye Caulker, Belize, wanted a brand that would reflect both its heritage and professionalism.
   </p>
 </section>
 
-<section class="portfolio">
+<section>
   <h2>Gallery</h2>
   <div class="card-container">
     <div class="card fade-up">
-      <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo Design">
+      <img src="images/Island_Boy_Ice_Factory_Logo.png">
       <h3>Logo Design</h3>
-      <p>A creative logo containing the ice box and lobster, reflecting the owner's background and the brand’s unique identity.</p>
+      <p>
+        A creative logo containing the ice box and lobster, reflecting the owner's background and identity.
+      </p>
     </div>
-
-<section class="contact-cta">
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Bring your business vision to life with professional design services. Contact Visual Graphics today!
-  </p>
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">WhatsApp Visual Graphics</a>
   </div>
 </section>
+
+<section>
+  <h2>Interested in Your Own Branding?</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Bring your business vision to life with professional design services.
+  </p>
+  <div style="text-align:center;">
+    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
+      WhatsApp Visual Graphics
+    </a>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
