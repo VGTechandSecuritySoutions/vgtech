@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>M&N Guest House Logo</title>
+  <title>M&N Guest House | Visual Graphics Project</title>
 
   <style>
     * {
@@ -14,7 +14,8 @@
 
     body {
       background: #0a0f1c;
-      color: #fff;
+      color: #e6f1ff;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -43,120 +44,241 @@
     nav a:hover {
       color: #fa0035;
     }
-    
-    .container {
-      flex: 1;
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
+
+    header {
       text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle at top, #001f3a, #050910);
     }
 
-    h1 {
+    header h1 {
       font-size: 2.5rem;
+      color: #00bfff;
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      color: #00bfff;
-      margin-bottom: 30px;
+    header p {
+      max-width: 700px;
+      margin: 10px auto;
+      color: #bde6ff;
     }
 
-    p {
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      flex: 1;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #00bfff;
       margin-bottom: 20px;
-      line-height: 1.6;
-      color: #ccc;
+      text-align: center;
     }
 
-    img {
-      max-width: 60%;
-      border-radius: 12px;
-      margin: 30px 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transition: 0.3s ease;
+    .card-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 30px;
     }
 
-    img:hover {
-      transform: scale(1.03);
+    .card {
+      background: rgba(0, 31, 58, 0.5);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,191,255,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: 1px solid #00bfff;
-      border-radius: 25px;
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(0,191,255,0.2), transparent 70%);
+      top: -50%;
+      left: -50%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #00bfff;
+      box-shadow: 0 0 20px rgba(0,191,255,0.3);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
       color: #00bfff;
-      text-decoration: none;
-      transition: 0.3s;
+      margin-bottom: 10px;
     }
 
-    .back-btn:hover {
-      background: #00bfff;
-      color: #000;
+    .card p {
+      color: #d6f4ff;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
+      background: #050910;
+      color: #bde6ff;
       text-align: center;
-      padding: 15px;
-      background: #050814;
+      padding: 20px;
       font-size: 0.9rem;
-      color: #888;
+      border-top: 1px solid rgba(0,191,255,0.2);
     }
 
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background: #25D366;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
+    }
   </style>
 </head>
 
 <body>
 
-  <nav>
+<nav>
   <h3>Visual Graphics</h3>
   <div>
     <a href="index.html">Home</a>
     <a href="visual-graphics.html">Visual Graphics</a>
   </div>
 </nav>
-  
-  <div class="container">
 
-<h1>M&N Guest House</h1>
-<p class="subtitle">Logo Vectorization & Brand Restoration</p>
+<header>
+  <h1>M&N Guest House</h1>
+  <p><strong>Logo Vectorization & Brand Restoration</strong></p>
+  <p>
+    Designed in collaboration with Visual Graphics, the creative partner of VG Tech.
+  </p>
+</header>
 
-<p>
-  This project focused on digitally recreating and restoring the existing logo of M&N Guest House,
-  which was originally hand-painted on a physical sign and had begun to fade over time.
-</p>
+<section>
+  <h2>Project Story</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    This project focused on digitally recreating and restoring the existing logo of M&N Guest House,
+    which was originally hand-painted on a physical sign and had begun to fade over time.
+  </p>
+  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
+    To preserve its recognizable identity, we carefully analyzed the original artwork, matched the closest possible fonts,
+    and manually traced each element to produce a clean and accurate vector version. During this process, we also enhanced
+    the color tones—maintaining the original palette while improving vibrancy and consistency for digital use.
+  </p>
+</section>
 
-<p>
-  To preserve its recognizable identity, we carefully analyzed the original artwork, matched the closest possible fonts,
-  and manually traced each element to produce a clean and accurate vector version.
-  During this process, we also enhanced the color tones—maintaining the original palette while improving vibrancy and consistency for digital use.
-</p>
+<section>
+  <h2>Project Breakdown</h2>
+  <div class="card-container">
 
-<p>
-  The final logo retains the authentic look of the original design while being fully optimized for modern applications,
-  ensuring it can be used across web, print, and promotional materials without quality loss.
-</p>
+    <div class="card fade-up">
+      <h3>Logo Recreation</h3>
+      <p>
+        The original painted logo was carefully traced and rebuilt into a precise digital format while maintaining its authentic look.
+      </p>
+    </div>
 
-<h3 style="margin-top:30px;">Deliverables</h3>
-<p>
-  • Scalable SVG file for high-quality use at any size<br>
-  • PNG files for web and digital platforms<br>
-  • Optimized layout for both print and online use
-</p>
+    <div class="card fade-up">
+      <h3>Color Enhancement</h3>
+      <p>
+        Colors were restored and slightly refined to compensate for fading, ensuring a more vibrant and consistent appearance.
+      </p>
+    </div>
 
-<h3 style="margin-top:30px;">Additional Work</h3>
-<p>
-  In addition to the logo restoration, we also designed and developed the official website for M&N Guest House
-  through VG Tech & Security Solutions, creating a complete digital presence for the business.
-</p>
-    <img src="images/M&NLogo.png" alt="M&N Guest House Logo">
+    <div class="card fade-up">
+      <h3>Deliverables</h3>
+      <p>
+        • Scalable SVG for high-quality use<br>
+        • PNG files for digital platforms<br>
+        • Optimized for print and web applications
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <img src="images/M&NLogo.png" alt="M&N Logo">
+      <h3>Final Logo</h3>
+      <p>
+        A clean, scalable version of the original logo, ready for modern branding use across all platforms.
+      </p>
+    </div>
 
   </div>
+</section>
 
-  <footer>
-    © 2026 VG Tech & Security Solutions. All Rights Reserved.
-  </footer>
+<section>
+  <h2>Additional Work</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    In addition to the logo restoration, we also designed and developed the official website for M&N Guest House
+    through VG Tech & Security Solutions, creating a complete digital presence for the business.
+  </p>
+</section>
+
+<section>
+  <h2>Interested in Your Own Branding?</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    Bring your business vision to life with professional design services.
+  </p>
+  <div style="text-align:center;">
+    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
+      WhatsApp Visual Graphics
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-up');
+  const reveal = () => {
+    elements.forEach(el => {
+      const position = el.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+      if (position < screenHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
 
 </body>
 </html>
