@@ -14,7 +14,7 @@
 
     body {
       background: #0a0f1c;
-      color: #e6f1ff;
+      color: #fff3e0;
       line-height: 1.6;
       display: flex;
       flex-direction: column;
@@ -30,31 +30,40 @@
       top: 0;
     }
 
+    /* 🟠 BRAND */
     nav h3 {
-      color: #fa0035;
+      color: #ff8c42;
+      text-shadow: 0 0 10px rgba(255,140,66,0.6);
     }
 
     nav a {
-      color: #e6f1ff;
+      color: #fff3e0;
       margin-left: 20px;
       text-decoration: none;
     }
 
+    nav a:hover {
+      color: #ff8c42;
+      text-shadow: 0 0 8px rgba(255,140,66,0.7);
+    }
+
+    /* 🔥 HEADER GLOW GRADIENT */
     header {
       text-align: center;
       padding: 60px 20px;
-      background: radial-gradient(circle at top, #4b1f5e, #050910);
+      background: radial-gradient(circle at top, #ff8c42, #050910);
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #ff7bff;
+      color: #ffb347;
+      text-shadow: 0 0 15px rgba(255,179,71,0.8);
     }
 
     header p {
       max-width: 700px;
       margin: 10px auto;
-      color: #f3cfff;
+      color: #ffd9b3;
     }
 
     main {
@@ -70,7 +79,8 @@
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #ff7bff;
+      color: #ffb347;
+      text-shadow: 0 0 10px rgba(255,179,71,0.6);
     }
 
     .card-container {
@@ -78,18 +88,20 @@
       gap: 25px;
     }
 
+    /* 🟠 GLOW CARDS */
     .card {
-      background: rgba(75, 31, 94, 0.5);
+      background: rgba(255,140,66,0.15);
       padding: 25px;
       border-radius: 15px;
-      border: 1px solid rgba(255,123,255,0.2);
+      border: 1px solid rgba(255,140,66,0.3);
       backdrop-filter: blur(10px);
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px rgba(255,123,255,0.3);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 25px rgba(255,140,66,0.5);
+      border-color: #ff8c42;
     }
 
     .card img {
@@ -99,16 +111,17 @@
     }
 
     .card h3 {
-      color: #ff7bff;
+      color: #ffb347;
       margin-bottom: 10px;
+      text-shadow: 0 0 8px rgba(255,179,71,0.6);
     }
 
     footer {
       background: #050910;
       text-align: center;
       padding: 20px;
-      color: #f3cfff;
-      border-top: 1px solid rgba(255,123,255,0.2);
+      color: #ffd9b3;
+      border-top: 1px solid rgba(255,140,66,0.2);
     }
 
     .fade-up {
@@ -122,6 +135,7 @@
       transform: translateY(0);
     }
 
+    /* 🟢 CTA stays for conversion */
     .cta-button {
       display: inline-block;
       margin-top: 20px;
@@ -130,6 +144,12 @@
       color: white;
       border-radius: 8px;
       text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
     }
   </style>
 </head>
@@ -171,22 +191,19 @@
 
     <div class="card fade-up">
       <h3>Logo Design</h3>
-      <img src="images/Munchies_On_Wheels_Logo.png" alt="Munchies on Wheels Logo">
+      <img src="images/Munchies_On_Wheels_Logo.png">
       <p>
-        The logo was created to capture the fun, energetic, and approachable nature of the business while remaining professional. It needed to be flexible for various applications, including print and digital platforms.
+        The logo was created to capture the fun, energetic, and approachable nature of the business while remaining professional.
       </p>
     </div>
 
     <div class="card fade-up">
       <h3>Trailer Wrap & Menu Design</h3>
-      <img src="images/d06a0428-e41b-4d4f-b679-0a3c500e019c.JPG" alt="Trailer Front Wrap Design">
-      <img src="images/IMG_1657.png" alt="Trailer Night Look">
-      <img src="images/IMG_1788.png" alt="Trailer Rear View">
+      <img src="images/d06a0428-e41b-4d4f-b679-0a3c500e019c.JPG">
+      <img src="images/IMG_1657.png">
+      <img src="images/IMG_1788.png">
       <p>
-        We designed a full trailer wrap that not only stands out visually but also reinforces the brand's identity. The menu was incorporated directly onto the trailer's service door, ensuring visibility and readability for customers.
-      </p>
-      <p style="margin-top:10px;">
-        These design elements create a unified and professional look, making Munchies on Wheels the first food trailer on Caye Caulker with a fully branded and cohesive identity.
+        A full trailer wrap was designed to stand out and reinforce the brand identity, with the menu integrated directly onto the trailer.
       </p>
     </div>
 
@@ -196,7 +213,7 @@
 <section>
   <h2>Real Business Impact</h2>
   <p style="text-align:center; max-width:750px; margin:auto;">
-    Since the rebrand, Munchies on Wheels has become the most recognized trailer of its kind on the island. The new professional identity attracts more attention and sets the business apart from competitors, demonstrating the value of strong visual branding.
+    Since the rebrand, Munchies on Wheels has become the most recognized trailer of its kind on the island, attracting more attention and standing out from competitors.
   </p>
 </section>
 
