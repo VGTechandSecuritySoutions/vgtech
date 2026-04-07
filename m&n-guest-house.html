@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Island Boy Ice Factory | Visual Graphics Project</title>
+  <title>M&N Guest House Logo | Visual Graphics Project</title>
 
   <style>
     * {
@@ -13,243 +13,113 @@
     }
 
     body {
-      background: #0a0f1c;
-      color: #fff7cc; /* soft yellow text */
-      line-height: 1.6;
-
+      background: #1a1208;
+      color: #fff8e6;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background: #050910;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    /* 🧡 PAPAYA BRAND */
-    nav h3 {
-      color: #ff914d;
-    }
-
-    nav a {
-      color: #fff7cc;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: #ffd54d; /* 🟡 yellow hover */
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle at top, #ff914d, #050910);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #ffd54d; /* 🟡 */
-      margin-bottom: 10px;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #ffe8a3;
-    }
-
-    main {
+    .container {
       flex: 1;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #ffd54d;
-      margin-bottom: 20px;
+      padding: 40px 20px;
       text-align: center;
     }
 
-    .card-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: rgba(255, 145, 77, 0.2);
-      border-radius: 15px;
-      padding: 25px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,213,77,0.25);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(255,213,77,0.25), transparent 70%);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: #ffd54d;
-      box-shadow: 0 0 20px rgba(255,213,77,0.3);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card h3 {
-      color: #ffd54d;
+    h1 {
+      font-size: 2.5rem;
       margin-bottom: 10px;
+      color: #ffc94d;
+      text-shadow: 0 0 12px rgba(255, 201, 77, 0.5);
     }
 
-    .card p {
-      color: #ffe8a3;
+    .subtitle {
+      color: #ff914d;
+      margin-bottom: 30px;
+      text-shadow: 0 0 8px rgba(255, 145, 77, 0.4);
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #f5d7a1;
     }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
+    img {
+      max-width: 60%;
+      border-radius: 12px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(255, 145, 77, 0.3);
+      transition: 0.3s ease;
     }
 
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
+    img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 145, 77, 0.6);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: 1px solid #ffc94d;
+      border-radius: 25px;
+      color: #ffc94d;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #ff914d;
+      color: #1a1208;
+      box-shadow: 0 0 15px rgba(255, 145, 77, 0.6);
     }
 
     footer {
-      background: #050910;
-      color: #ffe8a3;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
+      background: #120a05;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255,213,77,0.2);
+      color: #caa76b;
+      border-top: 1px solid rgba(255, 201, 77, 0.2);
     }
 
-    /* keep WhatsApp green for conversion */
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background: #25D366;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
-    }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
+  <div class="container">
+
+    <h1>M&N Guest House</h1>
+    <p class="subtitle">Logo Vectorization & Digital Recreation</p>
+
+    <p>
+      This project involved digitally recreating an existing logo that was originally hand-painted on a physical sign.
+      The goal was to preserve its unique identity while transforming it into a clean, scalable digital format.
+    </p>
+
+    <p>
+      Since the original design did not have accessible digital assets, we carefully analyzed the lettering and visual elements,
+      identified matching fonts, and manually traced components to achieve a highly accurate vector version.
+    </p>
+
+    <p>
+      The final result maintains the authenticity of the original artwork while allowing the client to use the logo across
+      modern platforms, including social media, print materials, and web.
+    </p>
+
+    <img src="images/M&NLogo.png" alt="M&N Guest House Logo">
+
+    <a href="visual-graphics.html" class="back-btn">← Back to Visual Graphics</a>
+
   </div>
-</nav>
 
-<main>
-
-<header>
-  <h1>Island Boy Ice Factory</h1>
-  <p><strong>Brand Identity</strong></p>
-  <p>
-    Designed in collaboration with Visual Graphics, the creative partner of VG Tech.
-  </p>
-</header>
-
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Island Boy Ice Factory, a wholesale ice business in Caye Caulker, Belize, wanted a brand that would reflect both its heritage and professionalism.
-  </p>
-</section>
-
-<section>
-  <h2>Gallery</h2>
-  <div class="card-container">
-    <div class="card fade-up">
-      <img src="images/Island_Boy_Ice_Factory_Logo.png">
-      <h3>Logo Design</h3>
-      <p>
-        A creative logo containing the ice box and lobster, reflecting the owner's background and identity.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Bring your business vision to life with professional design services.
-  </p>
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
-</footer>
-
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const position = el.getBoundingClientRect().top;
-      const screenHeight = window.innerHeight;
-      if (position < screenHeight - 100) {
-        el.classList.add('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+  <footer>
+    © 2026 VG Tech & Security Solutions. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
