@@ -2,43 +2,229 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Flyer</title>
+  <title>E-Z Boy Tours | Visual Graphics & VG Tech Project</title>
+
   <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
     body {
-      background: #0a0f1c;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 40px;
+      background:#0a0f1c;
+      color:#ecfdf5;
+      line-height:1.6;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
     }
 
-    img {
-      max-width: 50%;
-      border-radius: 10px;
-      margin-top: 20px;
+    nav {
+      display:flex;
+      justify-content:space-between;
+      padding:15px 20px;
+      background:#050910;
+      position:sticky;
+      top:0;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      color: #fa0035;
-      text-decoration: none;
+    nav h3 {color:#4ade80;}
+    nav a {color:#ecfdf5;margin-left:20px;text-decoration:none;}
+
+    header {
+      text-align:center;
+      padding:60px 20px;
+      background: radial-gradient(circle at top, #4ade80, #050910);
+    }
+
+    header h1 {font-size:2.5rem;color:#bbf7d0;}
+    header p {max-width:700px;margin:10px auto;color:#d1fae5;}
+
+    main {flex:1;}
+
+    section {padding:60px 20px;max-width:1000px;margin:auto;}
+
+    h2 {text-align:center;margin-bottom:20px;color:#bbf7d0;}
+
+    .card-container {display:grid;gap:25px;}
+
+    .card {
+      background:rgba(74, 222, 128, 0.15);
+      padding:25px;
+      border-radius:15px;
+      border:1px solid rgba(187,247,208,0.2);
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform:translateY(-10px);
+      box-shadow:0 0 20px rgba(187,247,208,0.3);
+    }
+
+    .card img {
+      width:100%;
+      border-radius:10px;
+      margin-bottom:15px;
+    }
+
+    .card h3 {
+      color:#bbf7d0;
+      margin-bottom:10px;
+    }
+
+    footer {
+      background:#050910;
+      text-align:center;
+      padding:20px;
+      color:#d1fae5;
+      border-top:1px solid rgba(187,247,208,0.2);
+    }
+
+    .fade-up {
+      opacity:0;
+      transform:translateY(30px);
+      transition:0.6s;
+    }
+
+    .fade-up.show {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .cta-button {
+      display:inline-block;
+      margin-top:20px;
+      padding:14px 28px;
+      background:#25D366; /* keep WhatsApp green */
+      color:white;
+      border-radius:8px;
+      text-decoration:none;
     }
   </style>
 </head>
+
 <body>
 
+<nav>
+  <h3>Visual Graphics</h3>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="visual-graphics.html">Visual Graphics</a>
+  </div>
+</nav>
+
+<main>
+
+<header>
   <h1>E-Z Boy Tours</h1>
-  <p>This logo was vectorized for a local tour company</p>
+  <p><strong>Full Digital Transformation & Branding Support</strong></p>
+  <p>
+    A complete upgrade of digital presence, booking systems, branding assets, and business infrastructure for a growing tour company.
+  </p>
+</header>
 
-  <img src="images/E-Z_Boy_Tours_Logo.png" alt="Logo Design">
+<section>
+  <h2>Project Story</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    The project began when E-Z Boy Tours experienced a compromised email account, affecting communication and bookings.
+  </p>
 
-  <p>This sticker was designes for a E-Z Boy Tours to facilitate guest communication and booking.</p>
+  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
+    From this starting point, the project evolved into a complete digital transformation, improving their website, branding, booking process, and overall business operations.
+  </p>
+</section>
 
-  <img src="images/E-Z_Boy_Sticker.png" alt="Logo Design">
+<section>
+  <h2>Services & Solutions</h2>
 
-  <br>
-  <a href="visual-graphics.html">← Back</a>
+  <div class="card-container">
+
+    <div class="card fade-up">
+      <h3>Website Optimization & SEO</h3>
+      <p>
+        The website was upgraded with custom code, meta keywords, and AI visibility configurations.
+      </p>
+      <p style="margin-top:10px;">
+        The business now ranks significantly higher in search results for marine tours.
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>Booking System Integration</h3>
+      <p>
+        A full booking and payment system was integrated using Tab.travel, making reservations easier for customers.
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>Email Security & Setup</h3>
+      <p>
+        The compromised email was secured and Google Workspace was implemented to improve reliability and professionalism.
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>Branding & Marketing</h3>
+      <img src="images/E-Z_Boy_Tours_Logo.png">
+      <img src="images/E-Z_Boy_Sticker.png" style="margin-top:10px;">
+      <p>
+        The logo was vectorized and marketing materials like flyers, vouchers, and QR stickers were created to improve engagement and bookings.
+      </p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>IT & Business Systems</h3>
+      <p>
+        Cameras, networking, and a full Linktree system were set up to act as a digital business hub for customers.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Real Business Impact</h2>
+  <p style="text-align:center; max-width:750px; margin:auto;">
+    The business now receives more bookings, better reviews, and operates with a stronger and more professional digital presence.
+  </p>
+</section>
+
+<section>
+  <h2>Visit Their Website</h2>
+  <div style="text-align:center;">
+    <a href="https://www.ezboytours.com" target="_blank" class="cta-button">
+      Visit Website
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2>Work With Us</h2>
+  <div style="text-align:center;">
+    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
+      WhatsApp Visual Graphics
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Visual Graphics & VG Tech & Security Solutions.</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-up');
+  const reveal = () => {
+    elements.forEach(el => {
+      const pos = el.getBoundingClientRect().top;
+      if (pos < window.innerHeight - 100) {
+        el.classList.add('show');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
 
 </body>
 </html>
