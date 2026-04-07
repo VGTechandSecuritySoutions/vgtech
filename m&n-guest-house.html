@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>M&N Guest House | Visual Graphics Project</title>
+  <title>Island Boy Ice Factory | Visual Graphics Project</title>
 
   <style>
     * {
@@ -14,8 +14,9 @@
 
     body {
       background: #0a0f1c;
-      color: #e6f1ff;
+      color: #fff7cc; /* soft yellow text */
       line-height: 1.6;
+
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -31,48 +32,52 @@
       z-index: 1000;
     }
 
+    /* 🧡 PAPAYA BRAND */
     nav h3 {
-      color: #fa0035;
+      color: #ff914d;
     }
 
     nav a {
-      color: #e6f1ff;
+      color: #fff7cc;
       margin-left: 20px;
       text-decoration: none;
     }
 
     nav a:hover {
-      color: #fa0035;
+      color: #ffd54d; /* 🟡 yellow hover */
     }
 
     header {
       text-align: center;
       padding: 60px 20px;
-      background: radial-gradient(circle at top, #001f3a, #050910);
+      background: radial-gradient(circle at top, #ff914d, #050910);
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #00bfff;
+      color: #ffd54d; /* 🟡 */
       margin-bottom: 10px;
     }
 
     header p {
       max-width: 700px;
       margin: 10px auto;
-      color: #bde6ff;
+      color: #ffe8a3;
+    }
+
+    main {
+      flex: 1;
     }
 
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
-      flex: 1;
     }
 
     h2 {
       font-size: 1.8rem;
-      color: #00bfff;
+      color: #ffd54d;
       margin-bottom: 20px;
       text-align: center;
     }
@@ -85,11 +90,11 @@
     }
 
     .card {
-      background: rgba(0, 31, 58, 0.5);
+      background: rgba(255, 145, 77, 0.2);
       border-radius: 15px;
       padding: 25px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(0,191,255,0.2);
+      border: 1px solid rgba(255,213,77,0.25);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -100,7 +105,7 @@
       position: absolute;
       width: 150%;
       height: 150%;
-      background: radial-gradient(circle, rgba(0,191,255,0.2), transparent 70%);
+      background: radial-gradient(circle, rgba(255,213,77,0.25), transparent 70%);
       top: -50%;
       left: -50%;
       opacity: 0;
@@ -109,8 +114,8 @@
 
     .card:hover {
       transform: translateY(-10px) scale(1.02);
-      border-color: #00bfff;
-      box-shadow: 0 0 20px rgba(0,191,255,0.3);
+      border-color: #ffd54d;
+      box-shadow: 0 0 20px rgba(255,213,77,0.3);
     }
 
     .card:hover::before {
@@ -118,12 +123,12 @@
     }
 
     .card h3 {
-      color: #00bfff;
+      color: #ffd54d;
       margin-bottom: 10px;
     }
 
     .card p {
-      color: #d6f4ff;
+      color: #ffe8a3;
     }
 
     .card img {
@@ -145,13 +150,14 @@
 
     footer {
       background: #050910;
-      color: #bde6ff;
+      color: #ffe8a3;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(0,191,255,0.2);
+      border-top: 1px solid rgba(255,213,77,0.2);
     }
 
+    /* keep WhatsApp green for conversion */
     .cta-button {
       display: inline-block;
       margin-top: 20px;
@@ -182,9 +188,11 @@
   </div>
 </nav>
 
+<main>
+
 <header>
-  <h1>M&N Guest House</h1>
-  <p><strong>Logo Vectorization & Brand Restoration</strong></p>
+  <h1>Island Boy Ice Factory</h1>
+  <p><strong>Brand Identity</strong></p>
   <p>
     Designed in collaboration with Visual Graphics, the creative partner of VG Tech.
   </p>
@@ -193,60 +201,21 @@
 <section>
   <h2>Project Story</h2>
   <p style="text-align:center; max-width:750px; margin:auto;">
-    This project focused on digitally recreating and restoring the existing logo of M&N Guest House,
-    which was originally hand-painted on a physical sign and had begun to fade over time.
-  </p>
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    To preserve its recognizable identity, we carefully analyzed the original artwork, matched the closest possible fonts,
-    and manually traced each element to produce a clean and accurate vector version. During this process, we also enhanced
-    the color tones—maintaining the original palette while improving vibrancy and consistency for digital use.
+    Island Boy Ice Factory, a wholesale ice business in Caye Caulker, Belize, wanted a brand that would reflect both its heritage and professionalism.
   </p>
 </section>
 
 <section>
-  <h2>Project Breakdown</h2>
+  <h2>Gallery</h2>
   <div class="card-container">
-
     <div class="card fade-up">
-      <h3>Logo Recreation</h3>
+      <img src="images/Island_Boy_Ice_Factory_Logo.png">
+      <h3>Logo Design</h3>
       <p>
-        The original painted logo was carefully traced and rebuilt into a precise digital format while maintaining its authentic look.
+        A creative logo containing the ice box and lobster, reflecting the owner's background and identity.
       </p>
     </div>
-
-    <div class="card fade-up">
-      <h3>Color Enhancement</h3>
-      <p>
-        Colors were restored and slightly refined to compensate for fading, ensuring a more vibrant and consistent appearance.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>Deliverables</h3>
-      <p>
-        • Scalable SVG for high-quality use<br>
-        • PNG files for digital platforms<br>
-        • Optimized for print and web applications
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <img src="images/M&NLogo.png" alt="M&N Logo">
-      <h3>Final Logo</h3>
-      <p>
-        A clean, scalable version of the original logo, ready for modern branding use across all platforms.
-      </p>
-    </div>
-
   </div>
-</section>
-
-<section>
-  <h2>Additional Work</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    In addition to the logo restoration, we also designed and developed the official website for M&N Guest House
-    through VG Tech & Security Solutions, creating a complete digital presence for the business.
-  </p>
 </section>
 
 <section>
@@ -260,6 +229,8 @@
     </a>
   </div>
 </section>
+
+</main>
 
 <footer>
   <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
