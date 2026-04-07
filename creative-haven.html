@@ -30,8 +30,9 @@
       top: 0;
     }
 
+    /* 🔴 RED */
     nav h3 {
-      color: #fa0035;
+      color: #ff4d4d;
     }
 
     nav a {
@@ -40,21 +41,22 @@
       text-decoration: none;
     }
 
+    /* 🌈 GRADIENT MIX */
     header {
       text-align: center;
       padding: 60px 20px;
-      background: radial-gradient(circle at top, #4b1f5e, #050910);
+      background: radial-gradient(circle at top, #ff4d4d, #3b82f6, #050910);
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #ff7bff;
+      color: #f97316; /* 🟠 ORANGE */
     }
 
     header p {
       max-width: 700px;
       margin: 10px auto;
-      color: #f3cfff;
+      color: #c7d2fe; /* 🔵 SOFT BLUE */
     }
 
     main {
@@ -67,10 +69,11 @@
       margin: auto;
     }
 
+    /* 🔵 BLUE HEADINGS */
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #ff7bff;
+      color: #60a5fa;
     }
 
     .card-container {
@@ -78,18 +81,19 @@
       gap: 25px;
     }
 
+    /* 🔵 + 🟢 MIXED CARD */
     .card {
-      background: rgba(75, 31, 94, 0.5);
+      background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(34,197,94,0.2));
       padding: 25px;
       border-radius: 15px;
-      border: 1px solid rgba(255,123,255,0.2);
+      border: 1px solid rgba(255,165,0,0.2); /* 🟠 subtle */
       backdrop-filter: blur(10px);
       transition: 0.3s;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 0 20px rgba(255,123,255,0.3);
+      box-shadow: 0 0 20px rgba(255,77,77,0.3); /* 🔴 glow */
     }
 
     .card img {
@@ -98,8 +102,9 @@
       margin-bottom: 15px;
     }
 
+    /* 🟠 ORANGE SUBHEAD */
     .card h3 {
-      color: #ff7bff;
+      color: #f97316;
       margin-bottom: 10px;
     }
 
@@ -107,8 +112,8 @@
       background: #050910;
       text-align: center;
       padding: 20px;
-      color: #f3cfff;
-      border-top: 1px solid rgba(255,123,255,0.2);
+      color: #86efac; /* 🟢 GREEN */
+      border-top: 1px solid rgba(96,165,250,0.2);
     }
 
     .fade-up {
@@ -122,15 +127,22 @@
       transform: translateY(0);
     }
 
+    /* 🟢 GREEN CTA */
     .cta-button {
       display: inline-block;
       margin-top: 20px;
       padding: 14px 28px;
-      background: #25D366;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
       color: white;
       border-radius: 8px;
       text-decoration: none;
+      box-shadow: 0 0 15px rgba(34,197,94,0.4);
     }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
   </style>
 </head>
 
