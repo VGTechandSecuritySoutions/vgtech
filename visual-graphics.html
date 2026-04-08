@@ -15,29 +15,46 @@
     /* BODY */
     body {
       background: #0a0f1c;
-      color: #e6f1ff;
+      color: #ffebf0;
       line-height: 1.6;
     }
 
-    /* NAV */
+    /* NAVIGATION */
     nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background: #050910;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* ensures navbar is above everything */
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #050910;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav .logo-container img {
+      width: 70px;
+      transition: transform 0.3s ease;
+    }
+
+    nav .logo-container img:hover {
+      transform: scale(1.05);
+    }
 
     nav h3 {
       color: #fa0035;
     }
 
     nav a {
-      color: #e6f1ff;
+      color: #ffbcd4;
       margin-left: 20px;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
@@ -93,15 +110,15 @@
       text-align: center;
     }
 
-    /* CARD CONTAINER - ONE COLUMN */
-.card-container {
-  display: grid;
-  grid-template-columns: 1fr; /* single column */
-  gap: 25px;
-  margin-top: 30px;
-}
+    /* CARD CONTAINER */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-    /* CARD */
+    /* CARD STYLE */
     .card {
       background: rgba(26, 10, 26, 0.7);
       border-radius: 15px;
@@ -151,19 +168,15 @@
       right: 15px;
       background: linear-gradient(45deg, #fa0035, #c9002a);
       color: #fff;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 12px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: bold;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       pointer-events: none;
       z-index: 10;
     }
 
-    /* BUTTON */
+    /* BUTTONS IN CARDS */
     .card a {
       display: inline-block;
       margin-top: 15px;
@@ -208,7 +221,10 @@
 <body>
 
 <nav>
-  <h3>Visual Graphics</h3>
+  <div class="logo-container">
+    <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo">
+    <h3>Visual Graphics</h3>
+  </div>
   <div>
     <a href="index.html">Home</a>
     <a href="#">Visual Graphics</a>
@@ -221,6 +237,7 @@
   <p>
     Visual Graphics is the creative partner of VG Tech, delivering clean, modern, and impactful designs that help businesses stand out.
   </p>
+  <a href="mailto:visualgraphicscc@gmail.com">Work With Us</a>
 </header>
 
 <section class="services">
@@ -231,19 +248,16 @@
       <h3>🎨 Logo & Branding</h3>
       <p>Unique brand identities that make your business recognizable and professional.</p>
     </div>
-
     <div class="card fade-up">
       <div class="card-badge">Social</div>
       <h3>📱 Social Media Graphics</h3>
       <p>Eye-catching posts and visuals designed to engage and attract customers.</p>
     </div>
-
     <div class="card fade-up">
       <div class="card-badge">Marketing</div>
       <h3>📰 Marketing Materials</h3>
       <p>Flyers, posters, and ads that communicate your message clearly and effectively.</p>
     </div>
-
     <div class="card fade-up">
       <div class="card-badge">Web UI</div>
       <h3>💻 Website Visual Design</h3>
@@ -254,68 +268,45 @@
 
 <section class="portfolio">
   <h2>Our Work</h2>
-
   <div class="card-container">
-
     <div class="card fade-up">
       <h3>Island Boy Ice Factory</h3>
-      <p>
-        Brand identity design that reflects the business’s roots and industry, creating a professional and recognizable visual presence.
-      </p>
+      <p>Brand identity design that reflects the business’s roots and industry, creating a professional and recognizable visual presence.</p>
       <a href="island-boy-ice-factory.html">View Project</a>
     </div>
-
     <div class="card fade-up">
       <h3>M&N Guest House</h3>
-      <p>
-        Logo vectorization and digital recreation, transforming a hand-painted design into a scalable, professional brand asset for modern use.
-      </p>
+      <p>Logo vectorization and digital recreation, transforming a hand-painted design into a scalable, professional brand asset for modern use.</p>
       <a href="m&n-guest-house.html">View Project</a>
     </div>
-
     <div class="card fade-up">
       <h3>Seaing Reality Adventures</h3>
-      <p>
-        Complete brand identity including logo, color system, and visual direction to establish a strong and consistent business presence.
-      </p>
+      <p>Complete brand identity including logo, color system, and visual direction to establish a strong and consistent business presence.</p>
       <a href="seaing-reality-adventures.html">View Project</a>
     </div>
-    
     <div class="card fade-up">
       <h3>Creative Haven</h3>
-      <p>
-        Custom logo and brand direction designed to give the business a clean, modern, and recognizable identity.
-      </p>
+      <p>Custom logo and brand direction designed to give the business a clean, modern, and recognizable identity.</p>
       <a href="creative-haven.html">View Project</a>
     </div>
-
     <div class="card fade-up">
       <h3>Munchies on Wheels</h3>
-      <p>
-        Full branding solution including logo design, trailer wrap, and visual identity, turning a local food trailer into a standout, recognizable business.
-      </p>
+      <p>Full branding solution including logo design, trailer wrap, and visual identity, turning a local food trailer into a standout, recognizable business.</p>
       <a href="munchies-on-wheels.html">View Project</a>
     </div>
-
     <div class="card fade-up">
       <h3>Iliany's Fashion Boutique</h3>
-      <p>
-        Logo design that elevated the business’s image, supporting its growth from a small clothing seller into a diverse retail brand.
-      </p>
+      <p>Logo design that elevated the business’s image, supporting its growth from a small clothing seller into a diverse retail brand.</p>
       <a href="Iliany's-fashion-boutique.html">View Project</a>
     </div>
-
     <div class="card fade-up">
       <h3>E-Z Boy Tours</h3>
-      <p>
-        Full digital upgrade including website improvements, SEO optimization, booking system integration, email security, and branded graphics to increase visibility and bookings.
-      </p>
+      <p>Full digital upgrade including website improvements, SEO optimization, booking system integration, email security, and branded graphics to increase visibility and bookings.</p>
       <a href="e-z-boy-tours.html">View Project</a>
     </div>
-    
   </div>
 </section>
-  
+
 <section>
   <h2>Work With Us</h2>
   <p style="text-align:center;">
