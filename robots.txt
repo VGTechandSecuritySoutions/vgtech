@@ -1,0 +1,14 @@
+# robots.txt for VG Tech and Security Solutions
+# Full site crawl allowed
+# https://vgtechandsecuritysolutions.github.io/vgtech
+
+User-agent: *
+Disallow:
+
+# Crawl-delay can be added for polite crawling (seconds)
+# Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://vgtechandsecuritysolutions.github.io/vgtech/sitemap.xml
+
+# End of file
