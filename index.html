@@ -12,21 +12,87 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    .logo {
-      width: 70px;
-      margin-bottom: 10px;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-      transition: 0.3s ease;
-    }
-
     /* BODY */
     body {
       background: #0a0f1c;
       color: #e6f1ff;
       line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(5,9,16,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,191,255,0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 8px 30px;
+      box-shadow: 0 6px 20px rgba(0,191,255,0.35);
+      background: rgba(5,9,16,0.98);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-left h3 {
+      color: #00bfff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      width: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #bcd4ff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #00bfff;
+      bottom: -3px;
+      left: 0;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #00bfff;
     }
 
     /* HEADER (HERO) */
@@ -48,7 +114,6 @@
       color: #bcd4ff;
     }
 
-    /* BUTTON */
     header a {
       display: inline-block;
       margin-top: 20px;
@@ -72,6 +137,13 @@
       margin: auto;
     }
 
+    h2 {
+      font-size: 1.8rem;
+      color: #00bfff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
     /* SERVICES GRID */
     .card-container {
       display: grid;
@@ -80,7 +152,6 @@
       margin-top: 30px;
     }
 
-    /* CARD STYLE */
     .card {
       background: rgba(17, 26, 46, 0.7);
       border-radius: 15px;
@@ -92,7 +163,6 @@
       overflow: hidden;
     }
 
-    /* GLOW EFFECT */
     .card::before {
       content: "";
       position: absolute;
@@ -105,7 +175,6 @@
       transition: 0.4s;
     }
 
-    /* HOVER EFFECT */
     .card:hover {
       transform: translateY(-10px) scale(1.02);
       border-color: #00bfff;
@@ -116,7 +185,6 @@
       opacity: 1;
     }
 
-    /* CARD TEXT */
     .card h3 {
       color: #00bfff;
       margin-bottom: 10px;
@@ -124,14 +192,6 @@
 
     .card p {
       color: #bcd4ff;
-    }
-
-    /* SECTION HEADINGS */
-    h2 {
-      font-size: 1.8rem;
-      color: #00bfff;
-      margin-bottom: 20px;
-      text-align: center;
     }
 
     /* LISTS */
@@ -153,53 +213,7 @@
       transform: translateX(5px);
     }
 
-    /* VISUAL GRAPHICS SECTION (SPECIAL STYLE) */
-    #visual-graphics {
-      background: linear-gradient(135deg, #0d1b2a, #1b263b);
-      border-radius: 15px;
-      margin-top: 40px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #00bfff;
-      margin-bottom: 15px;
-    }
-
-    /* CONTACT */
-    section:last-of-type {
-      text-align: center;
-    }
-
-    section:last-of-type p {
-      margin: 10px 0;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-    }
-
-    nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background: #050910;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* ensures navbar is above everything */
-}
-
-    /* PORTFOLIO SECTION */
-    .portfolio {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    /* CARD BADGES */
+    /* PORTFOLIO BADGES */
     .card .card-badge {
       position: absolute;
       top: 15px;
@@ -211,11 +225,10 @@
       font-size: 0.8rem;
       font-weight: bold;
       box-shadow: 0 0 10px rgba(0,191,255,0.4);
-      pointer-events: none; /* allows buttons to be clickable */
+      pointer-events: none;
       z-index: 10;
     }
 
-    /* BUTTONS IN CARDS */
     .card a {
       display: inline-block;
       margin-top: 15px;
@@ -234,31 +247,17 @@
       box-shadow: 0 0 15px #00bfff;
     }
 
-    /* NAV */
-    nav h3 {
+    /* VISUAL GRAPHICS */
+    #visual-graphics {
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
       color: #00bfff;
-    }
-
-    nav a {
-      color: #bcd4ff;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: #00bfff;
-        z-index: 30;
-    }
-
-    /* ANIMATION BASE */
-    .fade-up {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
+      margin-bottom: 15px;
     }
 
     /* FOOTER */
@@ -274,20 +273,48 @@
     footer p {
       margin: 0;
     }
+
+    /* ANIMATION */
+    .fade-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <nav>
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <img src="images/VGTechLogo.png" alt="VG Tech Logo" class="logo">
-    <h3>VG TECH</h3>
-  </div>
-  <div>
-    <a href="#">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
+  <nav id="navbar">
+    <div class="nav-left">
+      <img src="images/VGTechLogo.png" alt="VG Tech Logo" class="logo">
+      <h3>VG TECH</h3>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="visual-graphics.html">Visual Graphics</a>
+    </div>
+  </nav>
 
   <header>
     <h1>VG Tech & Security Solutions</h1>
@@ -304,20 +331,20 @@
 
   <section class="services">
     <h2>Our Services</h2>
-    <div class="card fade-up">
-      <div class="card">
+    <div class="card-container">
+      <div class="card fade-up">
         <h3>🌐 Web Design & Development</h3>
         <p>Modern, responsive websites designed to represent your brand and convert visitors into customers.</p>
       </div>
-      <div class="card">
+      <div class="card fade-up">
         <h3>📈 SEO & AI Visibility</h3>
         <p>Get discovered on Google and AI platforms with optimized content and search presence.</p>
       </div>
-      <div class="card">
+      <div class="card fade-up">
         <h3>🛠 IT Support & Networking</h3>
         <p>Reliable tech support, WiFi setup, and network optimization to keep your business running smoothly.</p>
       </div>
-      <div class="card">
+      <div class="card fade-up">
         <h3>🔐 Security Solutions</h3>
         <p>Camera systems and security setups to protect your business and give peace of mind.</p>
       </div>
@@ -343,17 +370,17 @@
   </section>
 
   <section>
-  <h2>Why Choose Us</h2>
-  <p style="text-align: center;">Reliable, affordable, and built for small businesses.</p>
-</section>
+    <h2>Why Choose Us</h2>
+    <p style="text-align: center;">Reliable, affordable, and built for small businesses.</p>
+  </section>
 
-    <section id="visual-graphics">
-  <h2>Visual Graphics</h2>
-  <p class="subtitle">Creative Design Partner of VG Tech</p>
-  <p style="text-align: center;">
-    Through our partner brand <strong>Visual Graphics</strong>, we provide professional graphic design services that support and enhance your digital presence. Together, we deliver both the technical and creative solutions your business needs to stand out.
-  </p>
-  <ul>
+  <section id="visual-graphics">
+    <h2>Visual Graphics</h2>
+    <p class="subtitle">Creative Design Partner of VG Tech</p>
+    <p style="text-align: center;">
+      Through our partner brand <strong>Visual Graphics</strong>, we provide professional graphic design services that support and enhance your digital presence. Together, we deliver both the technical and creative solutions your business needs to stand out.
+    </p>
+    <ul>
       <li>Logo Design & Branding</li>
       <li>Social Media Graphics</li>
       <li>Marketing Materials (Flyers, Posters)</li>
@@ -366,7 +393,12 @@
     <p><strong>Email:</strong> visualgraphicscc@gmail.com</p>
   </section>
 
+  <footer>
+    <p>© 2026 VG Tech & Security Solutions. Designed by Jordy Gonzalez.</p>
+  </footer>
+
   <script>
+    // Fade-up animation
     const elements = document.querySelectorAll('.fade-up');
     const reveal = () => {
       elements.forEach(el => {
@@ -379,11 +411,17 @@
     };
     window.addEventListener('scroll', reveal);
     window.addEventListener('load', reveal);
-  </script>
 
-  <footer>
-    <p>© 2026 VG Tech & Security Solutions. Designed by Jordy Gonzalez.</p>
-  </footer>
+    // Shrink nav on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
