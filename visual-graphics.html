@@ -259,23 +259,46 @@
       margin-bottom: 15px;
     }
 
-    #visual-graphics ul {
+    /* SERVICES LIST */
+    .services-list {
       list-style: none;
       padding: 0;
-      max-width: 600px;
+      max-width: 700px;
       margin: 20px auto 0;
     }
 
-    #visual-graphics ul li {
-      background: rgba(51,3,9,0.7);
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      transition: 0.3s;
+    .services-list li {
+      background: rgba(26, 10, 26, 0.7);
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(250,0,53,0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    #visual-graphics ul li:hover {
-      transform: translateX(5px);
+    .services-list li::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(250,0,53,0.2), transparent 70%);
+      top: -50%;
+      left: -50%;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .services-list li:hover {
+      transform: translateY(-5px);
+      border-color: #fa0035;
+      box-shadow: 0 0 20px rgba(250,0,53,0.3);
+    }
+
+    .services-list li:hover::before {
+      opacity: 1;
     }
 
     /* FOOTER */
@@ -317,28 +340,20 @@
 
   <section class="services">
     <h2>Design Services</h2>
-    <div class="card-container">
-      <div class="card fade-up">
-        <div class="card-badge">Logo</div>
-        <h3>🎨 Logo & Branding</h3>
-        <p>Unique brand identities that make your business recognizable and professional.</p>
-      </div>
-      <div class="card fade-up">
-        <div class="card-badge">Social</div>
-        <h3>📱 Social Media Graphics</h3>
-        <p>Eye-catching posts and visuals designed to engage and attract customers.</p>
-      </div>
-      <div class="card fade-up">
-        <div class="card-badge">Marketing</div>
-        <h3>📰 Marketing Materials</h3>
-        <p>Flyers, posters, and ads that communicate your message clearly and effectively.</p>
-      </div>
-      <div class="card fade-up">
-        <div class="card-badge">Web UI</div>
-        <h3>💻 Website Visual Design</h3>
-        <p>Modern UI layouts and visuals that enhance user experience and branding.</p>
-      </div>
-    </div>
+    <ul class="services-list fade-up">
+      <li>
+        <strong>🎨 Logo & Branding:</strong> Unique brand identities that make your business recognizable and professional.
+      </li>
+      <li>
+        <strong>📱 Social Media Graphics:</strong> Eye-catching posts and visuals designed to engage and attract customers.
+      </li>
+      <li>
+        <strong>📰 Marketing Materials:</strong> Flyers, posters, and ads that communicate your message clearly and effectively.
+      </li>
+      <li>
+        <strong>💻 Website Visual Design:</strong> Modern UI layouts and visuals that enhance user experience and branding.
+      </li>
+    </ul>
   </section>
 
   <section class="portfolio">
