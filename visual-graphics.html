@@ -1,436 +1,1247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Visual Graphics</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Graphics — Creative Design Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --bg: #f7f3ee;
+      --bg2: #ede8e1;
+      --ink: #1a1410;
+      --ink2: #3d3028;
+      --muted: #8a7a6e;
+      --accent: #e05c2a;
+      --accent2: #f0a500;
+      --accent3: #2a5ce0;
+      --border: rgba(26,20,16,0.1);
+      --card: #fff9f4;
     }
 
-    /* BODY */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-      background: #0a0f1c;
-      color: #ffebf0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
     }
 
-    /* NAVIGATION */
+    /* ── NAV ── */
     nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: rgba(51,3,9,0.95);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(250,0,53,0.2);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
+      padding: 1rem 4rem;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
-    nav.scrolled {
-      padding: 8px 30px;
-      box-shadow: 0 6px 20px rgba(250,0,53,0.35);
-      background: rgba(51,3,9,0.98);
-    }
-
-    .nav-left {
+    .nav-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 0.75rem;
+      text-decoration: none;
     }
 
-    .nav-left h3 {
-      color: #fa0035;
-      font-weight: bold;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
     }
 
-    .logo {
-      width: 70px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 15px #fa0035) drop-shadow(0 0 15px #fa0035);
+    .nav-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 2.5rem;
+      list-style: none;
     }
 
     .nav-links a {
-      color: #ffbcd4;
+      color: var(--muted);
       text-decoration: none;
+      font-size: 0.88rem;
       font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 0.5rem 1.3rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    .nav-home {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 8rem 4rem 5rem;
       position: relative;
-      transition: 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .nav-links a::after {
-      content: '';
+    /* Big decorative letter */
+    .hero-deco {
       position: absolute;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      bottom: -3px;
-      left: 0;
-      border-radius: 2px;
-      box-shadow: 0 0 10px #fa0035, 0 0 20px #c9002a;
-      transition: 0.3s ease;
+      right: -0.05em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18rem, 28vw, 32rem);
+      font-weight: 900;
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(26,20,16,0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      animation: fadeIn 1s ease both;
     }
 
-    .nav-links a:hover::after {
+    /* Floating color blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+    .hb1 {
+      width: 350px; height: 350px;
+      background: rgba(224,92,42,0.12);
+      top: 10%; left: -80px;
+      animation: drift 9s ease-in-out infinite alternate;
+    }
+    .hb2 {
+      width: 280px; height: 280px;
+      background: rgba(240,165,0,0.1);
+      bottom: 15%; right: 15%;
+      animation: drift 11s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes drift {
+      from { transform: translate(0,0); }
+      to   { transform: translate(25px, 18px); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
     }
 
-    .nav-links a:hover {
-      color: #fa0035;
-      text-shadow: 0 0 10px #fa0035, 0 0 20px #fa0035;
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
     }
 
-    /* HEADER (HERO) */
-    header {
-      text-align: center;
-      padding: 80px 20px;
-      background: radial-gradient(circle at top, #3a0b1f, #050910);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #fa0035;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #ffbcd4;
-    }
-
-    header a {
+    .eyebrow-line {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      color: white;
+    }
+
+    .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 3rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 400px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 100px;
       text-decoration: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      transition: 0.3s ease;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(224,92,42,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(224,92,42,0.35);
     }
 
-    header a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fa0035;
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(224,92,42,0.04);
     }
 
-    /* SECTIONS */
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.3s ease both;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      color: #fa0035;
-      margin-bottom: 20px;
-      text-align: center;
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
     }
 
-    /* CARD CONTAINER */
-    .card-container {
+    .stat-num span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--ink);
+      padding: 0.85rem 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 22s linear infinite;
+    }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0 2.2rem;
+      white-space: nowrap;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .ticker-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 7rem 0;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4rem;
+    }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 0.98rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.75;
+    }
+
+    .services-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 4rem;
     }
 
-    /* CARD STYLE */
-    .card {
-      background: rgba(26, 10, 26, 0.7);
-      border-radius: 15px;
-      padding: 25px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(250,0,53,0.2);
-      transition: all 0.3s ease;
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .service-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: default;
+      transition: background 0.2s;
+      border-radius: 0;
+      position: relative;
+    }
+
+    .service-row:first-child { border-top: 1px solid var(--border); }
+
+    .service-row::before {
+      content: '';
+      position: absolute;
+      left: -1rem; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .service-row:hover::before { opacity: 1; }
+    .service-row:hover { padding-left: 0.5rem; }
+
+    .service-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.6;
+      min-width: 28px;
+      margin-top: 0.2rem;
+    }
+
+    .service-content { flex: 1; }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .service-icon-lg {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Right side: design process visual */
+    .process-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: sticky;
+      top: 6rem;
+      box-shadow: 0 4px 24px rgba(26,20,16,0.06);
+    }
+
+    .process-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .process-step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .step-body {}
+    .step-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .process-cta {
+      margin-top: 1.8rem;
+      display: block;
+      text-align: center;
+      background: var(--ink);
+      color: var(--bg);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.9rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .process-cta:hover { background: var(--accent); }
+
+    /* ── PORTFOLIO ── */
+    .portfolio {
+      padding: 7rem 0;
+      background: var(--ink);
       position: relative;
       overflow: hidden;
     }
 
-    .card::before {
-      content: "";
+    .portfolio::before {
+      content: 'WORK';
       position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(250,0,53,0.2), transparent 70%);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: #fa0035;
-      box-shadow: 0 0 20px rgba(250,0,53,0.3);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card h3 {
-      color: #fa0035;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #ffbcd4;
-    }
-
-    /* CARD BADGE */
-    .card .card-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      color: #fff;
-      padding: 5px 12px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: bold;
+      bottom: -0.1em; right: -0.05em;
+      font-family: 'Playfair Display', serif;
+      font-size: 22vw;
+      font-weight: 900;
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.04);
       pointer-events: none;
-      z-index: 10;
-      box-shadow: 0 0 10px rgba(250,0,53,0.4);
+      line-height: 1;
     }
 
-    .card a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      color: #fff;
-      background: linear-gradient(45deg, #fa0035, #c9002a);
-      border-radius: 25px;
-      text-decoration: none;
-      transition: 0.3s ease;
+    .portfolio .section-title { color: #f7f3ee; }
+    .portfolio .section-label { color: var(--accent2); }
+    .portfolio .section-desc { color: rgba(247,243,238,0.55); }
+    .portfolio .eyebrow-line { background: var(--accent2); }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 3.5rem;
+    }
+
+    .project-card {
+      border-radius: 18px;
+      overflow: hidden;
       position: relative;
-      z-index: 20;
+      cursor: pointer;
+      transition: transform 0.3s;
+      background: var(--bg2);
     }
 
-    .card a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fa0035;
+    .project-card:hover { transform: translateY(-6px); }
+
+    .project-card.large {
+      grid-column: span 2;
     }
 
-    /* FADE-UP ANIMATION */
-    .fade-up {
+    .project-thumb {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card.large .project-thumb { height: 280px; }
+
+    /* Unique thumb colors per project */
+    .thumb-ice    { background: linear-gradient(135deg, #d4eaf7, #a8d4ee); }
+    .thumb-mn     { background: linear-gradient(135deg, #f7e8d4, #eed4a8); }
+    .thumb-sea    { background: linear-gradient(135deg, #d4f7ee, #a8eed4); }
+    .thumb-haven  { background: linear-gradient(135deg, #f7d4e8, #eed4f0); }
+    .thumb-munch  { background: linear-gradient(135deg, #f7f0d4, #eee2a8); }
+    .thumb-ili    { background: linear-gradient(135deg, #e8d4f7, #d4a8ee); }
+    .thumb-ez     { background: linear-gradient(135deg, #d4e8f7, #a8c8ee); }
+
+    .project-emoji {
+      font-size: 3.5rem;
+      opacity: 0.55;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,20,16,0);
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-card:hover .project-overlay { background: rgba(26,20,16,0.45); }
+
+    .overlay-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.55rem 1.1rem;
+      border-radius: 100px;
+      text-decoration: none;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
+      transform: translateY(8px);
+      transition: opacity 0.25s, transform 0.25s;
     }
-
-    .fade-up.show {
+    .project-card:hover .overlay-link {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* VISUAL GRAPHICS SECTION */
-    #visual-graphics {
-      background: linear-gradient(135deg, #0d0a1a, #1b0c26);
-      border-radius: 15px;
-      margin-top: 40px;
-      padding: 40px 20px;
+    .project-info {
+      padding: 1.2rem 1.4rem;
+      background: rgba(247,243,238,0.06);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    #visual-graphics .subtitle {
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f7f3ee;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: rgba(247,243,238,0.5);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid rgba(240,165,0,0.25);
+      border-radius: 100px;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── PARTNER BAND ── */
+    .partner-band {
+      padding: 5rem 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .partner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .partner-text {}
+    .partner-text .section-title { font-size: 2rem; }
+
+    .partner-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(26,20,16,0.06);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
+    .partner-logo-wrap:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(26,20,16,0.1);
+    }
+
+    .partner-logo-wrap img { height: 44px; width: auto; }
+
+    .partner-logo-text {
+      font-family: 'Outfit', sans-serif;
+    }
+    .partner-logo-text strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .partner-logo-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 9rem 0;
       text-align: center;
-      color: #fa0035;
-      margin-bottom: 15px;
-    }
-
-    /* SERVICES LIST */
-    .services-list {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: 20px auto 0;
-    }
-
-    .services-list li {
-      background: rgba(26, 10, 26, 0.7);
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: 15px;
-      border: 1px solid rgba(250,0,53,0.2);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      background: var(--bg);
     }
 
-    .services-list li::before {
-      content: "";
+    /* Big rotated text decoration */
+    .cta-section::before {
+      content: 'DESIGN';
       position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(250,0,53,0.2), transparent 70%);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      font-family: 'Playfair Display', serif;
+      font-size: 18vw;
+      font-weight: 900;
+      font-style: italic;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(26,20,16,0.05);
+      pointer-events: none;
+      white-space: nowrap;
     }
 
-    .services-list li:hover {
-      transform: translateY(-5px);
-      border-color: #fa0035;
-      box-shadow: 0 0 20px rgba(250,0,53,0.3);
+    .cta-inner { position: relative; z-index: 2; }
+
+    .cta-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
     }
 
-    .services-list li:hover::before {
-      opacity: 1;
+    .cta-headline em {
+      font-style: italic;
+      color: var(--accent);
     }
 
-    /* FOOTER */
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
     footer {
-      background: #050910;
-      color: #ffbcd4;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(250,0,53,0.2);
+      background: var(--ink);
+      padding: 2.5rem 0;
     }
 
-    footer p {
-      margin: 0;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(247,243,238,0.8);
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(247,243,238,0.35);
+    }
+
+    .footer-email a {
+      font-size: 0.82rem;
+      color: var(--accent2);
+      text-decoration: none;
+    }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-deco { display: none; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+
+      .container { padding: 0 1.5rem; }
+
+      .services-layout { grid-template-columns: 1fr; }
+      .process-card { position: static; }
+
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .project-card.large { grid-column: span 2; }
+
+      .partner-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 580px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .project-card.large { grid-column: span 1; }
+      .hero-sub-row { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <nav id="navbar">
-    <div class="nav-left">
-      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo" class="logo">
-      <h3>Visual Graphics</h3>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#">Visual Graphics</a>
-    </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="index.html" class="nav-home">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          VG Tech
+        </a>
+      </li>
+      <li><a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a></li>
+    </ul>
   </nav>
 
-  <header>
-    <h1>Visual Graphics</h1>
-    <p><strong>Creative Design That Elevates Your Brand</strong></p>
-    <p>
-      Visual Graphics is the creative partner of VG Tech, delivering clean, modern, and impactful designs that help businesses stand out.
-    </p>
-    <a href="mailto:visualgraphicscc@gmail.com">Work With Us</a>
-  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-deco">VG</div>
 
-  <section class="services">
-    <h2>Design Services</h2>
-    <ul class="services-list fade-up">
-      <li>
-        <strong>🎨 Logo & Branding:</strong> Unique brand identities that make your business recognizable and professional.
-      </li>
-      <li>
-        <strong>📱 Social Media Graphics:</strong> Eye-catching posts and visuals designed to engage and attract customers.
-      </li>
-      <li>
-        <strong>📰 Marketing Materials:</strong> Flyers, posters, and ads that communicate your message clearly and effectively.
-      </li>
-      <li>
-        <strong>💻 Website Visual Design:</strong> Modern UI layouts and visuals that enhance user experience and branding.
-      </li>
-    </ul>
-  </section>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Creative Design Studio · Belize</span>
+      </div>
 
-  <section class="portfolio">
-    <h2>Our Work</h2>
-    <div class="card-container">
-      <div class="card fade-up">
-        <h3>Island Boy Ice Factory</h3>
-        <p>Brand identity design that reflects the business’s roots and industry, creating a professional and recognizable visual presence.</p>
-        <a href="island-boy-ice-factory.html">View Project</a>
+      <h1 class="hero-headline">
+        Creative Design<br>
+        That <em>Elevates</em><br>
+        Your Brand
+      </h1>
+
+      <div class="hero-sub-row">
+        <p class="hero-desc">
+          Visual Graphics is the creative partner of VG Tech — delivering clean, modern, and impactful designs that help businesses stand out and be remembered.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+            Work With Us
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#portfolio" class="btn-ghost">
+            See Our Work
+          </a>
+        </div>
       </div>
-      <div class="card fade-up">
-        <h3>M&N Guest House</h3>
-        <p>Logo vectorization and digital recreation, transforming a hand-painted design into a scalable, professional brand asset for modern use.</p>
-        <a href="m&n-guest-house.html">View Project</a>
-      </div>
-      <div class="card fade-up">
-        <h3>Seaing Reality Adventures</h3>
-        <p>Complete brand identity including logo, color system, and visual direction to establish a strong and consistent business presence.</p>
-        <a href="seaing-reality-adventures.html">View Project</a>
-      </div>
-      <div class="card fade-up">
-        <h3>Creative Haven</h3>
-        <p>Custom logo and brand direction designed to give the business a clean, modern, and recognizable identity.</p>
-        <a href="creative-haven.html">View Project</a>
-      </div>
-      <div class="card fade-up">
-        <h3>Munchies on Wheels</h3>
-        <p>Full branding solution including logo design, trailer wrap, and visual identity, turning a local food trailer into a standout, recognizable business.</p>
-        <a href="munchies-on-wheels.html">View Project</a>
-      </div>
-      <div class="card fade-up">
-        <h3>Iliany's Fashion Boutique</h3>
-        <p>Logo design that elevated the business’s image, supporting its growth from a small clothing seller into a diverse retail brand.</p>
-        <a href="Iliany's-fashion-boutique.html">View Project</a>
-      </div>
-      <div class="card fade-up">
-        <h3>E-Z Boy Tours</h3>
-        <p>Full digital upgrade including website improvements, SEO optimization, booking system integration, email security, and branded graphics to increase visibility and bookings.</p>
-        <a href="e-z-boy-tours.html">View Project</a>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">7<span>+</span></div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">Design Services</div>
+        </div>
+        <div>
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Custom Work</div>
+        </div>
       </div>
     </div>
   </section>
-  
-  <section>
-    <h2>Contact</h2>
-    <p><strong>Email:</strong> visualgraphicscc@gmail.com</p>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo & Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Social Media Graphics</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marketing Materials</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Website Visual Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers & Posters</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Trailer Wraps</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Color Systems</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Visual Direction</span>
+      <!-- duplicate for loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo & Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Social Media Graphics</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marketing Materials</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Website Visual Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers & Posters</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Trailer Wraps</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Color Systems</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Visual Direction</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">What We Create</span>
+      </div>
+      <h2 class="section-title">Design Services</h2>
+
+      <div class="services-layout">
+        <div class="services-list">
+          <div class="service-row">
+            <span class="service-num">01</span>
+            <div class="service-content">
+              <div class="service-name">Logo & Branding</div>
+              <p class="service-desc">Unique brand identities that make your business recognizable and professional. From concept to final files, we build the visual foundation your brand deserves.</p>
+            </div>
+            <span class="service-icon-lg">🎨</span>
+          </div>
+          <div class="service-row">
+            <span class="service-num">02</span>
+            <div class="service-content">
+              <div class="service-name">Social Media Graphics</div>
+              <p class="service-desc">Eye-catching posts and visuals designed to engage and attract customers. Consistent, on-brand content that makes your feed impossible to scroll past.</p>
+            </div>
+            <span class="service-icon-lg">📱</span>
+          </div>
+          <div class="service-row">
+            <span class="service-num">03</span>
+            <div class="service-content">
+              <div class="service-name">Marketing Materials</div>
+              <p class="service-desc">Flyers, posters, and ads that communicate your message clearly and effectively. Print and digital formats designed to convert attention into action.</p>
+            </div>
+            <span class="service-icon-lg">📰</span>
+          </div>
+          <div class="service-row">
+            <span class="service-num">04</span>
+            <div class="service-content">
+              <div class="service-name">Website Visual Design</div>
+              <p class="service-desc">Modern UI layouts and visuals that enhance user experience and branding. Beautiful interfaces that reflect who you are and guide visitors to act.</p>
+            </div>
+            <span class="service-icon-lg">💻</span>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-title">Our Design Process</div>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <div class="step-name">Discover</div>
+                <p class="step-desc">We learn about your business, audience, and goals to make sure every design decision has purpose.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <div class="step-name">Concept</div>
+                <p class="step-desc">Initial directions are developed and presented — distinct ideas for you to react to and refine.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <div class="step-name">Refine</div>
+                <p class="step-desc">We polish the chosen direction with your feedback until every detail is exactly right.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <div class="step-name">Deliver</div>
+                <p class="step-desc">Final files in every format you need — ready for print, digital, and everything in between.</p>
+              </div>
+            </div>
+          </div>
+          <a href="mailto:visualgraphicscc@gmail.com" class="process-cta">Start a Project →</a>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Selected Work</span>
+      </div>
+      <h2 class="section-title">Our Portfolio</h2>
+      <p class="section-desc">Every project is an opportunity to create something meaningful. Here's some of what we've built for businesses across Belize.</p>
+
+      <div class="portfolio-grid">
+
+        <!-- Island Boy Ice Factory — large -->
+        <div class="project-card large">
+          <div class="project-thumb thumb-ice">
+            <span class="project-emoji">🧊</span>
+            <div class="project-overlay">
+              <a href="island-boy-ice-factory.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Island Boy Ice Factory</div>
+            <p class="project-desc">Brand identity design that reflects the business's roots and industry, creating a professional and recognizable visual presence.</p>
+            <span class="project-tag">Brand Identity</span>
+          </div>
+        </div>
+
+        <!-- M&N Guest House -->
+        <div class="project-card">
+          <div class="project-thumb thumb-mn">
+            <span class="project-emoji">🏨</span>
+            <div class="project-overlay">
+              <a href="m&n-guest-house.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">M&N Guest House</div>
+            <p class="project-desc">Logo vectorization transforming a hand-painted design into a scalable, professional brand asset.</p>
+            <span class="project-tag">Logo Design</span>
+          </div>
+        </div>
+
+        <!-- Seaing Reality Adventures -->
+        <div class="project-card">
+          <div class="project-thumb thumb-sea">
+            <span class="project-emoji">⛵</span>
+            <div class="project-overlay">
+              <a href="seaing-reality-adventures.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Seaing Reality Adventures</div>
+            <p class="project-desc">Complete brand identity including logo, color system, and visual direction for a strong, consistent presence.</p>
+            <span class="project-tag">Full Branding</span>
+          </div>
+        </div>
+
+        <!-- Creative Haven -->
+        <div class="project-card">
+          <div class="project-thumb thumb-haven">
+            <span class="project-emoji">✨</span>
+            <div class="project-overlay">
+              <a href="creative-haven.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Creative Haven</div>
+            <p class="project-desc">Custom logo and brand direction giving the business a clean, modern, and recognizable identity.</p>
+            <span class="project-tag">Logo & Direction</span>
+          </div>
+        </div>
+
+        <!-- Munchies on Wheels -->
+        <div class="project-card">
+          <div class="project-thumb thumb-munch">
+            <span class="project-emoji">🍔</span>
+            <div class="project-overlay">
+              <a href="munchies-on-wheels.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Munchies on Wheels</div>
+            <p class="project-desc">Full branding including logo design, trailer wrap, and visual identity — turning a food trailer into a standout brand.</p>
+            <span class="project-tag">Branding + Wrap</span>
+          </div>
+        </div>
+
+        <!-- Iliany's Fashion Boutique -->
+        <div class="project-card">
+          <div class="project-thumb thumb-ili">
+            <span class="project-emoji">👗</span>
+            <div class="project-overlay">
+              <a href="Iliany's-fashion-boutique.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Iliany's Fashion Boutique</div>
+            <p class="project-desc">Logo design that elevated the business's image, supporting its growth from a small seller into a diverse retail brand.</p>
+            <span class="project-tag">Logo Design</span>
+          </div>
+        </div>
+
+        <!-- E-Z Boy Tours — large -->
+        <div class="project-card large">
+          <div class="project-thumb thumb-ez">
+            <span class="project-emoji">⚡</span>
+            <div class="project-overlay">
+              <a href="e-z-boy-tours.html" class="overlay-link">
+                View Project
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">E-Z Boy Tours</div>
+            <p class="project-desc">Full digital upgrade including website improvements, SEO, booking integration, email security, and branded graphics to increase visibility and bookings.</p>
+            <span class="project-tag">Design + Digital</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER BAND -->
+  <section class="partner-band">
+    <div class="container">
+      <div class="partner-inner">
+        <div class="partner-text">
+          <div class="section-eyebrow" style="margin-bottom:0.8rem">
+            <span class="eyebrow-line"></span>
+            <span class="section-label">Tech Partner</span>
+          </div>
+          <h2 class="section-title" style="font-size:2rem;margin-bottom:0.6rem">Backed by VG Tech<br>&amp; Security Solutions</h2>
+          <p class="section-desc">Need a website too? Our sister brand handles everything from web development and SEO to IT support and security — so you get design and tech under one roof.</p>
+        </div>
+        <a href="index.html" class="partner-logo-wrap">
+          <img src="images/VGTechLogo.png" alt="VG Tech Logo"/>
+          <div class="partner-logo-text">
+            <strong>VG Tech & Security</strong>
+            <span>Web · SEO · IT · Security</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Let's Create Together</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline">
+        Your Brand Deserves<br>to Look <em>Incredible</em>
+      </h2>
+      <p class="cta-sub">Reach out and let's talk about what your business needs. Every great brand starts with a conversation.</p>
+      <div class="cta-actions">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary" style="font-size:1rem;padding:1rem 2rem">
+          Email Us
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="btn-ghost" style="font-size:1rem;padding:1rem 2rem">
+          View Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 Visual Graphics. Designed by Jordy Gonzalez.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
   </footer>
-
-  <script>
-    // Fade-up animation
-    const elements = document.querySelectorAll('.fade-up');
-    const reveal = () => {
-      elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        const screenHeight = window.innerHeight;
-        if (position < screenHeight - 100) {
-          el.classList.add('show');
-        }
-      });
-    };
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
-
-    // Shrink nav on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
 
 </body>
 </html>
