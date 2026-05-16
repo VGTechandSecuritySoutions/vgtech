@@ -1,288 +1,1546 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#0B6A86" />
-<meta name="description" content="Island Boy Ice Factory — a Visual Graphics brand identity case study from Caye Caulker, Belize." />
-<title>Island Boy Ice Factory — A Visual Graphics Brand Story</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Island Boy Ice Factory — Visual Graphics Case Study</title>
+  <meta name="description" content="Island Boy Ice Factory — a Visual Graphics brand identity case study from Caye Caulker, Belize."/>
+  <meta property="og:title" content="Island Boy Ice Factory — Visual Graphics Case Study"/>
+  <meta property="og:description" content="A wholesale ice business rebranded with Caribbean heritage and cool, professional weight."/>
+  <meta property="og:image" content="images/Island_Boy_Ice_Factory_Logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:      #f7f3ee;
+      --bg2:     #ede8e1;
+      --ink:     #1a1410;
+      --ink2:    #3d3028;
+      --muted:   #8a7a6e;
+      --accent:  #ff0000;
+      --accent2: #f0a500;
+      --border:  rgba(26,20,16,0.1);
+      --card:    #fff9f4;
+      /* Brand palette */
+      --lobster: #DC2329;
+      --sky:     #42A1D8;
+      --sea:     #5A9CD0;
+      --deep:    #193157;
+      --box:     #312F88;
+      --trees:   #497A3A;
+    }
 
-<!-- Open Graph -->
-<meta property="og:title" content="Island Boy Ice Factory — Visual Graphics Case Study" />
-<meta property="og:description" content="A wholesale ice business rebranded with Caribbean heritage and cool, professional weight." />
-<meta property="og:type" content="article" />
-<meta property="og:image" content="https://vgtechandsecuritysolutions.github.io/vgtech/images/Island_Boy_Ice_Factory_Logo.png" />
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-<style>
-:root{--bg:#EEF8FB;--fg:#0E2A38;--muted:#5E7886;--border:#CFE3EA;--frost:#E9FBFF;--ice:#9EE8F5;--cyan:#15A3B8;--caribbean:#0B6A86;--deep:#0E2A38;--coral:#FF8C66;--sun:#FFB347;--sand:#F5E6D3;--radius:1rem}
-*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;scroll-behavior:smooth}
-img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
-::selection{background:var(--ice);color:var(--deep)}
-.font-display{font-family:'Fraunces',ui-serif,Georgia,serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 50,"WONK" 1;letter-spacing:-.02em}
-.font-mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}.italic{font-style:italic}
-.container{max-width:1180px;margin:0 auto;padding:0 24px}
-.glass{background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 30px 80px -30px rgba(2,35,60,.25)}
-.glass-dark{background:rgba(8,28,46,.45);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.4rem;border-radius:999px;font-weight:600;transition:transform .25s ease,background .25s ease,color .25s ease;border:1px solid transparent}
-.btn-primary{background:var(--deep);color:#fff}.btn-primary:hover{background:var(--caribbean);transform:translateY(-1px)}
-.btn-outline{background:rgba(255,255,255,.4);backdrop-filter:blur(10px);border-color:rgba(14,42,56,.2);color:var(--fg)}.btn-outline:hover{background:#fff}
-.btn-shimmer{background-image:linear-gradient(100deg,var(--caribbean) 0%,var(--caribbean) 40%,var(--cyan) 50%,var(--caribbean) 60%,var(--caribbean) 100%);background-size:200% 100%;color:#fff;animation:shine 4s linear infinite;box-shadow:0 14px 30px -10px rgba(11,106,134,.4)}.btn-shimmer:hover{transform:translateY(-1px)}
-@keyframes shine{0%{background-position:-200% 0}100%{background-position:200% 0}}
-@keyframes float-slow{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-16px) rotate(2deg)}}
-@keyframes float-mid{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
-@keyframes drip{0%{transform:translateY(-6px) scaleY(.6);opacity:0}25%{opacity:1}100%{transform:translateY(48px) scaleY(1.2);opacity:0}}
-@keyframes wave-pan{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes sparkle{0%,100%{opacity:0;transform:scale(.4) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
-@keyframes frost-fade{0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.2)}}
-@keyframes pulse-dot{0%,100%{opacity:.55}50%{opacity:1}}
-.float-slow{animation:float-slow 7s ease-in-out infinite}.float-mid{animation:float-mid 5s ease-in-out infinite}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:translateY(0)}
-.tilt-hover{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}.tilt-hover:hover{transform:translateY(-4px) rotate(-.4deg)}
-.frost-dot{position:fixed;width:14px;height:14px;border-radius:999px;background:radial-gradient(circle,rgba(180,240,255,.9),rgba(180,240,255,0) 70%);pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:screen;animation:frost-fade 900ms forwards ease-out;z-index:60}
-.drip{position:absolute;width:6px;height:14px;border-radius:0 0 100% 100% / 0 0 60% 60%;background:linear-gradient(180deg,rgba(160,230,255,.95),rgba(80,180,220,.4));filter:blur(.3px);animation:drip 2.6s ease-in infinite}
-.link-underline{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .4s ease}.link-underline:hover{background-size:100% 1.5px}
-.text-gradient-cool{background:linear-gradient(120deg,var(--caribbean),var(--cyan) 50%,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
-::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:var(--frost)}::-webkit-scrollbar-thumb{background:rgba(21,163,184,.7);border-radius:999px}::-webkit-scrollbar-thumb:hover{background:var(--caribbean)}
-.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(96%,1180px)}.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:999px}.nav-logo{display:flex;align-items:center;gap:8px}.nav-logo .dot{width:32px;height:32px;border-radius:999px;background:var(--caribbean);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:18px}.nav-links{display:none;gap:28px;font-size:14px}.nav-links a{color:rgba(14,42,56,.8)}.nav-links a:hover{color:var(--fg)}.nav-cta{background:var(--deep);color:#fff;font-size:14px;padding:8px 16px;border-radius:999px;transition:background .25s}.nav-cta:hover{background:var(--caribbean)}@media(min-width:900px){.nav-links{display:flex}}
-.hero{position:relative;padding:144px 0 112px;overflow:hidden;isolation:isolate;}.hero-bg{position:absolute;inset:0;z-index:-1}.hero .container{position:relative;z-index:1}.hero-grad{position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 0%,#FFE5B4 0%,transparent 45%),radial-gradient(80% 60% at 0% 30%,#CFEFFA 0%,transparent 50%),linear-gradient(180deg,#EEF8FB 0%,#DCF1F6 60%,#B8E4EE 100%)}.hero-sun{position:absolute;right:8%;top:12%;width:176px;height:176px;border-radius:50%;background:radial-gradient(circle,#FFD27A 0%,#FFB347 60%,transparent 70%);filter:blur(1px)}.hero-palm{position:absolute;left:-30px;bottom:10%;width:176px;opacity:.7}.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}@media(min-width:900px){.hero-grid{grid-template-columns:7fr 5fr}.hero{padding:176px 0 128px}}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase}.badge .pulse{width:8px;height:8px;border-radius:999px;background:var(--coral);animation:pulse-dot 2s ease-in-out infinite}
-.hero h1{font-family:'Fraunces',serif;margin:24px 0 0;font-size:clamp(44px,7vw,84px);line-height:.95;letter-spacing:-.02em}.hero p.lead{margin-top:24px;font-size:18px;line-height:1.6;color:rgba(14,42,56,.78);max-width:560px}
-.hero-stats{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:440px}.hero-stats div{padding:14px;border-radius:18px}.hero-stats .num{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:30px;color:var(--caribbean)}.hero-stats .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
-.icecube-wrap{position:relative;justify-self:center}@media(min-width:900px){.icecube-wrap{justify-self:end}}.chip{position:absolute;padding:6px 12px;border-radius:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-.waves{position:absolute;bottom:0;left:0;right:0;overflow:hidden;line-height:0;z-index:0;pointer-events:none}.waves svg{display:block;width:200%;height:80px;animation:wave-pan 20s linear infinite}
-.snapshot{padding:48px 0}.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;overflow:hidden;border-radius:24px}@media(min-width:780px){.snapshot-grid{grid-template-columns:repeat(4,1fr)}}.snapshot-cell{background:rgba(255,255,255,.55);padding:24px 20px}.snapshot-cell .k{font-size:10px;text-transform:uppercase;letter-spacing:.3em;color:var(--muted);font-family:'JetBrains Mono',monospace}.snapshot-cell .v{font-family:'Fraunces',serif;font-size:22px;margin-top:8px}
-.story{padding:96px 0;position:relative}.story-grid{display:grid;grid-template-columns:1fr;gap:48px}@media(min-width:900px){.story-grid{grid-template-columns:4fr 1fr 7fr}}.story h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;margin:16px 0 0}.section-tag{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.25em;color:var(--caribbean)}.story p.lg{font-size:20px;line-height:1.65;color:rgba(14,42,56,.82)}.story p.md{font-size:17px;line-height:1.65;color:rgba(14,42,56,.72)}blockquote.bq{margin:0;padding:8px 0 8px 20px;border-left:2px solid var(--coral);font-family:'Fraunces',serif;font-style:italic;font-size:24px;line-height:1.4}
-.pillars{padding:96px 0;background:var(--deep);color:#fff;position:relative;overflow:hidden}.pillars-bg{position:absolute;inset:0;opacity:.3;background:radial-gradient(60% 50% at 20% 20%,rgba(95,230,224,.35),transparent 60%),radial-gradient(50% 40% at 90% 80%,rgba(255,140,102,.25),transparent 60%)}.pillars .head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end;position:relative}.pillars h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;margin-top:12px;max-width:560px}.pillars .ig{color:#9EE8F5}.pillars .grid3{margin-top:56px;display:grid;grid-template-columns:1fr;gap:20px;position:relative}@media(min-width:780px){.pillars .grid3{grid-template-columns:repeat(3,1fr)}}.pillars .card{padding:28px;border-radius:24px}.pillars .card .num{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:46px}.pillars .card h3{font-family:'Fraunces',serif;font-size:24px;margin:18px 0 12px}.pillars .card p{color:rgba(255,255,255,.7);font-size:14px;line-height:1.6;margin:0}
-.logorev{padding:96px 0}.logorev-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}@media(min-width:900px){.logorev-grid{grid-template-columns:5fr 7fr}}.logorev h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;margin-top:12px}.logorev ul{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:12px;font-size:14px}.logorev li{display:flex;gap:12px}.logorev li .bullet{margin-top:6px;width:8px;height:8px;border-radius:999px;background:var(--caribbean);flex-shrink:0}.logorev .frame{position:relative}.logorev .frame-glow{position:absolute;inset:-24px;border-radius:48px;background:linear-gradient(135deg,rgba(159,226,240,.5),#fff,rgba(255,210,150,.5));filter:blur(40px);z-index:0}.logorev .frame-card{position:relative;padding:32px;border-radius:40px;display:grid;place-items:center;z-index:1;min-height:340px}@media(min-width:780px){.logorev .frame-card{padding:56px}}.logorev .frame-card img{max-height:420px;width:auto;filter:drop-shadow(0 30px 50px rgba(0,60,90,.25));transition:transform .5s}.logorev .frame-card img:hover{transform:translateY(-4px) rotate(-.4deg)}.logorev .frame-caption{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.system{padding:96px 0;background:var(--frost)}.system .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}.system h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;max-width:560px;margin-top:12px}.swatches{margin-top:48px;display:grid;grid-template-columns:1fr;gap:20px}@media(min-width:680px){.swatches{grid-template-columns:repeat(2,1fr)}}@media(min-width:980px){.swatches{grid-template-columns:repeat(3,1fr)}}.swatch{border-radius:24px;overflow:hidden;border:1px solid #fff;transition:transform .4s}.swatch:hover{transform:translateY(-3px)}.swatch .color{height:160px;position:relative}.swatch .hex{position:absolute;bottom:12px;right:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.85);mix-blend-mode:difference}.swatch .meta{background:#fff;padding:18px 20px}.swatch .name{font-family:'Fraunces',serif;font-size:20px}.swatch .desc{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px}.typecards{margin-top:64px;display:grid;grid-template-columns:1fr;gap:20px}@media(min-width:780px){.typecards{grid-template-columns:repeat(2,1fr)}}.typecard{padding:32px;border-radius:24px}.typecard .ttl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}.typecard .aa{font-family:'Fraunces',serif;font-size:80px;line-height:1;margin-top:10px}.typecard .aa.body{font-family:'Manrope',sans-serif}.typecard .sub{margin-top:10px;color:rgba(14,42,56,.7)}.typecard .sub.italic{font-family:'Fraunces',serif;font-style:italic;font-size:20px}
-.marquee{padding:36px 0;border-top:1px solid rgba(14,42,56,.08);border-bottom:1px solid rgba(14,42,56,.08);background:#fff;overflow:hidden}.marquee-track{display:flex;gap:40px;white-space:nowrap;animation:marquee 25s linear infinite;width:max-content}.marquee-track span{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(28px,4vw,52px);color:rgba(14,42,56,.7);display:inline-flex;align-items:center;gap:40px}.marquee-track .snow{color:var(--coral)}
-.process{padding:96px 0}.process .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}.process h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;max-width:560px;margin-top:12px}.proc-grid{margin-top:56px;display:grid;grid-template-columns:1fr;gap:20px;list-style:none;padding:0}@media(min-width:680px){.proc-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:980px){.proc-grid{grid-template-columns:repeat(4,1fr)}}.proc-card{padding:24px;border-radius:24px;position:relative}.proc-card .n{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:40px;color:var(--caribbean)}.proc-card h3{font-family:'Fraunces',serif;font-size:22px;margin:10px 0 0}.proc-card p{font-size:14px;line-height:1.6;color:rgba(14,42,56,.7);margin-top:10px}
-.apps{padding:96px 0;background:var(--deep);color:#fff;position:relative;overflow:hidden}.apps h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;margin-top:12px;max-width:720px}.apps-grid{margin-top:56px;display:grid;grid-template-columns:1fr;gap:24px}@media(min-width:900px){.apps-grid{grid-template-columns:7fr 5fr}}.apps-card{padding:32px;border-radius:24px;position:relative;overflow:hidden;min-height:340px}.apps-card .lbl{position:absolute;bottom:16px;left:20px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}.icebag-bg{position:absolute;inset:0;opacity:.3;background:radial-gradient(60% 80% at 50% 100%,rgba(95,230,224,.4),transparent 60%)}.icebag{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;padding-top:24px}.icebag .bag{position:relative;width:260px;height:320px;border-radius:140px 140px 16px 16px;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(190,230,245,.6));box-shadow:inset 0 20px 40px rgba(255,255,255,.6),0 30px 50px rgba(0,0,0,.4);transition:transform .5s}.icebag .bag:hover{transform:translateY(-4px) rotate(-.4deg)}.icebag .bag img{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:170px}.icebag .bag .tag{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:var(--deep);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}.apps-right{display:grid;grid-template-rows:1fr 1fr;gap:24px}.apps-mini{padding:24px;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:170px}.apps-mini .ttl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}.apps-truck{display:flex;align-items:center;gap:16px}.apps-truck .box{width:64px;height:64px;border-radius:14px;background:#fff;display:grid;place-items:center}.apps-truck .box img{max-height:48px}.apps-truck .txt{font-family:'Fraunces',serif;font-size:20px;line-height:1.2}.apps-sticker{background:linear-gradient(135deg,#FF8C66 0%,#FFC987 100%);color:#fff;position:relative;overflow:hidden}.apps-sticker .circle{width:112px;height:112px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 20px 30px -10px rgba(0,0,0,.3);margin-left:auto}.apps-sticker .circle img{max-height:80px}
-.partner{padding:96px 0}.partner .wrap{padding:40px;border-radius:24px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}@media(min-width:900px){.partner .wrap{grid-template-columns:7fr 5fr;padding:48px}}.partner h3{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,40px);margin:12px 0 0;line-height:1.15}.partner .vgcard{display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:var(--deep);color:#fff;transition:background .25s}.partner .vgcard:hover{background:var(--caribbean)}.partner .vgcard .box{width:64px;height:64px;border-radius:14px;background:#fff;display:grid;place-items:center}.partner .vgcard .box img{max-height:48px}.partner .vgcard .ttl{font-family:'Fraunces',serif;font-size:20px}.partner .vgcard .sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.cta{padding:96px 0;position:relative;overflow:hidden;isolation:isolate}.cta-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 60% at 20% 30%,rgba(95,230,224,.35) 0%,transparent 60%),radial-gradient(50% 60% at 80% 70%,rgba(255,140,102,.25) 0%,transparent 60%),linear-gradient(180deg,#EEF8FB,#DCF1F6)}.cta-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:flex-start}@media(min-width:900px){.cta-grid{grid-template-columns:5fr 7fr}}.cta h2{font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;margin-top:12px}.cta .chips{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}.cta .chips span{padding:6px 12px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}.cta-card{padding:32px;border-radius:24px;display:grid;grid-template-columns:1fr;gap:20px}@media(min-width:780px){.cta-card{grid-template-columns:1fr 1fr;padding:40px}}.cta-card .full{grid-column:1/-1}.cta-card label{font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:600;color:var(--muted)}.cta-card input,.cta-card select,.cta-card textarea{margin-top:8px;width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.8);border-radius:12px;font:inherit;color:inherit;outline:none;transition:box-shadow .25s,border-color .25s}.cta-card input:focus,.cta-card select:focus,.cta-card textarea:focus{border-color:var(--caribbean);box-shadow:0 0 0 3px rgba(11,106,134,.18)}.cta-card textarea{resize:vertical;min-height:140px;font-family:inherit}.cta-card .row-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:8px}.cta-card .hint{font-size:12px;color:var(--muted)}.success{padding:40px;border-radius:24px;text-align:center}.success .ico{font-size:48px;margin-bottom:12px}
-.footer{background:var(--deep);color:#fff;padding:64px 0 40px;position:relative;overflow:hidden}.footer .grid{display:grid;grid-template-columns:1fr;gap:40px}@media(min-width:780px){.footer .grid{grid-template-columns:5fr 3fr 4fr}}.footer .brand{display:flex;align-items:center;gap:12px}.footer .brand .dot{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--deep);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:22px}.footer .brand .name{font-family:'Fraunces',serif;font-size:24px}.footer p.fp{margin-top:14px;color:rgba(255,255,255,.7);max-width:380px}.footer .h{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5)}.footer ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;color:rgba(255,255,255,.8);font-size:14px}.footer .bot{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:rgba(255,255,255,.5)}.footer .bot .geo{font-family:'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  .hero-chip-left{
-  bottom:-24px;
-  left:0;
-}
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
 
-.hero-chip-right{
-  top:-8px;
-  right:0;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1.3rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
 
-@media(max-width:768px){
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
+    }
 
-  .hero-grid{
-    overflow:hidden;
-  }
+    /* Massive background number */
+    .hero-bg-num {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(16rem, 35vw, 42rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
 
-  .icecube-wrap{
-    width:100%;
-    display:flex;
-    justify-content:center;
-  }
+    /* Ice crystal blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .hb1 {
+      width: 500px; height: 500px;
+      background: rgba(66,161,216,0.15);
+      top: -100px; left: -100px;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .hb2 {
+      width: 350px; height: 350px;
+      background: rgba(220,35,41,0.12);
+      bottom: 0; right: 10%;
+      animation: drift 9s ease-in-out infinite alternate-reverse;
+    }
+    .hb3 {
+      width: 250px; height: 250px;
+      background: rgba(49,47,136,0.3);
+      top: 30%; right: -50px;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(20px, 15px) scale(1.05); }
+    }
 
-  .hero-chip-left{
-    left:12px;
-    bottom:-12px;
-    transform:scale(.82);
-  }
+    /* Frost diagonal line */
+    .hero-line {
+      position: absolute;
+      top: 0; right: 15%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(90,156,208,0.3) 40%, transparent);
+    }
 
-  .hero-chip-right{
-    right:12px;
-    top:0;
-    transform:scale(.82);
-  }
+    /* Floating ice tag */
+    .hero-tag {
+      position: absolute;
+      top: 7rem;
+      right: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+      animation: fadeIn 1s 0.6s ease both;
+      opacity: 0;
+    }
+    .tag-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .tag-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
 
-}
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-  @media(max-width:768px){
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--lobster); display: inline-block; }
+    .eyebrow-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
 
-  body{
-    overflow-x:hidden;
-  }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+      opacity: 0;
+      animation-fill-mode: both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--sky);
+      display: block;
+    }
+    .hero-headline span {
+      color: var(--lobster);
+    }
 
-  .hero{
-    overflow:hidden;
-  }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.2s ease both;
+      opacity: 0;
+      animation-fill-mode: both;
+    }
 
-  .hero-grid{
-    width:100%;
-  }
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      max-width: 420px;
+      line-height: 1.75;
+    }
 
-  .icecube-wrap{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    padding:0 10px;
-  }
+    .hero-chips {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .chip-ice {
+      background: rgba(66,161,216,0.15);
+      border: 1px solid rgba(66,161,216,0.3);
+      color: var(--sky);
+    }
+    .chip-lobster {
+      background: rgba(220,35,41,0.12);
+      border: 1px solid rgba(220,35,41,0.3);
+      color: #ff6b70;
+    }
 
-  .hero-chip-left{
-    left:8px;
-    bottom:8px;
-    transform:scale(.78);
-  }
+    /* Hero stats strip */
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+      opacity: 0;
+      animation-fill-mode: both;
+    }
+    .hstat {
+      flex: 1;
+      padding-right: 2rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      margin-right: 2rem;
+    }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .hstat-num span { color: var(--sky); }
+    .hstat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
 
-  .hero-chip-right{
-    right:8px;
-    top:8px;
-    transform:scale(.78);
-  }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
 
-}
-  
-</style>
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--lobster);
+      padding: 0.7rem 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 20s linear infinite;
+    }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0 2rem;
+      white-space: nowrap;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.85);
+    }
+    .ticker-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4rem;
+    }
+
+    section { position: relative; }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 0.98rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    /* ── BRIEF SECTION ── */
+    .brief {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+    .brief-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+    .brief-text {}
+    .brief-quote {
+      background: var(--deep);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .brief-quote::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-style: italic;
+      color: rgba(66,161,216,0.15);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .quote-attr {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Meta grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .meta-cell {
+      background: var(--card);
+      padding: 1.2rem 1.5rem;
+    }
+    .meta-key {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .meta-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .brief-body p {
+      font-size: 0.97rem;
+      color: var(--ink2);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .brief-body p:last-child { margin-bottom: 0; }
+
+    /* ── DNA SECTION ── */
+    .dna {
+      padding: 7rem 0;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .dna::before {
+      content: 'DNA';
+      position: absolute;
+      top: 50%; right: -0.05em;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 25vw;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .dna .section-title { color: var(--bg); }
+    .dna .section-label { color: var(--sky); }
+    .dna .eyebrow-line { background: var(--sky); }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .pillar:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.07);
+    }
+    .pillar-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pillar-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .pillar-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .pillar:nth-child(1) .pillar-num { color: rgba(220,35,41,0.25); }
+    .pillar:nth-child(2) .pillar-num { color: rgba(66,161,216,0.25); }
+    .pillar:nth-child(3) .pillar-num { color: rgba(49,47,136,0.5); }
+    .pillar:nth-child(1) { border-top: 2px solid var(--lobster); }
+    .pillar:nth-child(2) { border-top: 2px solid var(--sky); }
+    .pillar:nth-child(3) { border-top: 2px solid var(--box); }
+
+    /* ── LOGO SECTION ── */
+    .logo-section {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+    .logo-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+    .logo-facts { display: flex; flex-direction: column; gap: 0; }
+    .logo-fact {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-body {}
+    .fact-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .fact-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* Logo display card */
+    .logo-showcase {
+      background: var(--deep);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      position: sticky;
+      top: 6rem;
+      box-shadow: 0 24px 60px rgba(25,49,87,0.3);
+    }
+    .logo-showcase img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+      transition: transform 0.4s;
+    }
+    .logo-showcase:hover img { transform: scale(1.04); }
+    .logo-file-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+    }
+    .logo-variations {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+    }
+    .logo-var {
+      flex: 1;
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-var img { width: 100%; max-width: 100px; height: auto; }
+    .lv-dark { background: #000; }
+    .lv-light { background: #fff; }
+    .lv-sky { background: var(--sky); }
+
+    /* ── PALETTE SECTION ── */
+    .palette-section {
+      padding: 7rem 0;
+      background: var(--bg2);
+    }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .swatch {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26,20,16,0.08);
+      transition: transform 0.3s;
+      cursor: default;
+    }
+    .swatch:hover { transform: translateY(-4px) scale(1.03); }
+    .swatch-color {
+      height: 120px;
+    }
+    .swatch-info {
+      background: var(--card);
+      padding: 0.8rem 0.9rem;
+    }
+    .swatch-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .swatch-hex {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      font-family: 'Courier New', monospace;
+    }
+    /* Big swatch role badge */
+    .swatch-role {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    /* ── PROCESS SECTION ── */
+    .process-section {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+    .process-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    /* Connecting line */
+    .process-steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right, var(--lobster), var(--sky), var(--box), var(--trees));
+      z-index: 0;
+    }
+    .pstep {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pstep:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26,20,16,0.08);
+    }
+    .pstep-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+    .pstep:nth-child(1) .pstep-num { background: var(--lobster); }
+    .pstep:nth-child(2) .pstep-num { background: var(--sky); }
+    .pstep:nth-child(3) .pstep-num { background: var(--box); }
+    .pstep:nth-child(4) .pstep-num { background: var(--trees); }
+    .pstep-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .pstep-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ── APPLICATIONS ── */
+    .apps-section {
+      padding: 7rem 0;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .apps-section .section-title { color: var(--bg); }
+    .apps-section .section-label { color: var(--accent2); }
+    .apps-section .eyebrow-line { background: var(--accent2); }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 3.5rem;
+    }
+    .app-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .app-card:hover { transform: translateY(-5px); }
+    .app-card.wide { grid-column: span 2; }
+
+    .app-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-card .app-visual { height: 200px; }
+    .app-card.wide .app-visual { height: 260px; }
+
+    .app-bg-bag    { background: linear-gradient(135deg, #193157 0%, #312F88 100%); }
+    .app-bg-cart   { background: linear-gradient(135deg, #42A1D8 0%, #193157 100%); }
+    .app-bg-sticker{ background: linear-gradient(135deg, #DC2329 0%, #f0a500 100%); }
+
+    .app-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+    }
+    .app-logo-wrap img {
+      max-height: 120px;
+      max-width: 80%;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.35));
+      transition: transform 0.4s;
+    }
+    .app-card:hover .app-logo-wrap img { transform: scale(1.07); }
+
+    /* Sticker circular mock */
+    .sticker-ring {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .sticker-ring img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+    }
+
+    /* Mock label for bag */
+    .bag-mock {
+      position: relative;
+      width: 160px; height: 200px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px 8px 50% 50% / 8px 8px 30px 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .bag-mock img { width: 90%; }
+
+    .app-info {
+      padding: 1.2rem 1.4rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: none;
+    }
+    .app-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .app-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+    .app-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid rgba(240,165,0,0.25);
+      border-radius: 100px;
+      padding: 0.2rem 0.55rem;
+    }
+
+    /* Deliverables ticker */
+    .deliverables-ticker {
+      margin-top: 3rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 0.75rem 0;
+      overflow: hidden;
+    }
+    .del-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 25s linear infinite;
+    }
+    .del-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 1.8rem;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+    .del-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--sky);
+      flex-shrink: 0;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 9rem 0;
+      background: var(--bg);
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .cta-section::before {
+      content: 'ICE';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-6deg);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22vw;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(26,20,16,0.04);
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .cta-inner { position: relative; z-index: 2; }
+
+    .cta-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .cta-headline em { font-style: italic; color: var(--accent); }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(224,92,42,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(224,92,42,0.35);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(224,92,42,0.04);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(247,243,238,0.8);
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(247,243,238,0.35); }
+    .footer-email a {
+      font-size: 0.82rem;
+      color: var(--accent2);
+      text-decoration: none;
+    }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-tag { display: none; }
+      .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; margin-bottom: 1rem; }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+
+      .container { padding: 0 1.5rem; }
+
+      .brief-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .logo-layout { grid-template-columns: 1fr; }
+      .logo-showcase { position: static; }
+
+      .pillars { grid-template-columns: 1fr; }
+
+      .swatches { grid-template-columns: repeat(3, 1fr); }
+
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+
+      .apps-grid { grid-template-columns: 1fr 1fr; }
+      .app-card.wide { grid-column: span 2; }
+    }
+
+    @media (max-width: 580px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+
+      .process-steps-grid { grid-template-columns: 1fr; }
+
+      .apps-grid { grid-template-columns: 1fr; }
+      .app-card.wide { grid-column: span 1; }
+
+      .meta-grid { grid-template-columns: 1fr; }
+
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-<header class="nav"><div class="nav-inner glass">
-<a href="#top" class="nav-logo"><span class="dot">i</span><span class="font-display" style="font-size:18px">Island Boy</span><span class="font-mono" id="nav-x" style="display:none;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-left:8px">× Visual Graphics</span></a>
-<nav class="nav-links"><a href="#story" class="link-underline">Story</a><a href="#logo" class="link-underline">Logo</a><a href="#system" class="link-underline">System</a><a href="#process" class="link-underline">Process</a><a href="#quote" class="link-underline">Quote</a></nav>
-<a class="nav-cta" href="https://wa.me/5016220740" target="_blank" rel="noreferrer">WhatsApp</a>
-</div></header>
 
-<section id="top" class="hero">
-<div class="hero-bg"><div class="hero-grad"></div><div class="hero-sun"></div>
-<svg class="hero-palm" viewBox="0 0 200 200" aria-hidden="true"><g fill="#0E3A4A"><rect x="98" y="60" width="6" height="120" rx="3"/><path d="M100 70 C 60 50, 30 60, 12 80 C 40 70, 70 70, 100 80 Z"/><path d="M100 70 C 140 50, 170 60, 188 80 C 160 70, 130 70, 100 80 Z"/><path d="M100 65 C 80 30, 50 20, 30 30 C 60 30, 80 50, 100 75 Z"/><path d="M100 65 C 120 30, 150 20, 170 30 C 140 30, 120 50, 100 75 Z"/></g></svg></div>
-<div class="container hero-grid">
-<div><div class="badge glass"><span class="pulse"></span>A Visual Graphics Case Study · Caye Caulker, Belize</div>
-<h1>Island Boy<br><span class="text-gradient-cool italic">Ice <span style="font-weight:300">Factory.</span></span></h1>
-<p class="lead">A wholesale & retail ice business with island roots and a working-man's pride — rebranded with the cool weight it deserves. We took heritage, <em>salt air</em>, and lobsters, and pressed them into a logo that travels well on a carts, bags, and a stickers</p>
-<div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-primary" href="#story">Explore the project →</a><a class="btn btn-outline" href="#quote">Get a quote</a></div>
-<div class="hero-stats"><div class="glass"><div class="num">2021</div><div class="lbl">Delivered</div></div><div class="glass"><div class="num">1</div><div class="lbl">Brand Identity</div></div><div class="glass"><div class="num">∞</div><div class="lbl">Lobster Pride</div></div></div></div>
-<div class="icecube-wrap"><div style="position:relative;width:260px;height:350px">
-<svg viewBox="0 0 200 200" width="260" height="260" class="float-slow" style="filter:drop-shadow(0 30px 40px rgba(10,80,120,.35))"><defs>
-<linearGradient id="iceFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E9FBFF" stop-opacity=".95"/><stop offset="55%" stop-color="#9EE8F5" stop-opacity=".9"/><stop offset="100%" stop-color="#3FB6D6" stop-opacity=".9"/></linearGradient>
-<linearGradient id="iceTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#BDF1FB" stop-opacity=".95"/></linearGradient>
-<linearGradient id="iceSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7CD7EC"/><stop offset="100%" stop-color="#1B82A2"/></linearGradient></defs>
-<ellipse cx="100" cy="170" rx="70" ry="10" fill="#3FB6D6" opacity=".25"/>
-<polygon points="100,18 168,52 100,86 32,52" fill="url(#iceTop)" stroke="#fff" stroke-width="1.2"/>
-<polygon points="32,52 100,86 100,168 32,134" fill="url(#iceFace)" stroke="#A6E9F4"/>
-<polygon points="168,52 100,86 100,168 168,134" fill="url(#iceSide)" stroke="#67C7DE" opacity=".95"/>
-<polyline points="44,62 92,86 92,154" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/>
-<g style="transform-origin:70px 70px;animation:sparkle 3.4s infinite"><path d="M70 60 L72 68 L80 70 L72 72 L70 80 L68 72 L60 70 L68 68 Z" fill="#fff"/></g>
-<g style="transform-origin:130px 110px;animation:sparkle 4.2s 1.2s infinite"><path d="M130 102 L131.6 108 L138 110 L131.6 112 L130 118 L128.4 112 L122 110 L128.4 108 Z" fill="#fff"/></g></svg>
-<span class="drip" style="left:26%;bottom:-2px;animation-delay:.2s"></span><span class="drip" style="left:44%;bottom:-6px;animation-delay:1.1s"></span><span class="drip" style="left:62%;bottom:-3px;animation-delay:.6s"></span><span class="drip" style="left:78%;bottom:-5px;animation-delay:1.6s"></span>
-<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;width:220px;height:14px;background:radial-gradient(ellipse at center,rgba(120,210,235,.55),rgba(120,210,235,0) 70%);filter:blur(2px)"></div>
-<div class="chip glass float-mid hero-chip-left">❄ Frost · No 01</div><div class="chip glass float-slow hero-chip-right">🦞 Caye Caulker</div></div></div></div>
-<div class="waves"><svg viewBox="0 0 2400 80" preserveAspectRatio="none"><path d="M0,40 C300,80 600,0 900,40 C1200,80 1500,0 1800,40 C2100,80 2400,0 2400,40 L2400,80 L0,80 Z" fill="#0E3A4A" opacity=".08"/></svg></div>
-</section>
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
+    </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
 
-<section class="snapshot"><div class="container"><div class="snapshot-grid glass">
-<div class="snapshot-cell"><div class="k">Client</div><div class="v">Island Boy Ice Factory</div></div>
-<div class="snapshot-cell"><div class="k">Location</div><div class="v">Caye Caulker, Belize</div></div>
-<div class="snapshot-cell"><div class="k">Discipline</div><div class="v">Logo & Brand Identity</div></div>
-<div class="snapshot-cell"><div class="k">Year</div><div class="v">2021</div></div>
-</div></div></section>
+  <!-- ── HERO ── -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-line"></div>
+    <div class="hero-bg-num">IBIF</div>
 
-<section id="story" class="story"><div class="container story-grid">
-<div class="reveal"><div class="section-tag">01 · The Brief</div><h2>Heritage on the rocks.</h2></div><div></div>
-<div class="reveal" style="display:grid;gap:20px">
-<p class="lg">Island Boy Ice Factory is a wholesale & retail ice business in Caye Caulker — a sandy strip of Belize where the lobster traps outnumber the lampposts. The owner came to us with one ask: a brand that respected the work behind it, and the island it came from.</p>
-<p class="md">No clip-art penguins. No corporate snowflakes. Something that could sit on a 40lb ice bag headed to a restaurant kitchen, on a delivery cart, and on the side of a cooler at a roadside bar — and feel equally at home in every one of those places.</p>
-<blockquote class="bq">"Make it look like us. Not like every other ice company on Google."</blockquote>
-<p class="font-mono" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0">— The brief, summarized</p>
-</div></div></section>
+    <div class="hero-tag">
+      <span class="tag-label">Caye Caulker</span>
+      <span class="tag-val">2021</span>
+    </div>
 
-<section class="pillars"><div class="pillars-bg"></div><div class="container">
-<div class="head reveal"><div><div class="section-tag ig">02 · Brand DNA</div><h2>Three pillars carved<br>from the same block.</h2></div><p style="max-width:340px;color:rgba(255,255,255,.7);margin:0">Every visual decision came back to these. If a mark didn't pass all three, it didn't ship.</p></div>
-<div class="grid3">
-<div class="card glass-dark tilt-hover reveal"><div style="display:flex;justify-content:space-between"><span class="num" style="color:#FF8C66">01</span><span style="width:8px;height:8px;border-radius:999px;background:#FF8C66"></span></div><h3>Rooted</h3><p>The lobster — a daily reality on Caye Caulker — anchors the mark in place. It's not decoration, it's a passport.</p></div>
-<div class="card glass-dark tilt-hover reveal"><div style="display:flex;justify-content:space-between"><span class="num" style="color:#9EE8F5">02</span><span style="width:8px;height:8px;border-radius:999px;background:#9EE8F5"></span></div><h3>Reliable</h3><p>The ice box silhouette is steady, square, dependable. Restaurants run on the assumption their ice will arrive fresh and on time.</p></div>
-<div class="card glass-dark tilt-hover reveal"><div style="display:flex;justify-content:space-between"><span class="num" style="color:#FFB347">03</span><span style="width:8px;height:8px;border-radius:999px;background:#FFB347"></span></div><h3>Recognizable</h3><p>Bold typography and high-contrast color make the brand legible across a bag of ice in a freezer or on the back of a delivery cart.</p></div>
-</div></div></section>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics Case Study · Brand Identity</span>
+      </div>
 
-<section id="logo" class="logorev"><div class="container logorev-grid">
-<div class="reveal"><div class="section-tag">03 · The Mark</div><h2>A logo that reads<br><em class="italic">at fifty feet</em><br>and on a sticker.</h2>
-<p style="margin-top:24px;color:rgba(14,42,56,.72);line-height:1.65">Two icons, one story. The ice box says the job. The lobster says the island. The serif and the slab together carry weight — like a hand-painted sign that's been there longer than you have.</p>
-<ul><li><span class="bullet"></span><span><strong class="font-display">Ice box.</strong> <span style="color:rgba(14,42,56,.72)">Speaks to the trade — wholesale, retail, cold chain, dependable.</span></span></li>
-<li><span class="bullet"></span><span><strong class="font-display">Lobster.</strong> <span style="color:rgba(14,42,56,.72)">Owner's heritage. A nod to Caye Caulker's fishing community.</span></span></li>
-<li><span class="bullet"></span><span><strong class="font-display">Type lockup.</strong> <span style="color:rgba(14,42,56,.72)">Bold display + condensed support — designed to scale.</span></span></li></ul></div>
-<div class="reveal"><div class="frame"><div class="frame-glow"></div><div class="frame-card glass">
-<img src="https://vgtechandsecuritysolutions.github.io/vgtech/images/Island_Boy_Ice_Factory_Logo.png" alt="Island Boy Ice Factory logo" loading="lazy"/>
-<div class="frame-caption"><span>FILE · IBIF_Logo.png</span><span>©2021 Visual Graphics</span></div>
-</div></div></div></div></section>
+      <h1 class="hero-headline">
+        Island Boy
+        <em>Ice Factory.</em>
+        <span>Caye Caulker</span>
+      </h1>
 
-<section id="system" class="system"><div class="container">
-<div class="head reveal"><div><div class="section-tag">04 · The System</div><h2>A palette that doesn't melt under the sun.</h2></div><p style="max-width:340px;color:rgba(14,42,56,.7);margin:0">Cool blues hold the cold; coral and sand keep it human. Built for print, signage, and the inevitable Instagram repost.</p></div>
-<div class="swatches">
-<div class="swatch reveal"><div class="color" style="background:#DC2329"><span class="hex">#DC2329</span></div><div class="meta"><div class="name">#DC2329</div><div class="desc">Lobster</div></div></div>
-<div class="swatch reveal"><div class="color" style="background:#42a1d8"><span class="hex">#42A1D8</span></div><div class="meta"><div class="name">#42A1D8</div><div class="desc">Sky / background</div></div></div>
-<div class="swatch reveal"><div class="color" style="background:#497A3A"><span class="hex">#497A3A</span></div><div class="meta"><div class="name">#497A3A</div><div class="desc">Accent · Trees · Chair</div></div></div>
-<div class="swatch reveal"><div class="color" style="background:#193157"><span class="hex">#193157</span></div><div class="meta"><div class="name">#193157</div><div class="desc">Accent · Typography</div></div></div>
-<div class="swatch reveal"><div class="color" style="background:#5A9CD0"><span class="hex">#5A9CD0</span></div><div class="meta"><div class="name">#5A9CD0</div><div class="desc">Sea</div></div></div>
-<div class="swatch reveal"><div class="color" style="background:#312F88"><span class="hex">#312F88</span></div><div class="meta"><div class="name">#312F88</div><div class="desc">Ice Box</div></div></div>
-</div>
-</div></section>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          A wholesale &amp; retail ice business with island roots and a working-man's pride — rebranded with the cool weight it deserves. We took heritage, salt air, and lobsters, and pressed them into a logo that travels well on carts, bags, and stickers.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-ice">❄ Brand Identity</span>
+          <span class="chip chip-lobster">🦞 Caye Caulker</span>
+          <span class="chip chip-ice">🧊 Full System</span>
+        </div>
+      </div>
 
-<section class="marquee"><div class="marquee-track">
-<span>Logo & Branding <span class="snow">❄</span></span><span>Color System <span class="snow">❄</span></span><span>Print <span class="snow">❄</span></span><span>Signage <span class="snow">❄</span></span><span>Ice Bag Packaging <span class="snow">❄</span></span><span>Truck Wraps <span class="snow">❄</span></span><span>Social Templates <span class="snow">❄</span></span><span>Brand Guidelines <span class="snow">❄</span></span><span>Iconography <span class="snow">❄</span></span>
-<span>Logo & Branding <span class="snow">❄</span></span><span>Color System <span class="snow">❄</span></span><span>Print <span class="snow">❄</span></span><span>Signage <span class="snow">❄</span></span><span>Ice Bag Packaging <span class="snow">❄</span></span><span>Truck Wraps <span class="snow">❄</span></span><span>Social Templates <span class="snow">❄</span></span><span>Brand Guidelines <span class="snow">❄</span></span><span>Iconography <span class="snow">❄</span></span>
-</div></section>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">2021</div>
+          <div class="hstat-label">Year Delivered</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num"><span>#</span>1</div>
+          <div class="hstat-label">Brand Identity</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">6</div>
+          <div class="hstat-label">Brand Colors</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">Lobster Pride</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="process" class="process"><div class="container">
-<div class="head reveal"><div><div class="section-tag">05 · Process</div><h2>From a frozen brief<br>to a brand that ships.</h2></div><p style="max-width:340px;color:rgba(14,42,56,.7);margin:0">The Visual Graphics process — same four steps for every project, whether it's an ice factory or a fashion boutique.</p></div>
-<ol class="proc-grid">
-<li class="proc-card glass tilt-hover reveal"><div class="n">01</div><h3>Discover</h3><p>Conversations with the owner. Walks past the existing setup. Photos of the ice bags, the gulf cart, the freezer.</p></li>
-<li class="proc-card glass tilt-hover reveal"><div class="n">02</div><h3>Concept</h3><p>Three directions: literal (the box), heritage (the lobster), and a hybrid lock-up combining both stories.</p></li>
-<li class="proc-card glass tilt-hover reveal"><div class="n">03</div><h3>Refine</h3><p>We tuned proportions, tested it small (sticker), large (signage), and on a real ice bag mockup.</p></li>
-<li class="proc-card glass tilt-hover reveal"><div class="n">04</div><h3>Deliver</h3><p>Final files in every format the business needs — SVG, PNG, PDF, mono versions, social cuts.</p></li>
-</ol></div></section>
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo & Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Island Heritage</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Color System</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Ice Bag Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Gulf Cart Wrap</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Sticker Die-Cut</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Print Files</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo & Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Island Heritage</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Color System</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Ice Bag Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Gulf Cart Wrap</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Sticker Die-Cut</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Print Files</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+    </div>
+  </div>
 
-<section class="apps"><div class="container">
-<div class="reveal" style="max-width:720px"><div class="section-tag ig">06 · In the wild</div><h2>A brand that survives the sun, the salt, <em class="italic">and a 40lb ice bag.</em></h2></div>
-<div class="apps-grid">
-<div class="apps-card glass-dark reveal"><div class="icebag-bg"></div><div class="icebag"><div class="bag"><img src="https://vgtechandsecuritysolutions.github.io/vgtech/images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on bag" loading="lazy"/><div class="tag">40 LB · Caye Caulker · Belize</div></div></div><div class="lbl">Mockup · Ice bag · 40lb</div></div>
-<div class="apps-right">
-<div class="apps-mini glass-dark reveal"><div class="ttl">Gulf Cart side wrap</div><div class="apps-truck"><div class="box"><img src="https://vgtechandsecuritysolutions.github.io/vgtech/images/Island_Boy_Ice_Factory_Logo.png" alt="" loading="lazy"/></div><div class="txt">"Cold delivery,<br>island-made."</div></div></div>
-<div class="apps-mini apps-sticker reveal"><div class="ttl" style="color:rgba(255,255,255,.85)">Sticker · Round die-cut</div><div class="circle"><img src="https://vgtechandsecuritysolutions.github.io/vgtech/images/Island_Boy_Ice_Factory_Logo.png" alt="" loading="lazy"/></div></div>
-</div></div></div></section>
+  <!-- ── BRIEF ── -->
+  <section class="brief" id="story">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Brief</span>
+      </div>
+      <h2 class="section-title">Heritage on the rocks.</h2>
 
-<section class="partner"><div class="container"><div class="wrap glass reveal">
-<div><div class="section-tag">Tech Partner</div><h3>Need a website to match? Meet <em class="italic">VG Tech</em>.</h3><p style="margin-top:16px;color:rgba(14,42,56,.7);max-width:560px">Our sister brand handles web development, SEO, IT support and security — so you get design and tech under one roof.</p></div>
-<a class="vgcard" href="https://vgtechandsecuritysolutions.github.io/vgtech/index.html" target="_blank" rel="noreferrer"><div class="box"><img src="https://vgtechandsecuritysolutions.github.io/vgtech/images/VGTechLogo.png" alt="VG Tech"/></div><div><div class="ttl">VG Tech & Security</div><div class="sub">Web · SEO · IT · Security →</div></div></a>
-</div></div></section>
+      <div class="brief-layout">
+        <div>
+          <div class="brief-body">
+            <p>Island Boy Ice Factory is a wholesale &amp; retail ice business in Caye Caulker — a sandy strip of Belize where the lobster traps outnumber the lampposts. The owner came to us with one ask: a brand that respected the work behind it, and the island it came from.</p>
+            <p>No clip-art penguins. No corporate snowflakes. Something that could sit on a 40lb ice bag headed to a restaurant kitchen, on a delivery cart, and on the side of a cooler at a roadside bar — and feel equally at home in every one of those places.</p>
+            <p>The result had to travel: from a freezer shelf to a ferry dock. From a business card to the side of a golf cart. Legible at fifty feet, sharp at five inches.</p>
+          </div>
 
-<section id="quote" class="cta"><div class="cta-bg"></div><div class="container cta-grid">
-<div class="reveal" style="position:sticky;top:120px;align-self:flex-start"><div class="section-tag">07 · Start your own</div><h2>Your brand deserves<br><em class="italic">to look incredible.</em></h2><p style="margin-top:20px;color:rgba(14,42,56,.7);max-width:420px">Tell us about your business. We'll come back with a no-pressure plan, a fair price, and a clear next step.</p><div class="chips"><span class="glass">7+ projects delivered</span><span class="glass">100% custom work</span><span class="glass">Based in Belize</span></div></div>
-<div class="reveal"><form id="quoteForm" class="cta-card glass" novalidate>
-<div class="full"><div class="section-tag">Request a quote</div><h3 class="font-display" style="font-size:clamp(28px,3vw,36px);margin:8px 0 0;line-height:1.1">Let's chip away at your <em class="italic">brand</em>.</h3></div>
-<div><label for="qf-name">Your name *</label><input id="qf-name" name="name" type="text" required placeholder="Maria González"/></div>
-<div><label for="qf-email">Email *</label><input id="qf-email" name="email" type="email" required placeholder="hello@yourbusiness.bz"/></div>
-<div><label for="qf-biz">Business name</label><input id="qf-biz" name="business" type="text" placeholder="Caye Caulker Co."/></div>
-<div><label for="qf-type">Project type *</label><select id="qf-type" name="project_type" required><option value="">What do you need?</option><option>Logo Design</option><option>Full Brand Identity</option><option>Social Media Graphics</option><option>Signage / Packaging</option><option>Website Visual Design</option><option>Something else</option></select></div>
-<div><label for="qf-budget">Budget</label><select id="qf-budget" name="budget"><option value="">Pick a range</option><option>Under $500</option><option>$500 – $1,500</option><option>$1,500 – $5,000</option><option>$5,000+</option><option>Let's discuss</option></select></div>
-<div><label for="qf-time">Timeline</label><select id="qf-time" name="timeline"><option value="">When?</option><option>ASAP</option><option>Within a month</option><option>1–3 months</option><option>Flexible</option></select></div>
-<div class="full"><label for="qf-msg">Tell us about it *</label><textarea id="qf-msg" name="message" required placeholder="What does the business do? What feeling should the brand evoke?"></textarea></div>
-<div class="full row-actions"><button type="submit" class="btn btn-shimmer">Send my brief →</button><span class="hint">Opens your email · we reply within 1–2 working days.</span></div>
-</form>
-<div id="quoteSuccess" class="success glass" hidden><div class="ico">❄</div><h3 class="font-display" style="font-size:28px;margin:0 0 8px">Frozen. In a good way.</h3><p style="color:var(--muted);max-width:420px;margin:0 auto">Your email client should be open with the request ready to send. Visual Graphics will reply within 1–2 working days.</p><button class="btn btn-outline" type="button" id="quoteReset" style="margin-top:24px">Send another</button></div>
-</div></div></section>
+          <div class="meta-grid">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">Island Boy Ice Factory</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">Caye Caulker, Belize</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Discipline</div>
+              <div class="meta-val">Logo & Brand Identity</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Year</div>
+              <div class="meta-val">2021</div>
+            </div>
+          </div>
+        </div>
 
-<footer class="footer"><div class="container grid">
-<div><div class="brand"><span class="dot">i</span><span class="name">Island Boy Ice Factory</span></div><p class="fp">A brand crafted by Visual Graphics in Belize. Cold ice. Warm island. Built to last past the next dry season.</p></div>
-<div><div class="h">Explore</div><ul><li><a class="link-underline" href="#story">The Story</a></li><li><a class="link-underline" href="#logo">The Mark</a></li><li><a class="link-underline" href="#system">The System</a></li><li><a class="link-underline" href="#process">Process</a></li></ul></div>
-<div><div class="h">Get in touch</div><ul><li><a class="link-underline" href="https://wa.me/5016220740" target="_blank" rel="noreferrer">WhatsApp · +501 622 0740</a></li><li><a class="link-underline" href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a></li><li><a class="link-underline" href="https://vgtechandsecuritysolutions.github.io/vgtech/visual-graphics.html" target="_blank" rel="noreferrer">See more Visual Graphics work →</a></li></ul></div>
-</div>
-<div class="container bot"><span>© <span id="yr"></span> Island Boy Ice Factory × Visual Graphics</span><span class="geo">Caye Caulker · Belize · 17.7402° N · 88.0270° W</span></div>
-</footer>
+        <div class="brief-quote">
+          <p class="quote-text">"Make it look like us. Not like every other ice company on Google."</p>
+          <p class="quote-attr">— The brief, summarized</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-document.getElementById('yr').textContent=new Date().getFullYear();
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-let last=0;window.addEventListener('mousemove',e=>{const n=Date.now();if(n-last<32)return;last=n;const d=document.createElement('span');d.className='frost-dot';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),900)},{passive:true});
-const form=document.getElementById('quoteForm'),success=document.getElementById('quoteSuccess'),resetBtn=document.getElementById('quoteReset');
-form.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(form),name=(f.get('name')||'').toString().trim(),email=(f.get('email')||'').toString().trim(),type=(f.get('project_type')||'').toString().trim(),msg=(f.get('message')||'').toString().trim();if(!name||!email||!type||!msg){alert('Please fill the required fields (name, email, project type, message).');return}const subject=encodeURIComponent('New project enquiry — '+(f.get('business')||name)),body=encodeURIComponent(`Hi Visual Graphics,\n\nName: ${name}\nEmail: ${email}\nBusiness: ${f.get('business')||'—'}\nProject type: ${type}\nBudget: ${f.get('budget')||'—'}\nTimeline: ${f.get('timeline')||'—'}\n\nMessage:\n${msg}\n\n— Sent from islandboyicefactory.html`);window.location.href=`mailto:visualgraphicscc@gmail.com?subject=${subject}&body=${body}`;form.hidden=true;success.hidden=false;success.scrollIntoView({behavior:'smooth',block:'center'})});
-resetBtn.addEventListener('click',()=>{form.reset();form.hidden=false;success.hidden=true;form.scrollIntoView({behavior:'smooth',block:'center'})});
-const navX=document.getElementById('nav-x'),mq=window.matchMedia('(min-width: 980px)'),applyMq=()=>navX.style.display=mq.matches?'inline':'none';applyMq();mq.addEventListener('change',applyMq);
-</script>
+  <!-- ── DNA ── -->
+  <section class="dna" id="dna">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · Brand DNA</span>
+      </div>
+      <h2 class="section-title">Three pillars carved<br>from the same block.</h2>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <span class="pillar-icon">🌴</span>
+          <div class="pillar-name">Rooted</div>
+          <p class="pillar-desc">The lobster — a daily reality on Caye Caulker — anchors the mark in place. It's not decoration, it's a passport. Every element of the brand traces back to island identity.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <span class="pillar-icon">📦</span>
+          <div class="pillar-name">Reliable</div>
+          <p class="pillar-desc">The ice box silhouette is steady, square, dependable. Restaurants run on the assumption their ice will arrive fresh and on time. The brand reflects that contract.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <span class="pillar-icon">👁</span>
+          <div class="pillar-name">Recognizable</div>
+          <p class="pillar-desc">Bold typography and high-contrast color make the brand legible across a bag of ice in a freezer or on the back of a delivery cart at full speed down Caye Caulker's main strip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOGO ── -->
+  <section class="logo-section" id="logo">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Mark</span>
+      </div>
+      <h2 class="section-title">A logo that reads<br><em style="font-style:italic;color:var(--lobster)">at fifty feet</em><br>and on a sticker.</h2>
+
+      <div class="logo-layout">
+        <div>
+          <p class="section-desc" style="margin-bottom:2rem">Two icons, one story. The ice box says the job. The lobster says the island. The serif and the slab together carry weight — like a hand-painted sign that's been there longer than you have.</p>
+
+          <div class="logo-facts">
+            <div class="logo-fact">
+              <span class="fact-icon">🧊</span>
+              <div class="fact-body">
+                <div class="fact-name">The Ice Box</div>
+                <p class="fact-desc">Speaks directly to the trade — wholesale, retail, cold chain. Square, dependable. The first thing a restaurant buyer should feel is trust.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">🦞</span>
+              <div class="fact-body">
+                <div class="fact-name">The Lobster</div>
+                <p class="fact-desc">Owner's heritage. A direct nod to Caye Caulker's fishing community and what makes the island run. It earns the word "Island" in the name.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">🔤</span>
+              <div class="fact-body">
+                <div class="fact-name">The Type Lockup</div>
+                <p class="fact-desc">Bold display paired with condensed support — designed to scale from a sticker to signage without losing presence or legibility.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">🎯</span>
+              <div class="fact-body">
+                <div class="fact-name">The Principle</div>
+                <p class="fact-desc">Every element earns its place. Nothing is decoration. If it doesn't reinforce the business or the island, it doesn't ship.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="logo-showcase">
+          <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Island Boy Ice Factory Logo"/>
+          <div class="logo-file-tag">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            FILE · IBIF_Logo.png · ©2021 Visual Graphics
+          </div>
+          <div class="logo-variations">
+            <div class="logo-var lv-dark">
+              <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on dark"/>
+            </div>
+            <div class="logo-var lv-light">
+              <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on light"/>
+            </div>
+            <div class="logo-var lv-sky">
+              <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on sky"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PALETTE ── -->
+  <section class="palette-section" id="system">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · The System</span>
+      </div>
+      <h2 class="section-title">A palette that doesn't melt<br>under the sun.</h2>
+      <p class="section-desc">Cool blues hold the cold; coral and sand keep it human. Built for print, signage, and the inevitable Instagram repost from a happy customer.</p>
+
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DC2329"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Lobster</div>
+            <div class="swatch-hex">#DC2329</div>
+            <div class="swatch-role" style="color:#DC2329">Primary · Accent</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#42A1D8"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Sky</div>
+            <div class="swatch-hex">#42A1D8</div>
+            <div class="swatch-role" style="color:#42A1D8">Background · Ice</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#497A3A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Trees</div>
+            <div class="swatch-hex">#497A3A</div>
+            <div class="swatch-role" style="color:#497A3A">Accent · Nature</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#193157"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Deep</div>
+            <div class="swatch-hex">#193157</div>
+            <div class="swatch-role" style="color:#193157">Typography · Dark</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#5A9CD0"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Sea</div>
+            <div class="swatch-hex">#5A9CD0</div>
+            <div class="swatch-role" style="color:#5A9CD0">Secondary · Water</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#312F88"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Ice Box</div>
+            <div class="swatch-hex">#312F88</div>
+            <div class="swatch-role" style="color:#312F88">Icon · Deep Accent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · Process</span>
+      </div>
+      <h2 class="section-title">From a frozen brief<br>to a brand that ships.</h2>
+      <p class="section-desc">The Visual Graphics process — same four steps for every project, whether it's an ice factory or a fashion boutique.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Discover</div>
+          <p class="pstep-desc">Conversations with the owner. Walks past the existing setup. Photos of the ice bags, the golf cart, the freezer — finding what was already working and what wasn't.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Concept</div>
+          <p class="pstep-desc">Three directions: literal (the box), heritage (the lobster), and a hybrid lockup combining both stories. The third direction was always going to win.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Refine</div>
+          <p class="pstep-desc">We tuned proportions, tested it small (sticker), large (signage), and on a real ice bag mockup — until every weight and curve felt earned.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Deliver</div>
+          <p class="pstep-desc">Final files in every format the business needs — SVG, PNG, PDF, mono versions, social cuts. Ready for the bag printer, the sign shop, and the feed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── APPLICATIONS ── -->
+  <section class="apps-section" id="wild">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · In the Wild</span>
+      </div>
+      <h2 class="section-title">A brand that survives<br>the sun, the salt,<br><em style="font-style:italic;color:var(--sky)">and a 40lb ice bag.</em></h2>
+
+      <div class="apps-grid">
+        <div class="app-card wide">
+          <div class="app-visual app-bg-bag">
+            <div class="app-logo-wrap">
+              <div class="bag-mock">
+                <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on ice bag"/>
+              </div>
+            </div>
+          </div>
+          <div class="app-info">
+            <div class="app-name">Ice Bag · 40lb</div>
+            <p class="app-desc">The logo holds up at every scale. Bold enough to read through condensation on a freezer shelf. Clean enough to photograph well for social.</p>
+            <span class="app-tag">Primary Application</span>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-visual app-bg-cart">
+            <div class="app-logo-wrap">
+              <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Logo on golf cart"/>
+            </div>
+          </div>
+          <div class="app-info">
+            <div class="app-name">Golf Cart Side Wrap</div>
+            <p class="app-desc">The island's delivery vehicle — the brand rides it daily through Caye Caulker's sandy streets.</p>
+            <span class="app-tag">Signage</span>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-visual app-bg-sticker">
+            <div class="app-logo-wrap">
+              <div class="sticker-ring">
+                <img src="images/Island_Boy_Ice_Factory_Logo.png" alt="Round sticker"/>
+              </div>
+            </div>
+          </div>
+          <div class="app-info">
+            <div class="app-name">Sticker · Round Die-Cut</div>
+            <p class="app-desc">A round die-cut sticker that ends up on coolers, boats, and windows all over the island.</p>
+            <span class="app-tag">Collateral</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliverables-ticker" aria-hidden="true">
+        <div class="del-track">
+          <span class="del-item"><span class="del-dot"></span>Logo & Branding</span>
+          <span class="del-item"><span class="del-dot"></span>Color System</span>
+          <span class="del-item"><span class="del-dot"></span>Print Files</span>
+          <span class="del-item"><span class="del-dot"></span>Signage</span>
+          <span class="del-item"><span class="del-dot"></span>Ice Bag Packaging</span>
+          <span class="del-item"><span class="del-dot"></span>Cart Wraps</span>
+          <span class="del-item"><span class="del-dot"></span>Social Templates</span>
+          <span class="del-item"><span class="del-dot"></span>Brand Guidelines</span>
+          <span class="del-item"><span class="del-dot"></span>Sticker Die-Cut</span>
+          <span class="del-item"><span class="del-dot"></span>SVG · PNG · PDF</span>
+          <span class="del-item"><span class="del-dot"></span>Logo & Branding</span>
+          <span class="del-item"><span class="del-dot"></span>Color System</span>
+          <span class="del-item"><span class="del-dot"></span>Print Files</span>
+          <span class="del-item"><span class="del-dot"></span>Signage</span>
+          <span class="del-item"><span class="del-dot"></span>Ice Bag Packaging</span>
+          <span class="del-item"><span class="del-dot"></span>Cart Wraps</span>
+          <span class="del-item"><span class="del-dot"></span>Social Templates</span>
+          <span class="del-item"><span class="del-dot"></span>Brand Guidelines</span>
+          <span class="del-item"><span class="del-dot"></span>Sticker Die-Cut</span>
+          <span class="del-item"><span class="del-dot"></span>SVG · PNG · PDF</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline">
+        Your brand deserves<br>to look <em>incredible.</em>
+      </h2>
+      <p class="cta-sub">Reach out and let's talk about what your business needs. Every great brand starts with a conversation.</p>
+      <div class="cta-actions">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
