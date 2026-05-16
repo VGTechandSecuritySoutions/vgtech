@@ -1,228 +1,846 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Iliany's Fashion Boutique | Visual Graphics Project</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iliany's Fashion Boutique — Visual Graphics Case Study</title>
+  <meta name="description" content="Iliany's Fashion Boutique — a Visual Graphics logo & brand identity case study. Designed for a growing lifestyle boutique in San Narciso, Corozal, Belize."/>
+  <meta property="og:title" content="Iliany's Fashion Boutique — Visual Graphics Case Study"/>
+  <meta property="og:description" content="Logo design that elevated a small clothing shop into a recognizable lifestyle and home goods brand in Corozal, Belize."/>
+  <meta property="og:image" content="images/Iliany'sFashionMain.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --bg:       #fdf6f9;
+      --bg2:      #f5e8ef;
+      --ink:      #1a0812;
+      --ink2:     #3a1428;
+      --muted:    #8a5a70;
+      --accent:   #c4326a;
+      --accent2:  #f07aa0;
+      --accent3:  #8a1a4a;
+      --border:   rgba(26,8,18,0.1);
+      --card:     #fff5f9;
+      /* Brand palette — Iliany's */
+      --rose:     #c4326a;
+      --blush:    #f07aa0;
+      --petal:    #ffd4e8;
+      --deep:     #1a0510;
+      --plum:     #2d0d1e;
+      --mauve:    #7a2a50;
+      --night:    #0d0308;
+      --cream:    #fff9fb;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #0a0f1c;
-      color: #f9e6f1;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
+    /* ── NAV ── */
     nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background: #050910;
-      position: sticky;
-      top: 0;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(253,246,249,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta { background: var(--rose); color: #fff; padding: 0.5rem 1.3rem; border-radius: 100px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
     }
 
-    nav h3 {
-      color: #fa99cc;
+    /* Background fashion word */
+    .hero-bg-word {
+      position: absolute; bottom: -0.12em; left: -0.04em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(12rem, 25vw, 32rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(196,50,106,0.07);
+      pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -0.01em;
     }
 
-    nav a {
-      color: #f9e6f1;
-      margin-left: 20px;
-      text-decoration: none;
+    /* Rose blobs */
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+    .hb1 { width: 650px; height: 650px; background: rgba(196,50,106,0.12); top: -200px; right: -100px; animation: drift 11s ease-in-out infinite alternate; }
+    .hb2 { width: 380px; height: 380px; background: rgba(240,122,160,0.08); bottom: 5%; left: 5%; animation: drift 14s ease-in-out infinite alternate-reverse; }
+    .hb3 { width: 220px; height: 220px; background: rgba(122,42,80,0.1); top: 40%; left: 38%; animation: drift 9s ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(20px, 15px) scale(1.04); } }
+
+    /* Vertical light streak */
+    .hero-streak { position: absolute; top: 0; left: 62%; width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, rgba(240,122,160,0.18) 50%, transparent); }
+
+    /* Floating badge */
+    .hero-badge { position: absolute; top: 7rem; right: 4rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; animation: fadeIn 1s 0.6s ease both; opacity: 0; }
+    .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--blush); letter-spacing: 0.08em; line-height: 1; }
+
+    /* Status pill */
+    .hero-pill { position: absolute; top: 7rem; left: 4rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(196,50,106,0.15); border: 1px solid rgba(196,50,106,0.3); border-radius: 100px; padding: 0.5rem 1.1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blush); animation: fadeIn 0.8s 0.4s ease both; opacity: 0; }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--rose); display: inline-block; }
+    .eyebrow-text { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blush); }
+
+    .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.03em; color: #fff; margin-bottom: 2rem; animation: fadeUp 0.6s 0.1s ease both; opacity: 0; animation-fill-mode: both; }
+    .hero-headline em { font-style: italic; color: var(--rose); display: block; }
+    .hero-headline .sub { font-family: 'Outfit', sans-serif; font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 300; color: rgba(255,255,255,0.4); letter-spacing: 0.01em; display: block; margin-top: 0.5rem; }
+
+    .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.2s ease both; opacity: 0; animation-fill-mode: both; }
+    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 420px; line-height: 1.75; }
+    .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+    .chip-rose { background: rgba(196,50,106,0.15); border: 1px solid rgba(196,50,106,0.3); color: var(--blush); }
+    .chip-night { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+    .hero-stats { display: flex; gap: 0; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; animation: fadeUp 0.6s 0.3s ease both; opacity: 0; animation-fill-mode: both; }
+    .hstat { flex: 1; padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.07); margin-right: 2rem; }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.04em; line-height: 1; }
+    .hstat-num span { color: var(--rose); }
+    .hstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── TICKER ── */
+    .ticker-wrap { background: var(--rose); padding: 0.7rem 0; overflow: hidden; }
+    .ticker-track { display: flex; width: max-content; animation: ticker 22s linear infinite; }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 2rem; white-space: nowrap; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); flex-shrink: 0; }
+
+    /* ── SHARED ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    section { position: relative; }
+    .section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.98rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.75; }
+
+    /* ── STORY ── */
+    .story { padding: 7rem 0; background: var(--bg); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body p { font-size: 0.97rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    /* Growth card */
+    .growth-card { background: var(--plum); border-radius: 20px; padding: 2rem 2.5rem; margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .growth-icon { font-size: 2rem; flex-shrink: 0; }
+    .growth-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .growth-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; }
+    .growth-arrow { margin-left: auto; flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--blush); }
+
+    /* Meta grid */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 2rem; }
+    .meta-cell { background: var(--card); padding: 1.2rem 1.5rem; }
+    .meta-key { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+    /* Boutique visual */
+    .boutique-scene {
+      background: var(--night);
+      border-radius: 24px; padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      min-height: 400px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .boutique-scene::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 65% 50% at 50% 30%, rgba(196,50,106,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 55% at 80% 65%, rgba(240,122,160,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle at top, #a15688, #050910);
+    /* Shimmer lines like fabric */
+    .fabric-lines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden; }
+    .fline {
+      position: absolute; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(240,122,160,0.12), transparent);
+      animation: shimmer 6s ease-in-out infinite;
+    }
+    .fline:nth-child(1) { left: 20%; animation-delay: 0s; }
+    .fline:nth-child(2) { left: 40%; animation-delay: 1s; }
+    .fline:nth-child(3) { left: 60%; animation-delay: 2s; }
+    .fline:nth-child(4) { left: 80%; animation-delay: 3s; }
+    @keyframes shimmer { 0%, 100% { opacity: 0.3; transform: scaleY(0.9); } 50% { opacity: 1; transform: scaleY(1.05); } }
+
+    .boutique-hanger {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -58%);
+      font-size: 5.5rem;
+      filter: drop-shadow(0 0 30px rgba(196,50,106,0.5));
+      z-index: 1;
+      animation: sway 5s ease-in-out infinite;
+    }
+    @keyframes sway { 0%, 100% { transform: translate(-50%, -58%) rotate(-4deg); } 50% { transform: translate(-50%, -58%) rotate(4deg); } }
+
+    /* Sparkle dots */
+    .sparkles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+    .sparkle {
+      position: absolute; width: 3px; height: 3px; border-radius: 50%;
+      background: rgba(240,122,160,0.6);
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1); } }
+
+    .boutique-lights { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.8rem; z-index: 2; }
+    .boutique-light { width: 8px; height: 8px; border-radius: 50%; background: var(--blush); box-shadow: 0 0 12px var(--rose), 0 0 4px var(--blush); animation: glow 2.5s ease-in-out infinite; }
+    .boutique-light:nth-child(2) { animation-delay: 0.4s; }
+    .boutique-light:nth-child(3) { animation-delay: 0.8s; }
+    .boutique-light:nth-child(4) { animation-delay: 1.2s; }
+    .boutique-light:nth-child(5) { animation-delay: 1.6s; }
+    @keyframes glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .boutique-caption { position: relative; z-index: 2; text-align: center; }
+    .boutique-caption-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 0.3rem; }
+    .boutique-caption-sub { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── SCOPE ── */
+    .scope { padding: 7rem 0; background: var(--plum); overflow: hidden; }
+    .scope::before { content: 'STYLE'; position: absolute; bottom: -0.1em; right: -0.05em; font-family: 'Bebas Neue', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(196,50,106,0.07); pointer-events: none; line-height: 1; }
+    .scope .section-title { color: #fff; }
+    .scope .section-label { color: var(--blush); }
+    .scope .eyebrow-line { background: var(--blush); }
+
+    .scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .scope-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.2rem; transition: transform 0.3s, background 0.3s; }
+    .scope-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+    .scope-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .scope-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .scope-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.7; }
+    .scope-card:nth-child(1) { border-top: 2px solid var(--rose); }
+    .scope-card:nth-child(2) { border-top: 2px solid var(--blush); }
+    .scope-card:nth-child(3) { border-top: 2px solid var(--mauve); }
+    .scope-card:nth-child(4) { border-top: 2px solid rgba(196,50,106,0.4); }
+    .scope-card:nth-child(5) { border-top: 2px solid rgba(240,122,160,0.4); }
+    .scope-card:nth-child(6) { border-top: 2px solid rgba(122,42,80,0.5); }
+
+    /* ── LOGO SECTION ── */
+    .logo-section { padding: 7rem 0; background: var(--bg); }
+    .logo-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Logo showcase */
+    .logo-showcase { background: var(--night); border-radius: 24px; padding: 4rem 3rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; position: sticky; top: 6rem; box-shadow: 0 24px 60px rgba(26,5,16,0.3); overflow: hidden; }
+    .logo-showcase::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(196,50,106,0.18) 0%, transparent 70%); pointer-events: none; }
+    .logo-showcase::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(240,122,160,0.1) 0%, transparent 70%); pointer-events: none; }
+    .logo-showcase img { width: 100%; max-width: 280px; height: auto; filter: drop-shadow(0 8px 28px rgba(196,50,106,0.3)); transition: transform 0.4s; position: relative; z-index: 1; }
+    .logo-showcase:hover img { transform: scale(1.06); }
+    .logo-file-tag { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.07em; }
+    .logo-variations { display: flex; gap: 1rem; width: 100%; }
+    .logo-var { flex: 1; border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; }
+    .logo-var img { width: 100%; max-width: 80px; height: auto; object-fit: contain; }
+    .lv-black { background: #000; }
+    .lv-white { background: #fff; }
+    .lv-rose  { background: var(--rose); }
+
+    /* Logo facts */
+    .logo-facts { display: flex; flex-direction: column; gap: 0; }
+    .logo-fact { display: flex; gap: 1.2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .logo-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+    .fact-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── BRAND EXPANSION SECTION ── */
+    .expansion-section { padding: 7rem 0; background: var(--bg2); }
+    .expansion-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    .expansion-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
+    .expansion-headline em { font-style: italic; color: var(--rose); }
+    .expansion-body p { font-size: 0.95rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1rem; }
+
+    .spec-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .spec-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.4rem; background: var(--card); border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--muted); font-weight: 500; }
+    .spec-val { color: var(--ink); font-weight: 600; }
+
+    /* Product categories card */
+    .categories-card { background: var(--night); border: 1px solid rgba(196,50,106,0.2); border-radius: 24px; padding: 3rem 2.5rem; }
+    .categories-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.08em; color: var(--rose); line-height: 1; margin-bottom: 0.5rem; }
+    .categories-sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); font-weight: 400; letter-spacing: 0.04em; margin-bottom: 1.8rem; }
+    .category-items { display: flex; flex-direction: column; gap: 0.75rem; }
+    .category-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.65); font-weight: 400; }
+    .category-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .category-check { margin-left: auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blush); background: rgba(196,50,106,0.12); border: 1px solid rgba(196,50,106,0.2); border-radius: 100px; padding: 0.2rem 0.6rem; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 7rem 0; background: var(--bg); }
+    .process-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; }
+    .process-steps-grid::before { content: ''; position: absolute; top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 1px; background: linear-gradient(to right, var(--rose), var(--blush), var(--mauve), var(--rose)); z-index: 0; }
+    .pstep { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.5rem; position: relative; z-index: 1; transition: transform 0.3s, box-shadow 0.3s; }
+    .pstep:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,8,18,0.1); }
+    .pstep-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .pstep:nth-child(1) .pstep-num { background: var(--rose); }
+    .pstep:nth-child(2) .pstep-num { background: var(--blush); }
+    .pstep:nth-child(3) .pstep-num { background: var(--mauve); }
+    .pstep:nth-child(4) .pstep-num { background: linear-gradient(135deg, var(--rose), var(--blush)); }
+    .pstep-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .pstep-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── IMPACT ── */
+    .impact-section { padding: 7rem 0; background: var(--rose); overflow: hidden; position: relative; }
+    .impact-section::before { content: 'BRAND'; position: absolute; right: -0.05em; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 24vw; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.08); pointer-events: none; line-height: 1; }
+    .impact-section .section-title { color: #fff; }
+    .impact-section .section-label { color: rgba(255,255,255,0.7); }
+    .impact-section .eyebrow-line { background: rgba(255,255,255,0.6); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .impact-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.18); }
+    .impact-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: #fff; letter-spacing: 0.04em; line-height: 1; margin-bottom: 0.5rem; }
+    .impact-label { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+    .impact-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 9rem 0; background: var(--bg); text-align: center; overflow: hidden; position: relative; }
+    .cta-section::before { content: 'STYLE'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-5deg); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 1px rgba(26,8,18,0.04); pointer-events: none; white-space: nowrap; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: italic; color: var(--rose); }
+    .cta-sub { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--rose); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(196,50,106,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,50,106,0.4); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--ink); font-weight: 500; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--rose); background: rgba(196,50,106,0.04); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: rgba(253,246,249,0.8); }
+    .footer-copy { font-size: 0.78rem; color: rgba(253,246,249,0.35); }
+    .footer-email a { font-size: 0.82rem; color: var(--blush); text-decoration: none; }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-pill, .hero-badge { display: none; }
+      .hero-stats { flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+      .container { padding: 0 1.5rem; }
+      .story-layout, .logo-layout, .expansion-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+      .logo-showcase { position: static; }
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #f9a8d4;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #f3cfff;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #f9a8d4;
-    }
-
-    .card-container {
-      display: grid;
-      gap: 25px;
-    }
-
-    .card {
-      background: rgba(161, 86, 136, 0.5);
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid rgba(249,168,212,0.2);
-      backdrop-filter: blur(10px);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px rgba(249,168,212,0.3);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #f9a8d4;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #050910;
-      text-align: center;
-      padding: 20px;
-      color: #f3cfff;
-      border-top: 1px solid rgba(249,168,212,0.2);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.6s;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: #fa99cc;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
+    @media (max-width: 580px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
+    </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
 
-<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-streak"></div>
+    <div class="hero-bg-word">BOUTIQUE</div>
 
-<header>
-  <h1>Iliany's Fashion Boutique</h1>
-  <p><strong>Logo Design for a Growing Boutique & Lifestyle Store</strong></p>
-  <p>
-    Branding created to represent a versatile boutique in San Narciso, Corozal, Belize, offering clothing, home products, and more.
-  </p>
-</header>
-
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Iliany's Fashion Boutique started as a small clothing and accessories shop and has expanded to offer a wide range of products imported directly from the United States, including clothes, kitchen appliances, electronics, vitamins, toys, and more.
-  </p>
-
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    The boutique operates by sourcing products via vehicles packed in the US and transported through Mexico to Belize, giving customers access to a variety of high-quality goods at competitive prices.
-  </p>
-</section>
-
-<section>
-  <h2>Design Approach</h2>
-  <div class="card-container">
-
-    <div class="card fade-up">
-      <h3>Logo Design</h3>
-      <img src="images/Iliany'sFashionMain.png" alt="Iliany's Fashion Boutique Logo">
-      <p>
-        The logo features a hanger to represent fashion and within it, a cup symbolizing home and kitchen products. This design creates a cohesive identity that reflects the boutique’s expansion from clothing to a variety of lifestyle products.
-      </p>
-      <p style="margin-top:10px;">
-        The goal was to make the boutique appear professional, trustworthy, and recognizable, helping Iliany establish a strong presence in Corozal’s market.
-      </p>
+    <div class="hero-pill">
+      <span class="pill-dot"></span>
+      Live · Corozal, Belize
     </div>
 
+    <div class="hero-badge">
+      <span class="badge-label">Designed</span>
+      <span class="badge-val">2024</span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics Case Study · Logo & Brand Identity</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Iliany's
+        <em>Fashion Boutique.</em>
+        <span class="sub">A growing lifestyle brand in San Narciso, Corozal.</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          A logo designed to carry a business beyond clothing — built to represent a diverse, growing lifestyle boutique importing quality goods from the United States directly to Corozal, Belize.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-rose">👗 Logo Design</span>
+          <span class="chip chip-rose">🎨 Brand Identity</span>
+          <span class="chip chip-night">🏪 Lifestyle Retail</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num"><span>1</span></div>
+          <div class="hstat-label">Powerful Mark</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">2</div>
+          <div class="hstat-label">Symbols in One Logo</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">6<span>+</span></div>
+          <div class="hstat-label">Product Categories</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100<span>%</span></div>
+          <div class="hstat-label">Custom Work</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Fashion & Lifestyle</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Symbol Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Corozal · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> US Imports</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Boutique Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Clothing & Home Goods</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Professional Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Growing Business</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Fashion & Lifestyle</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Symbol Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Corozal · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> US Imports</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Boutique Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Clothing & Home Goods</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Professional Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Growing Business</span>
+    </div>
   </div>
-</section>
 
-<section>
-  <h2>Real Business Impact</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    The new logo helped Iliany's Fashion Boutique look more legitimate and professional, strengthening customer trust. It communicates the business’s growth and versatility, showing that it’s more than just a clothing store, but a complete lifestyle and home goods shop.
-  </p>
-</section>
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Story</span>
+      </div>
+      <h2 class="section-title">From clothing seller<br>to a full lifestyle brand.</h2>
 
-<section>
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center;">
-    Build a professional identity that grows with your business.
-  </p>
+      <div class="story-layout">
+        <div>
+          <div class="story-body">
+            <p>Iliany's Fashion Boutique started the way a lot of great businesses do — with one thing done really well. In this case, clothing and accessories sourced with care and sold to a loyal local clientele in San Narciso, Corozal.</p>
+            <p>But the business grew. Iliany expanded beyond apparel into home products, kitchen appliances, electronics, vitamins, toys, and more — all sourced directly from the United States and brought to Belize through a unique import operation that gives customers access to quality goods at competitive prices.</p>
+            <p>The problem: the brand hadn't kept up. A growing, multi-category business needs a visual identity that communicates all of that at a glance — professional, versatile, and immediately recognizable. That's exactly what the logo needed to deliver.</p>
+          </div>
 
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
-    </a>
-  </div>
-</section>
+          <div class="growth-card">
+            <span class="growth-icon">📈</span>
+            <div>
+              <div class="growth-title">Clothing Shop → Full Lifestyle & Home Goods Boutique</div>
+              <p class="growth-desc">The brand had outgrown its identity. One logo needed to represent fashion, home, and everything in between — without looking like it was trying to do too much.</p>
+            </div>
+            <span class="growth-arrow">REBRAND →</span>
+          </div>
 
-</main>
+          <div class="meta-grid">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">Iliany's Fashion Boutique</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">San Narciso, Corozal, Belize</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Discipline</div>
+              <div class="meta-val">Logo & Brand Identity</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Status</div>
+              <div class="meta-val">Live · In Active Use</div>
+            </div>
+          </div>
+        </div>
 
-<footer>
-  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
-</footer>
+        <!-- Boutique scene visual -->
+        <div class="boutique-scene">
+          <div class="fabric-lines">
+            <div class="fline"></div>
+            <div class="fline"></div>
+            <div class="fline"></div>
+            <div class="fline"></div>
+          </div>
+          <div class="sparkles">
+            <div class="sparkle" style="top:15%;left:20%;animation-delay:0s;"></div>
+            <div class="sparkle" style="top:25%;left:70%;animation-delay:0.7s;"></div>
+            <div class="sparkle" style="top:40%;left:85%;animation-delay:1.4s;"></div>
+            <div class="sparkle" style="top:12%;left:50%;animation-delay:2.1s;"></div>
+            <div class="sparkle" style="top:30%;left:35%;animation-delay:0.4s;"></div>
+            <div class="sparkle" style="top:20%;left:90%;animation-delay:1.8s;"></div>
+          </div>
+          <div class="boutique-lights">
+            <div class="boutique-light"></div>
+            <div class="boutique-light"></div>
+            <div class="boutique-light"></div>
+            <div class="boutique-light"></div>
+            <div class="boutique-light"></div>
+          </div>
+          <div class="boutique-hanger">👗</div>
+          <div class="boutique-caption">
+            <div class="boutique-caption-title">"More than a clothing store."</div>
+            <div class="boutique-caption-sub">San Narciso · Corozal · Belize</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const pos = el.getBoundingClientRect().top;
-      if (pos < window.innerHeight - 100) {
-        el.classList.add('show');
-      }
-    });
-  };
+  <!-- SCOPE -->
+  <section class="scope" id="scope">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · Scope of Work</span>
+      </div>
+      <h2 class="section-title">One logo. Every product.<br><em style="font-style:italic;color:var(--blush)">One clear identity.</em></h2>
 
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+      <div class="scope-grid">
+        <div class="scope-card">
+          <span class="scope-icon">✏️</span>
+          <div class="scope-name">Logo Concept & Design</div>
+          <p class="scope-desc">A custom logo crafted from scratch — no templates, no stock icons. The mark was designed specifically to represent Iliany's multi-category business with a single, clever visual.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🎭</span>
+          <div class="scope-name">Dual Symbol Design</div>
+          <p class="scope-desc">The defining creative challenge: hiding a cup inside a hanger. Fashion and home goods — two categories — united in one elegant mark that tells the brand's full story without a single word.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🎨</span>
+          <div class="scope-name">Color System</div>
+          <p class="scope-desc">A color palette selected to feel aspirational and trustworthy — premium enough for a boutique, accessible enough for a community shop. Consistent across every application.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🔤</span>
+          <div class="scope-name">Typography</div>
+          <p class="scope-desc">Type selections that communicate the boutique's personality: stylish but approachable, modern but warm. Lettering that works on signage, social media, and printed tags.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">📐</span>
+          <div class="scope-name">Scale & Versatility Testing</div>
+          <p class="scope-desc">The logo was tested across multiple scales — from a social media profile icon to a printed banner — ensuring it holds up everywhere the boutique puts its name.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">📁</span>
+          <div class="scope-name">File Delivery</div>
+          <p class="scope-desc">Full file package delivered in all formats — vector, PNG, and print-ready PDF — covering both light and dark background variants for maximum flexibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SECTION -->
+  <section class="logo-section" id="logo">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Mark</span>
+      </div>
+      <h2 class="section-title">Two symbols.<br><em style="font-style:italic;color:var(--rose)">One perfect logo.</em></h2>
+
+      <div class="logo-layout">
+        <div class="logo-showcase">
+          <img src="images/Iliany'sFashionMain.png" alt="Iliany's Fashion Boutique Logo"/>
+          <div class="logo-file-tag">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            FILE · IFB_Logo.png · ©2024 Visual Graphics
+          </div>
+          <div class="logo-variations">
+            <div class="logo-var lv-black">
+              <img src="images/Iliany'sFashionMain.png" alt="Logo on black"/>
+            </div>
+            <div class="logo-var lv-white">
+              <img src="images/Iliany'sFashionMain.png" alt="Logo on white"/>
+            </div>
+            <div class="logo-var lv-rose">
+              <img src="images/Iliany'sFashionMain.png" alt="Logo on rose"/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-desc" style="margin-bottom:2rem">The brief was clear but the challenge was real: design a logo that instantly communicates both fashion and home goods without feeling cluttered or generic. The solution was a clever piece of visual storytelling — a hanger with a cup hidden within it.</p>
+
+          <div class="logo-facts">
+            <div class="logo-fact">
+              <span class="fact-icon">🪝</span>
+              <div>
+                <div class="fact-name">The Hanger — Fashion at the Core</div>
+                <p class="fact-desc">The hanger is the most universally recognized symbol in retail fashion. It immediately communicates clothing, boutique, and style — anchoring the logo in the business's original identity and primary category.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">☕</span>
+              <div>
+                <div class="fact-name">The Cup — Home & Lifestyle Inside</div>
+                <p class="fact-desc">Nested within the hanger is a cup — a symbol of home, kitchen, and everyday life. It's the creative element that elevates the logo from a clothing mark to a full lifestyle brand identity, without adding visual noise.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">🔍</span>
+              <div>
+                <div class="fact-name">Hidden Detail, Lasting Impression</div>
+                <p class="fact-desc">Logos that reward a second look are logos people remember. When customers notice the cup inside the hanger, the brand sticks. It becomes a conversation piece and a mark of thoughtful, professional design.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">📱</span>
+              <div>
+                <div class="fact-name">Built for Every Surface</div>
+                <p class="fact-desc">From a Facebook profile photo to a printed label to a shopfront sign — the mark was tested and refined to work clearly at every scale, on every surface the boutique would use it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND EXPANSION SECTION -->
+  <section class="expansion-section" id="expansion">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · A Brand Built to Grow</span>
+      </div>
+      <h2 class="section-title">From San Narciso<br>to your doorstep.</h2>
+
+      <div class="expansion-layout">
+        <div>
+          <h3 class="expansion-headline">One identity that covers <em>every aisle.</em></h3>
+          <div class="expansion-body">
+            <p>Iliany's operates a unique import model — goods are packed in the United States and transported through Mexico directly to Belize. That means customers get access to quality products they'd otherwise have to travel for, at prices that make sense locally.</p>
+            <p>The brand needed to carry that breadth. A logo that only said "fashion" would undercut the full offering. A logo that tried to show everything would look chaotic. The solution was elegant — communicate breadth through symbolism, not imagery.</p>
+            <p>The result is a brand mark that grows with the business. Whether Iliany adds new product lines, opens additional locations, or scales her import operation, the logo holds. It doesn't need updating — it was built for where the business is going, not just where it started.</p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Business Type</span><span class="spec-val">Lifestyle & Fashion Boutique</span></div>
+            <div class="spec-row"><span class="spec-key">Import Origin</span><span class="spec-val">United States via Mexico</span></div>
+            <div class="spec-row"><span class="spec-key">Market</span><span class="spec-val">San Narciso, Corozal, Belize</span></div>
+            <div class="spec-row"><span class="spec-key">Logo Versatility</span><span class="spec-val">Fashion + Home + Lifestyle</span></div>
+            <div class="spec-row"><span class="spec-key">Files Delivered</span><span class="spec-val">SVG · PNG · PDF · All Variants</span></div>
+          </div>
+        </div>
+
+        <div class="categories-card">
+          <div class="categories-title">What She Sells</div>
+          <div class="categories-sub">One brand. Every category.</div>
+          <div class="category-items">
+            <div class="category-item">
+              <span class="category-item-icon">👗</span>
+              Clothing & Fashion
+              <span class="category-check">Core ✓</span>
+            </div>
+            <div class="category-item">
+              <span class="category-item-icon">👟</span>
+              Accessories & Footwear
+              <span class="category-check">Core ✓</span>
+            </div>
+            <div class="category-item">
+              <span class="category-item-icon">🍳</span>
+              Kitchen Appliances
+              <span class="category-check">Live ✓</span>
+            </div>
+            <div class="category-item">
+              <span class="category-item-icon">📱</span>
+              Electronics
+              <span class="category-check">Live ✓</span>
+            </div>
+            <div class="category-item">
+              <span class="category-item-icon">🧸</span>
+              Toys & Children's Items
+              <span class="category-check">Live ✓</span>
+            </div>
+            <div class="category-item">
+              <span class="category-item-icon">💊</span>
+              Vitamins & Wellness
+              <span class="category-check">Live ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · Process</span>
+      </div>
+      <h2 class="section-title">From brief to a<br>brand that sticks.</h2>
+      <p class="section-desc">Every Visual Graphics project follows the same four steps. With Iliany's, the creative challenge was in step two — finding that hidden symbol that said it all.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Discover</div>
+          <p class="pstep-desc">We dug into the business — its products, its customers, its ambitions. Understanding that Iliany's wasn't just a clothing store anymore was the insight that shaped everything that followed.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Concept</div>
+          <p class="pstep-desc">Multiple logo directions were explored. The winning concept — a hanger concealing a cup — emerged as the most elegant solution to the brief: one mark, two meanings, total clarity.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Refine</div>
+          <p class="pstep-desc">The hidden symbol was perfected through multiple rounds of refinement — adjusting proportions until the hanger and cup read independently and together, at every size.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Deliver</div>
+          <p class="pstep-desc">Final files delivered in every format needed — vector for scalability, PNG for digital, print-ready PDF for physical materials — along with usage guidelines for consistent application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · Real Impact</span>
+      </div>
+      <h2 class="section-title">A brand customers<br>trust and remember.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-num">1</div>
+          <div class="impact-label">Mark, Two Meanings</div>
+          <p class="impact-desc">The hanger-and-cup logo communicates fashion and home goods simultaneously — a rare piece of visual design that earns its complexity by making everything simpler for the customer.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">∞</div>
+          <div class="impact-label">Brand Scalability</div>
+          <p class="impact-desc">The logo is built to grow with the business. New product lines, new locations, new channels — the mark holds its meaning and its quality regardless of how large Iliany's becomes.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">↑</div>
+          <div class="impact-label">Customer Trust</div>
+          <p class="impact-desc">A professional logo signals a legitimate business. Customers who might have passed by a small shop without branding now see a boutique worth walking into — and worth coming back to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline">
+        Your brand deserves<br>a logo that <em>means something.</em>
+      </h2>
+      <p class="cta-sub">Whether you're just starting out or your business has outgrown its identity — we design logos that grow with you.</p>
+      <div class="cta-actions">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5016220740" target="_blank" class="btn-primary" style="background:var(--mauve);box-shadow:0 4px 20px rgba(122,42,80,0.3);">
+          WhatsApp Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
