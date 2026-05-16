@@ -1,230 +1,1038 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>E-Z Boy Tours | Visual Graphics & VG Tech Project</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Z Boy Tours — Visual Graphics & VG Tech Case Study</title>
+  <meta name="description" content="E-Z Boy Tours — a full digital transformation by Visual Graphics & VG Tech. Website, SEO, booking systems, branding, email security, and IT solutions for a growing Belize tour company."/>
+  <meta property="og:title" content="E-Z Boy Tours — Full Digital Transformation Case Study"/>
+  <meta property="og:description" content="From a compromised email to a fully optimized digital presence. Website, SEO, AI visibility, booking system, branding, and IT — all in one project."/>
+  <meta property="og:image" content="images/E-Z_Boy_Tours_Logo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+    :root {
+      --bg:       #f4faf6;
+      --bg2:      #e6f4ec;
+      --ink:      #0a1f10;
+      --ink2:     #1a3a20;
+      --muted:    #5a7a62;
+      --accent:   #008c45;
+      --accent2:  #00c46a;
+      --accent3:  #00875a;
+      --border:   rgba(10,31,16,0.1);
+      --card:     #f0faf4;
+      /* Brand palette — E-Z Boy */
+      --tide:     #00a651;
+      --wave:     #00d68f;
+      --sea:      #006633;
+      --deep:     #041a0b;
+      --ocean:    #071f0e;
+      --foam:     #e6fff2;
+      --night:    #030d06;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background:#0a0f1c;
-      color:#ecfdf5;
-      line-height:1.6;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
+    /* ── NAV ── */
     nav {
-      display:flex;
-      justify-content:space-between;
-      padding:15px 20px;
-      background:#050910;
-      position:sticky;
-      top:0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(244,250,246,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--tide); color: #fff;
+      padding: 0.5rem 1.3rem; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
     }
 
-    nav h3 {color:#4ade80;}
-    nav a {color:#ecfdf5;margin-left:20px;text-decoration:none;}
-
-    header {
-      text-align:center;
-      padding:60px 20px;
-      background: radial-gradient(circle at top, #4ade80, #050910);
+    /* Big background word */
+    .hero-bg-word {
+      position: absolute;
+      bottom: -0.15em; right: -0.05em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(12rem, 26vw, 34rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0,166,81,0.08);
+      pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -0.02em;
     }
 
-    header h1 {font-size:2.5rem;color:#bbf7d0;}
-    header p {max-width:700px;margin:10px auto;color:#d1fae5;}
-
-    main {flex:1;}
-
-    section {padding:60px 20px;max-width:1000px;margin:auto;}
-
-    h2 {text-align:center;margin-bottom:20px;color:#bbf7d0;}
-
-    .card-container {display:grid;gap:25px;}
-
-    .card {
-      background:rgba(74, 222, 128, 0.15);
-      padding:25px;
-      border-radius:15px;
-      border:1px solid rgba(187,247,208,0.2);
-      backdrop-filter:blur(10px);
-      transition:0.3s;
+    /* Wave ripple streaks */
+    .hero-wave {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to top, rgba(0,166,81,0.06), transparent);
+      pointer-events: none;
     }
 
-    .card:hover {
-      transform:translateY(-10px);
-      box-shadow:0 0 20px rgba(187,247,208,0.3);
+    /* Ocean blobs */
+    .hero-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); pointer-events: none;
+    }
+    .hb1 { width: 700px; height: 700px; background: rgba(0,166,81,0.1); top: -200px; right: -150px; animation: drift 10s ease-in-out infinite alternate; }
+    .hb2 { width: 400px; height: 400px; background: rgba(0,214,143,0.07); bottom: 5%; left: 0%; animation: drift 13s ease-in-out infinite alternate-reverse; }
+    .hb3 { width: 250px; height: 250px; background: rgba(0,135,90,0.06); top: 35%; left: 35%; animation: drift 8s ease-in-out infinite alternate; }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(20px, 15px) scale(1.05); }
     }
 
-    .card img {
-      width:100%;
-      border-radius:10px;
-      margin-bottom:15px;
+    /* Light streak */
+    .hero-streak {
+      position: absolute; top: 0; left: 60%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(0,214,143,0.15) 50%, transparent);
     }
 
-    .card h3 {
-      color:#bbf7d0;
-      margin-bottom:10px;
+    /* Floating badge */
+    .hero-badge {
+      position: absolute; top: 7rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem;
+      animation: fadeIn 1s 0.6s ease both; opacity: 0;
+    }
+    .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--wave); letter-spacing: 0.08em; line-height: 1; }
+
+    /* Status pill */
+    .hero-pill {
+      position: absolute; top: 7rem; left: 4rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,166,81,0.15); border: 1px solid rgba(0,166,81,0.3);
+      border-radius: 100px; padding: 0.5rem 1.1rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--wave);
+      animation: fadeIn 0.8s 0.4s ease both; opacity: 0;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tide); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--tide); display: inline-block; }
+    .eyebrow-text { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--wave); }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-weight: 900; line-height: 0.92;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.1s ease both; opacity: 0; animation-fill-mode: both;
+    }
+    .hero-headline em { font-style: italic; color: var(--tide); display: block; }
+    .hero-headline .sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 300; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.01em; display: block; margin-top: 0.5rem;
     }
 
-    footer {
-      background:#050910;
-      text-align:center;
-      padding:20px;
-      color:#d1fae5;
-      border-top:1px solid rgba(187,247,208,0.2);
+    .hero-bottom {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.2s ease both; opacity: 0; animation-fill-mode: both;
+    }
+    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 420px; line-height: 1.75; }
+    .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+    .chip-tide { background: rgba(0,166,81,0.15); border: 1px solid rgba(0,166,81,0.3); color: var(--wave); }
+    .chip-night { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex; gap: 0;
+      margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      animation: fadeUp 0.6s 0.3s ease both; opacity: 0; animation-fill-mode: both;
+    }
+    .hstat { flex: 1; padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.07); margin-right: 2rem; }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.04em; line-height: 1; }
+    .hstat-num span { color: var(--tide); }
+    .hstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── TICKER ── */
+    .ticker-wrap { background: var(--tide); padding: 0.7rem 0; overflow: hidden; }
+    .ticker-track { display: flex; width: max-content; animation: ticker 26s linear infinite; }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 2rem; white-space: nowrap; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); flex-shrink: 0; }
+
+    /* ── SHARED ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    section { position: relative; }
+    .section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tide); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.98rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.75; }
+
+    /* ── STORY ── */
+    .story { padding: 7rem 0; background: var(--bg); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body p { font-size: 0.97rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    /* Crisis → transformation banner */
+    .crisis-card {
+      background: var(--ocean);
+      border-radius: 20px; padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .crisis-icon { font-size: 2rem; flex-shrink: 0; }
+    .crisis-text {}
+    .crisis-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .crisis-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; }
+    .crisis-arrow { margin-left: auto; flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--wave); }
+
+    /* Meta grid */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 2rem; }
+    .meta-cell { background: var(--card); padding: 1.2rem 1.5rem; }
+    .meta-key { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+    /* Ocean visual */
+    .ocean-scene {
+      background: var(--night);
+      border-radius: 24px; padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      min-height: 380px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .ocean-scene::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 25%, rgba(0,166,81,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 85% 65%, rgba(0,214,143,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Animated water lines */
+    .water-lines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden; }
+    .wline {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0,214,143,0.15), transparent);
+      animation: waver 5s ease-in-out infinite;
+    }
+    .wline:nth-child(1) { top: 30%; animation-delay: 0s; }
+    .wline:nth-child(2) { top: 45%; animation-delay: 0.8s; }
+    .wline:nth-child(3) { top: 60%; animation-delay: 1.6s; }
+    .wline:nth-child(4) { top: 72%; animation-delay: 2.4s; }
+    @keyframes waver {
+      0%, 100% { transform: scaleX(0.85) translateX(-3%); opacity: 0.4; }
+      50%       { transform: scaleX(1.05) translateX(3%); opacity: 0.9; }
     }
 
-    .fade-up {
-      opacity:0;
-      transform:translateY(30px);
-      transition:0.6s;
+    .ocean-boat-emoji {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      font-size: 5rem;
+      filter: drop-shadow(0 0 30px rgba(0,166,81,0.5));
+      z-index: 1;
+      animation: bob 4s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translate(-50%, -60%); }
+      50%       { transform: translate(-50%, -65%); }
     }
 
-    .fade-up.show {
-      opacity:1;
-      transform:translateY(0);
+    .ocean-lights { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.8rem; z-index: 2; }
+    .ocean-light { width: 8px; height: 8px; border-radius: 50%; background: var(--wave); box-shadow: 0 0 12px var(--tide), 0 0 4px var(--wave); animation: glimmer 2.5s ease-in-out infinite; }
+    .ocean-light:nth-child(2) { animation-delay: 0.4s; }
+    .ocean-light:nth-child(3) { animation-delay: 0.8s; }
+    .ocean-light:nth-child(4) { animation-delay: 1.2s; }
+    .ocean-light:nth-child(5) { animation-delay: 1.6s; }
+    @keyframes glimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .ocean-caption { position: relative; z-index: 2; text-align: center; }
+    .ocean-caption-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 0.3rem; }
+    .ocean-caption-sub { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── SCOPE ── */
+    .scope { padding: 7rem 0; background: var(--ocean); overflow: hidden; }
+    .scope::before { content: 'DIGITAL'; position: absolute; bottom: -0.1em; right: -0.05em; font-family: 'Bebas Neue', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(0,166,81,0.06); pointer-events: none; line-height: 1; }
+    .scope .section-title { color: #fff; }
+    .scope .section-label { color: var(--wave); }
+    .scope .eyebrow-line { background: var(--wave); }
+
+    .scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .scope-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.2rem; transition: transform 0.3s, background 0.3s; }
+    .scope-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+    .scope-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .scope-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .scope-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.7; }
+    .scope-card:nth-child(1) { border-top: 2px solid var(--tide); }
+    .scope-card:nth-child(2) { border-top: 2px solid var(--wave); }
+    .scope-card:nth-child(3) { border-top: 2px solid var(--sea); }
+    .scope-card:nth-child(4) { border-top: 2px solid rgba(0,166,81,0.5); }
+    .scope-card:nth-child(5) { border-top: 2px solid rgba(0,214,143,0.4); }
+    .scope-card:nth-child(6) { border-top: 2px solid rgba(0,135,90,0.4); }
+
+    /* ── WEBSITE / SEO SECTION ── */
+    .digital-section { padding: 7rem 0; background: var(--bg); }
+    .digital-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Website showcase card */
+    .website-showcase {
+      background: var(--ocean);
+      border-radius: 24px; padding: 0;
+      display: flex; flex-direction: column;
+      position: sticky; top: 6rem;
+      box-shadow: 0 24px 60px rgba(4,26,11,0.3);
+      overflow: hidden;
+    }
+    /* Browser chrome */
+    .browser-bar {
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.7rem 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .browser-dots { display: flex; gap: 0.35rem; }
+    .bdot { width: 9px; height: 9px; border-radius: 50%; }
+    .bdot-r { background: rgba(255,80,80,0.5); }
+    .bdot-y { background: rgba(255,200,0,0.5); }
+    .bdot-g { background: var(--tide); opacity: 0.6; }
+    .browser-url {
+      flex: 1; background: rgba(255,255,255,0.06); border-radius: 100px;
+      padding: 0.3rem 0.9rem; font-size: 0.68rem; color: rgba(255,255,255,0.35);
+      font-weight: 500; letter-spacing: 0.02em;
     }
 
-    .cta-button {
-      display:inline-block;
-      margin-top:20px;
-      padding:14px 28px;
-      background:#25D366; /* keep WhatsApp green */
-      color:white;
-      border-radius:8px;
-      text-decoration:none;
+    .website-screen {
+      padding: 2rem 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .website-screen img { width: 100%; max-width: 240px; height: auto; filter: drop-shadow(0 8px 24px rgba(0,166,81,0.3)); transition: transform 0.4s; }
+    .website-showcase:hover .website-screen img { transform: scale(1.05); }
+    .website-file-tag {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.5rem 1rem; border-radius: 100px;
+      font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.07em;
+    }
+
+    /* SEO rank bars */
+    .seo-bars { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 0.5rem; }
+    .seo-row { display: flex; align-items: center; gap: 0.75rem; }
+    .seo-rank { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: var(--wave); min-width: 24px; letter-spacing: 0.05em; }
+    .seo-rank.dim { color: rgba(255,255,255,0.2); }
+    .seo-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); flex: 1; font-weight: 400; }
+    .seo-bar-wrap { width: 90px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
+    .seo-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--tide), var(--wave)); animation: fillBar 1.5s ease-out both; }
+    @keyframes fillBar { from { width: 0%; } }
+    .seo-score { font-size: 0.72rem; color: var(--wave); font-weight: 700; }
+    .seo-score.dim { color: rgba(255,255,255,0.2); }
+
+    /* Digital facts */
+    .digital-facts { display: flex; flex-direction: column; gap: 0; }
+    .digital-fact { display: flex; gap: 1.2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .digital-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+    .fact-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── BRANDING SECTION (trailer equivalent) ── */
+    .branding-section { padding: 7rem 0; background: var(--bg2); }
+    .branding-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    .brand-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .photo-card { border-radius: 16px; overflow: hidden; background: var(--deep); position: relative; }
+    .photo-card.tall { grid-row: span 2; }
+    .photo-card img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.4s; background: var(--ocean); padding: 1.5rem; }
+    .photo-card:hover img { transform: scale(1.04); }
+    .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.7)); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+    .branding-right {}
+    .branding-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
+    .branding-headline em { font-style: italic; color: var(--tide); }
+    .branding-body p { font-size: 0.95rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1rem; }
+
+    .spec-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .spec-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.4rem; background: var(--card); border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--muted); font-weight: 500; }
+    .spec-val { color: var(--ink); font-weight: 600; }
+
+    /* ── SYSTEMS SECTION (coming soon equivalent) ── */
+    .systems-section { padding: 7rem 0; background: var(--ocean); overflow: hidden; position: relative; }
+    .systems-section::before { content: 'SYSTEMS'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Bebas Neue', sans-serif; font-size: 16vw; color: transparent; -webkit-text-stroke: 1px rgba(0,166,81,0.05); pointer-events: none; white-space: nowrap; }
+    .systems-section .section-title { color: #fff; }
+    .systems-section .section-label { color: var(--wave); }
+    .systems-section .eyebrow-line { background: var(--wave); }
+
+    .systems-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .systems-desc { font-size: 0.97rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.8; }
+    .systems-desc p { margin-bottom: 1rem; }
+    .systems-desc p:last-child { margin-bottom: 0; }
+
+    .systems-card { background: rgba(0,166,81,0.08); border: 1px solid rgba(0,166,81,0.2); border-radius: 24px; padding: 3rem 2.5rem; text-align: center; }
+    .systems-emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
+    .systems-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 0.08em; color: var(--tide); line-height: 1; margin-bottom: 0.5rem; }
+    .systems-sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); font-weight: 400; letter-spacing: 0.04em; margin-bottom: 1.5rem; }
+    .systems-items { display: flex; flex-direction: column; gap: 0.75rem; text-align: left; }
+    .systems-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.6); font-weight: 400; }
+    .systems-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .systems-item-check { margin-left: auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wave); background: rgba(0,166,81,0.12); border: 1px solid rgba(0,166,81,0.2); border-radius: 100px; padding: 0.2rem 0.6rem; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 7rem 0; background: var(--bg); }
+    .process-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; }
+    .process-steps-grid::before { content: ''; position: absolute; top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 1px; background: linear-gradient(to right, var(--tide), var(--wave), var(--sea), var(--tide)); z-index: 0; }
+    .pstep { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.5rem; position: relative; z-index: 1; transition: transform 0.3s, box-shadow 0.3s; }
+    .pstep:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,31,16,0.1); }
+    .pstep-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .pstep:nth-child(1) .pstep-num { background: var(--tide); }
+    .pstep:nth-child(2) .pstep-num { background: var(--wave); }
+    .pstep:nth-child(3) .pstep-num { background: var(--sea); }
+    .pstep:nth-child(4) .pstep-num { background: linear-gradient(135deg, var(--tide), var(--wave)); }
+    .pstep-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .pstep-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── IMPACT ── */
+    .impact-section { padding: 7rem 0; background: var(--tide); overflow: hidden; position: relative; }
+    .impact-section::before { content: 'RANKED'; position: absolute; right: -0.05em; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.08); pointer-events: none; line-height: 1; }
+    .impact-section .section-title { color: #fff; }
+    .impact-section .section-label { color: rgba(255,255,255,0.7); }
+    .impact-section .eyebrow-line { background: rgba(255,255,255,0.6); }
+
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .impact-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.18); }
+    .impact-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: #fff; letter-spacing: 0.04em; line-height: 1; margin-bottom: 0.5rem; }
+    .impact-label { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+    .impact-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 9rem 0; background: var(--bg); text-align: center; overflow: hidden; position: relative; }
+    .cta-section::before { content: 'BOOK'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-5deg); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 1px rgba(10,31,16,0.04); pointer-events: none; white-space: nowrap; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: italic; color: var(--tide); }
+    .cta-sub { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--tide); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,166,81,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,166,81,0.4); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--ink); font-weight: 500; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--tide); background: rgba(0,166,81,0.04); }
+    .btn-visit { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--tide); color: var(--tide); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .btn-visit:hover { background: var(--tide); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: rgba(244,250,246,0.8); }
+    .footer-copy { font-size: 0.78rem; color: rgba(244,250,246,0.35); }
+    .footer-email a { font-size: 0.82rem; color: var(--wave); text-decoration: none; }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-pill, .hero-badge { display: none; }
+      .hero-stats { flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+      .container { padding: 0 1.5rem; }
+      .story-layout, .digital-layout, .branding-layout, .systems-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+      .website-showcase { position: static; }
+      .brand-photos { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .brand-photos { grid-template-columns: 1fr; }
+      .photo-card.tall { grid-row: span 1; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
-
-<main>
-
-<header>
-  <h1>E-Z Boy Tours</h1>
-  <p><strong>Full Digital Transformation & Branding Support</strong></p>
-  <p>
-    A complete upgrade of digital presence, booking systems, branding assets, and business infrastructure for a growing tour company.
-  </p>
-</header>
-
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    The project began when E-Z Boy Tours experienced a compromised email account, affecting communication and bookings.
-  </p>
-
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    From this starting point, the project evolved into a complete digital transformation, improving their website, branding, booking process, and overall business operations.
-  </p>
-</section>
-
-<section>
-  <h2>Services & Solutions</h2>
-
-  <div class="card-container">
-
-    <div class="card fade-up">
-      <h3>Website Optimization & SEO</h3>
-      <p>
-        The website was upgraded with custom code, meta keywords, and AI visibility configurations.
-      </p>
-      <p style="margin-top:10px;">
-        The business now ranks significantly higher in search results for marine tours.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>Booking System Integration</h3>
-      <p>
-        A full booking and payment system was integrated using Tab.travel, making reservations easier for customers.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>Email Security & Setup</h3>
-      <p>
-        The compromised email was secured and Google Workspace was implemented to improve reliability and professionalism.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>Branding & Marketing</h3>
-      <img src="images/E-Z_Boy_Tours_Logo.png">
-      <img src="images/E-Z_Boy_Sticker.png" style="margin-top:10px;">
-      <p>
-        The logo was vectorized and marketing materials like flyers, vouchers, and QR stickers were created to improve engagement and bookings.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>IT & Business Systems</h3>
-      <p>
-        Cameras, networking, and a full Linktree system were set up to act as a digital business hub for customers.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <h2>Real Business Impact</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    The business now receives more bookings, better reviews, and operates with a stronger and more professional digital presence.
-  </p>
-</section>
-
-<section>
-  <h2>Visit Their Website</h2>
-  <div style="text-align:center;">
-    <a href="https://www.ezboytours.com" target="_blank" class="cta-button">
-      Visit Website
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
     </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-streak"></div>
+    <div class="hero-wave"></div>
+    <div class="hero-bg-word">E-Z BOY</div>
+
+    <div class="hero-pill">
+      <span class="pill-dot"></span>
+      Live · Belize City
+    </div>
+
+    <div class="hero-badge">
+      <span class="badge-label">Transformed</span>
+      <span class="badge-val">2024</span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics & VG Tech Case Study · Full Digital Transformation</span>
+      </div>
+
+      <h1 class="hero-headline">
+        E-Z Boy
+        <em>Tours.</em>
+        <span class="sub">From crisis to Belize's most booked marine tour company.</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          What started as a compromised email account became a full digital overhaul — website, SEO, booking systems, branding, IT infrastructure, and AI visibility, all rebuilt from the ground up.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-tide">🌊 Web & SEO</span>
+          <span class="chip chip-tide">📅 Booking System</span>
+          <span class="chip chip-tide">🎨 Branding</span>
+          <span class="chip chip-night">🔐 IT & Security</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num"><span>#</span>1</div>
+          <div class="hstat-label">Search Ranking</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">5</div>
+          <div class="hstat-label">Disciplines</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100<span>%</span></div>
+          <div class="hstat-label">Custom Work</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">More Bookings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Website Optimization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> SEO & AI Visibility</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Booking System</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Email Security</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Google Workspace</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers & Vouchers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> QR Stickers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Camera & Networking</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Linktree Hub</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Belize City · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marine Tours</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Website Optimization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> SEO & AI Visibility</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Booking System</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Email Security</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Google Workspace</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers & Vouchers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> QR Stickers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Camera & Networking</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Linktree Hub</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Belize City · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marine Tours</span>
+    </div>
   </div>
-</section>
 
-<section>
-  <h2>Work With Us</h2>
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
-    </a>
-  </div>
-</section>
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Story</span>
+      </div>
+      <h2 class="section-title">A crisis that became<br>a complete transformation.</h2>
 
-</main>
+      <div class="story-layout">
+        <div>
+          <div class="story-body">
+            <p>E-Z Boy Tours had built a solid reputation on the water — reliable guides, great experiences, happy customers. But when their email account was compromised, bookings started slipping through the cracks and trust with customers was suddenly at risk.</p>
+            <p>The email fix was urgent. But once we were inside the business, it became clear there was a bigger opportunity. The website was underperforming, the booking process was fragmented, the branding lacked consistency, and the digital infrastructure had gaps that were quietly costing them customers every day.</p>
+            <p>What started as an emergency turned into a full digital overhaul — touching every layer of their business and leaving them with a presence that finally matched the quality of their tours on the water.</p>
+          </div>
 
-<footer>
-  <p>© 2026 Visual Graphics & VG Tech & Security Solutions.</p>
-</footer>
+          <div class="crisis-card">
+            <span class="crisis-icon">🔓</span>
+            <div class="crisis-text">
+              <div class="crisis-title">Crisis → Transformation: Compromised Email to Full Digital Upgrade</div>
+              <p class="crisis-desc">One security incident revealed how much room there was to grow. Every system was rebuilt stronger, and every touchpoint was redesigned to convert.</p>
+            </div>
+            <span class="crisis-arrow">FULL REBUILD →</span>
+          </div>
 
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const pos = el.getBoundingClientRect().top;
-      if (pos < window.innerHeight - 100) {
-        el.classList.add('show');
-      }
-    });
-  };
+          <div class="meta-grid">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">E-Z Boy Tours</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">Belize City, Belize</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Discipline</div>
+              <div class="meta-val">Digital + Branding + IT</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Status</div>
+              <div class="meta-val">Live · Fully Operational</div>
+            </div>
+          </div>
+        </div>
 
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+        <!-- Ocean scene visual -->
+        <div class="ocean-scene">
+          <div class="water-lines">
+            <div class="wline"></div>
+            <div class="wline"></div>
+            <div class="wline"></div>
+            <div class="wline"></div>
+          </div>
+          <div class="ocean-lights">
+            <div class="ocean-light"></div>
+            <div class="ocean-light"></div>
+            <div class="ocean-light"></div>
+            <div class="ocean-light"></div>
+            <div class="ocean-light"></div>
+          </div>
+          <div class="ocean-boat-emoji">⛵</div>
+          <div class="ocean-caption">
+            <div class="ocean-caption-title">"The tours were great. Now the brand is too."</div>
+            <div class="ocean-caption-sub">Belize · Marine Tours · Fully Digital</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section class="scope" id="scope">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · Scope of Work</span>
+      </div>
+      <h2 class="section-title">Every layer of the business.<br><em style="font-style:italic;color:var(--wave)">Rebuilt to perform.</em></h2>
+
+      <div class="scope-grid">
+        <div class="scope-card">
+          <span class="scope-icon">🌐</span>
+          <div class="scope-name">Website Optimization</div>
+          <p class="scope-desc">The existing site was upgraded with custom code, proper meta structure, and performance improvements that turned it from a brochure into a booking engine.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">📈</span>
+          <div class="scope-name">SEO & AI Visibility</div>
+          <p class="scope-desc">Keyword strategy, meta tags, and AI visibility configuration to ensure E-Z Boy Tours ranks at the top when tourists search for marine tours in Belize — on Google and AI platforms.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">📅</span>
+          <div class="scope-name">Booking System Integration</div>
+          <p class="scope-desc">Tab.travel was integrated to provide seamless reservations and payment processing — giving customers a smooth booking experience and the business a trackable sales flow.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🔐</span>
+          <div class="scope-name">Email Security & Google Workspace</div>
+          <p class="scope-desc">The compromised account was secured, and Google Workspace was implemented for professional, reliable business communication that builds trust with every email sent.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">🎨</span>
+          <div class="scope-name">Branding & Marketing Materials</div>
+          <p class="scope-desc">Logo vectorization, flyers, booking vouchers, and QR stickers — all produced in a consistent brand language that travels from the screen to a tourist's hand.</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-icon">📡</span>
+          <div class="scope-name">IT & Business Systems</div>
+          <p class="scope-desc">Cameras, networking equipment, and a Linktree digital hub were set up so the entire business — social, booking, contact, and reviews — lives in one easy-to-share link.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL / SEO SECTION -->
+  <section class="digital-section" id="digital">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Digital Upgrade</span>
+      </div>
+      <h2 class="section-title">Ranked #1 for<br><em style="font-style:italic;color:var(--tide)">marine tours in Belize.</em></h2>
+
+      <div class="digital-layout">
+        <!-- Website showcase -->
+        <div class="website-showcase">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <div class="bdot bdot-r"></div>
+              <div class="bdot bdot-y"></div>
+              <div class="bdot bdot-g"></div>
+            </div>
+            <div class="browser-url">ezboytours.com</div>
+          </div>
+          <div class="website-screen">
+            <img src="images/E-Z_Boy_Tours_Logo.png" alt="E-Z Boy Tours Logo"/>
+            <div class="website-file-tag">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              LIVE · ezboytours.com
+            </div>
+            <!-- SEO ranking bars -->
+            <div class="seo-bars">
+              <div class="seo-row">
+                <span class="seo-rank">#1</span>
+                <span class="seo-label">E-Z Boy Tours</span>
+                <div class="seo-bar-wrap"><div class="seo-bar-fill" style="width:94%"></div></div>
+                <span class="seo-score">94</span>
+              </div>
+              <div class="seo-row">
+                <span class="seo-rank dim">#2</span>
+                <span class="seo-label">Competitor A</span>
+                <div class="seo-bar-wrap"><div class="seo-bar-fill" style="width:60%;background:rgba(255,255,255,0.15)"></div></div>
+                <span class="seo-score dim">60</span>
+              </div>
+              <div class="seo-row">
+                <span class="seo-rank dim">#3</span>
+                <span class="seo-label">Competitor B</span>
+                <div class="seo-bar-wrap"><div class="seo-bar-fill" style="width:42%;background:rgba(255,255,255,0.1)"></div></div>
+                <span class="seo-score dim">42</span>
+              </div>
+            </div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:0.06em;text-transform:uppercase;">Search Rankings · Marine Tours Belize</div>
+          </div>
+        </div>
+
+        <!-- Digital facts -->
+        <div>
+          <p class="section-desc" style="margin-bottom:2rem">The website already existed — but it wasn't performing. We went deep into the code, the content structure, and the metadata to turn it into a high-ranking, high-converting destination for tourists searching for marine tours in Belize.</p>
+          <div class="digital-facts">
+            <div class="digital-fact">
+              <span class="fact-icon">🔍</span>
+              <div>
+                <div class="fact-name">SEO & AI Visibility</div>
+                <p class="fact-desc">Custom meta keywords, structured data, and AI visibility configurations ensure E-Z Boy Tours appears prominently on both Google search and AI-powered travel recommendations — the two biggest discovery channels for tourists today.</p>
+              </div>
+            </div>
+            <div class="digital-fact">
+              <span class="fact-icon">📅</span>
+              <div>
+                <div class="fact-name">Tab.travel Booking Integration</div>
+                <p class="fact-desc">Tourists can now browse tours, select dates, and pay directly from the website using Tab.travel. No phone tag, no confusion — just a smooth, professional booking experience that converts interest into confirmed reservations.</p>
+              </div>
+            </div>
+            <div class="digital-fact">
+              <span class="fact-icon">📧</span>
+              <div>
+                <div class="fact-name">Google Workspace & Email Security</div>
+                <p class="fact-desc">The compromised email was the starting point. We secured it, migrated the account to Google Workspace, and set up professional @ezboytours.com addresses — eliminating the trust gap that a generic Gmail creates with international tourists.</p>
+              </div>
+            </div>
+            <div class="digital-fact">
+              <span class="fact-icon">⭐</span>
+              <div>
+                <div class="fact-name">Better Reviews, More Bookings</div>
+                <p class="fact-desc">With a professional digital presence in place — a fast site, clear booking flow, and consistent branding — customers are more confident before they book and more likely to leave positive reviews after.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDING SECTION -->
+  <section class="branding-section" id="branding">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · Branding & Materials</span>
+      </div>
+      <h2 class="section-title">A brand tourists can<br>hold in their hands.</h2>
+
+      <div class="branding-layout">
+        <!-- Photos -->
+        <div class="brand-photos">
+          <div class="photo-card tall">
+            <img src="images/E-Z_Boy_Tours_Logo.png" alt="E-Z Boy Tours Logo" style="height:300px;"/>
+            <div class="photo-label">Logo · Vectorized & Refined</div>
+          </div>
+          <div class="photo-card">
+            <img src="images/E-Z_Boy_Sticker.png" alt="E-Z Boy Tours QR Sticker" style="height:140px;"/>
+            <div class="photo-label">QR Sticker · Digital Hub</div>
+          </div>
+          <div class="photo-card" style="background:var(--ocean)">
+            <div style="height:140px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+              <span style="font-size:2rem;">🎟️</span>
+              <span style="font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;">Booking Voucher</span>
+            </div>
+            <div class="photo-label">Voucher · Print-Ready</div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="branding-right">
+          <h3 class="branding-headline">A logo tourists recognize. Materials <em>that close the sale.</em></h3>
+          <div class="branding-body">
+            <p>The E-Z Boy Tours logo already existed — but it was hand-drawn and inconsistent across different uses. We vectorized it into a clean, scalable mark that works on everything from a website header to a printed voucher to a QR sticker handed to a customer at the dock.</p>
+            <p>Every marketing piece was built around the same brand system — consistent colors, consistent type, consistent tone. A tourist who sees a flyer at a hotel, visits the website, and gets handed a voucher at checkout should feel the same confidence at every step.</p>
+            <p>The QR sticker was a particular highlight — linking directly to the Linktree hub, it gives any printed material a live digital layer that tracks engagement and drives direct bookings.</p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Logo</span><span class="spec-val">Vectorized & Multi-Format</span></div>
+            <div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">Flyers, Vouchers, QR Stickers</span></div>
+            <div class="spec-row"><span class="spec-key">Digital Hub</span><span class="spec-val">Linktree · All-in-One Link</span></div>
+            <div class="spec-row"><span class="spec-key">Files Delivered</span><span class="spec-val">SVG · PDF · PNG · Print-Ready</span></div>
+            <div class="spec-row"><span class="spec-key">Brand Consistency</span><span class="spec-val">Screen to Print · Unified</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEMS SECTION -->
+  <section class="systems-section" id="systems">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · IT & Business Systems</span>
+      </div>
+      <h2 class="section-title">The infrastructure<br><em style="font-style:italic;color:var(--wave)">behind the brand.</em></h2>
+
+      <div class="systems-layout">
+        <div>
+          <div class="systems-desc">
+            <p>A great website and polished logo mean nothing if the business infrastructure behind them is unreliable. We handled that too.</p>
+            <p>Camera systems and networking equipment were installed at the operation site — giving the business real-time oversight and a level of professional infrastructure that instills customer confidence and protects the team.</p>
+            <p>The Linktree digital hub brings everything together in one shareable link — website, booking page, social media, reviews, and contact info — making it effortless for a tourist to find exactly what they need, however they heard about E-Z Boy Tours.</p>
+            <p>The result is a business that operates as professionally behind the scenes as it looks in front of customers.</p>
+          </div>
+        </div>
+
+        <div class="systems-card">
+          <span class="systems-emoji">🛠️</span>
+          <div class="systems-title">Business Infrastructure</div>
+          <div class="systems-sub">Everything that keeps the operation running</div>
+          <div class="systems-items">
+            <div class="systems-item">
+              <span class="systems-item-icon">📷</span>
+              Camera Systems Installed
+              <span class="systems-item-check">Done ✓</span>
+            </div>
+            <div class="systems-item">
+              <span class="systems-item-icon">📡</span>
+              Network & WiFi Setup
+              <span class="systems-item-check">Done ✓</span>
+            </div>
+            <div class="systems-item">
+              <span class="systems-item-icon">🔗</span>
+              Linktree Digital Hub
+              <span class="systems-item-check">Done ✓</span>
+            </div>
+            <div class="systems-item">
+              <span class="systems-item-icon">📧</span>
+              Google Workspace · Pro Email
+              <span class="systems-item-check">Done ✓</span>
+            </div>
+            <div class="systems-item">
+              <span class="systems-item-icon">🌐</span>
+              Website · Fully Optimized ✓
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · Process</span>
+      </div>
+      <h2 class="section-title">From emergency call<br>to full transformation.</h2>
+      <p class="section-desc">The same four-step process — but this one touched every corner of the business, from the server to the sticker.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Discover</div>
+          <p class="pstep-desc">Started with the email crisis, then audited every digital touchpoint — website, booking flow, social presence, branding assets, and IT infrastructure — to understand the full scope.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Strategize</div>
+          <p class="pstep-desc">Built a prioritized plan: secure the email first, then optimize the website, integrate bookings, rebuild the branding, and layer in the IT systems. Sequenced to protect the business while improving it.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Build</div>
+          <p class="pstep-desc">Executed across all five disciplines simultaneously — code on the website, design in the brand files, systems in the field. Each layer was built to integrate cleanly with the others.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Deliver</div>
+          <p class="pstep-desc">A fully operational digital business: live website, active booking system, professional email, installed IT, and a complete set of print and digital brand assets ready for immediate use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">07 · Real Impact</span>
+      </div>
+      <h2 class="section-title">More bookings.<br>Better reviews. Stronger brand.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-num">#1</div>
+          <div class="impact-label">Search Ranking</div>
+          <p class="impact-desc">E-Z Boy Tours now ranks significantly higher in search results for marine tours in Belize — connecting directly with tourists actively searching to book. On Google and AI platforms alike.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">5</div>
+          <div class="impact-label">Systems Upgraded</div>
+          <p class="impact-desc">Website, email, booking, branding, and IT — five separate systems, all improved and integrated into a business that runs more professionally than before, end to end.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">∞</div>
+          <div class="impact-label">Long-Term Confidence</div>
+          <p class="impact-desc">The infrastructure is built to grow with the business. New tours, new team members, new marketing campaigns — the foundation is there, and it scales cleanly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline">
+        Your business deserves<br>to look <em>this good.</em>
+      </h2>
+      <p class="cta-sub">Whether it starts with a crisis or a vision — we build the digital presence your business needs to grow with confidence.</p>
+      <div class="cta-actions">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://www.ezboytours.com" target="_blank" class="btn-visit">
+          Visit E-Z Boy Tours
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics & VG Tech & Security Solutions. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
