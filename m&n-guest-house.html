@@ -1,263 +1,837 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>M&N Guest House | Visual Graphics Project</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M&N Guest House — Visual Graphics Case Study</title>
+  <meta name="description" content="M&N Guest House — a Visual Graphics logo vectorization case study. Transforming a hand-painted identity into a scalable digital brand on Caye Caulker, Belize."/>
+  <meta property="og:title" content="M&N Guest House — Visual Graphics Case Study"/>
+  <meta property="og:description" content="From hand-painted sign to professional digital brand. Logo vectorization for a guest house on Caye Caulker, Belize."/>
+  <meta property="og:image" content="images/M&NLogo.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --bg:       #f4f8f7;
+      --bg2:      #e8f0ee;
+      --ink:      #0b1f1a;
+      --ink2:     #1a3530;
+      --muted:    #5a7a74;
+      --accent:   #1a6b5c;
+      --accent2:  #2e9b84;
+      --accent3:  #0e4a3d;
+      --border:   rgba(11,31,26,0.1);
+      --card:     #ffffff;
+      /* Brand palette — M&N */
+      --ocean:    #1a6b5c;
+      --teal:     #2e9b84;
+      --aqua:     #5ec4ae;
+      --foam:     #c8ebe5;
+      --sand:     #e8d9c0;
+      --dusk:     #0b2520;
+      --deep:     #061510;
+      --coral:    #d46b4a;
+      --sky:      #b8d8d2;
+      --cream:    #fdfaf6;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #1a1208;
-      color: #fff8e6;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
+    /* ── NAV ── */
     nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background: #120a05;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(244,248,247,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta { background: var(--ocean); color: #fff; padding: 0.5rem 1.3rem; border-radius: 100px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
     }
 
-    nav h3 {
-      color: #ffc94d;
+    /* Ocean waves SVG background */
+    .hero-waves {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 200px; pointer-events: none; z-index: 1;
+      opacity: 0.15;
     }
 
-    nav a {
-      color: #f5d7a1;
-      margin-left: 20px;
-      text-decoration: none;
+    /* Background word */
+    .hero-bg-word {
+      position: absolute; bottom: -0.1em; right: -0.04em;
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(10rem, 22vw, 28rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(46,155,132,0.08);
+      pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -0.01em;
     }
 
-    nav a:hover {
-      color: #ff914d;
+    /* Ocean blobs */
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+    .hb1 { width: 700px; height: 700px; background: rgba(26,107,92,0.14); top: -200px; left: -150px; animation: drift 13s ease-in-out infinite alternate; }
+    .hb2 { width: 400px; height: 400px; background: rgba(46,155,132,0.1); bottom: 10%; right: 5%; animation: drift 16s ease-in-out infinite alternate-reverse; }
+    .hb3 { width: 250px; height: 250px; background: rgba(94,196,174,0.07); top: 35%; right: 25%; animation: drift 9s ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(20px,15px) scale(1.04); } }
+
+    /* Light streak */
+    .hero-streak { position: absolute; top: 0; left: 38%; width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, rgba(94,196,174,0.15) 50%, transparent); }
+
+    /* Floating badge */
+    .hero-badge { position: absolute; top: 7rem; right: 4rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; animation: fadeIn 1s 0.6s ease both; opacity: 0; }
+    .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .badge-val { font-family: 'Teko', sans-serif; font-size: 1.6rem; color: var(--aqua); letter-spacing: 0.08em; line-height: 1; }
+
+    /* Status pill */
+    .hero-pill { position: absolute; top: 7rem; left: 4rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,107,92,0.2); border: 1px solid rgba(46,155,132,0.35); border-radius: 100px; padding: 0.5rem 1.1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aqua); animation: fadeIn 0.8s 0.4s ease both; opacity: 0; }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--teal); display: inline-block; }
+    .eyebrow-text { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); }
+
+    .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.02em; color: #fff; margin-bottom: 2rem; animation: fadeUp 0.6s 0.1s ease both; opacity: 0; animation-fill-mode: both; }
+    .hero-headline em { font-style: italic; color: var(--aqua); display: block; }
+    .hero-headline .sub { font-family: 'DM Sans', sans-serif; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300; color: rgba(255,255,255,0.4); letter-spacing: 0.01em; display: block; margin-top: 0.6rem; }
+
+    .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.2s ease both; opacity: 0; animation-fill-mode: both; }
+    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 420px; line-height: 1.75; }
+    .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+    .chip-teal { background: rgba(26,107,92,0.2); border: 1px solid rgba(46,155,132,0.3); color: var(--aqua); }
+    .chip-night { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+    .hero-stats { display: flex; gap: 0; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; animation: fadeUp 0.6s 0.3s ease both; opacity: 0; animation-fill-mode: both; }
+    .hstat { flex: 1; padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.07); margin-right: 2rem; }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num { font-family: 'Teko', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.04em; line-height: 1; }
+    .hstat-num span { color: var(--teal); }
+    .hstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── TICKER ── */
+    .ticker-wrap { background: var(--ocean); padding: 0.7rem 0; overflow: hidden; }
+    .ticker-track { display: flex; width: max-content; animation: ticker 24s linear infinite; }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 2rem; white-space: nowrap; font-family: 'Teko', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); flex-shrink: 0; }
+
+    /* ── SHARED ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    section { position: relative; }
+    .section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ocean); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.98rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.75; }
+
+    /* ── STORY ── */
+    .story { padding: 7rem 0; background: var(--bg); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body p { font-size: 0.97rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    /* Challenge card */
+    .challenge-card { background: var(--dusk); border-radius: 20px; padding: 2rem 2.5rem; margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .challenge-icon { font-size: 2rem; flex-shrink: 0; }
+    .challenge-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .challenge-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; }
+    .challenge-arrow { margin-left: auto; flex-shrink: 0; font-family: 'Teko', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--aqua); }
+
+    /* Meta grid */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 2rem; }
+    .meta-cell { background: var(--card); padding: 1.2rem 1.5rem; }
+    .meta-key { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-val { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+
+    /* Island scene visual */
+    .island-scene {
+      background: var(--deep);
+      border-radius: 24px; padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      min-height: 420px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .island-scene::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 70% 45% at 50% 25%, rgba(26,107,92,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 85% 70%, rgba(94,196,174,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle at top, #3b240c, #120a05);
+    /* Water ripple lines */
+    .water-lines { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; pointer-events: none; overflow: hidden; }
+    .wline {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(94,196,174,0.15), transparent);
+      animation: ripple 4s ease-in-out infinite;
+    }
+    .wline:nth-child(1) { bottom: 40px; animation-delay: 0s; }
+    .wline:nth-child(2) { bottom: 65px; animation-delay: 0.6s; }
+    .wline:nth-child(3) { bottom: 90px; animation-delay: 1.2s; }
+    .wline:nth-child(4) { bottom: 115px; animation-delay: 1.8s; }
+    @keyframes ripple { 0%, 100% { opacity: 0.2; transform: scaleX(0.8); } 50% { opacity: 0.8; transform: scaleX(1.1); } }
+
+    /* Stars */
+    .island-stars { position: absolute; top: 0; left: 0; right: 0; height: 55%; pointer-events: none; }
+    .star {
+      position: absolute; width: 2px; height: 2px; border-radius: 50%;
+      background: rgba(200,235,229,0.7);
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+
+    /* Palm tree emoji scene */
+    .island-visual { position: absolute; bottom: 28%; left: 50%; transform: translateX(-50%); font-size: 4.5rem; filter: drop-shadow(0 0 24px rgba(26,107,92,0.6)); z-index: 1; animation: sway 7s ease-in-out infinite; }
+    @keyframes sway { 0%, 100% { transform: translateX(-50%) rotate(-3deg); } 50% { transform: translateX(-50%) rotate(3deg); } }
+
+    .island-moon { position: absolute; top: 2rem; right: 2.5rem; font-size: 2rem; opacity: 0.8; animation: glow 4s ease-in-out infinite; }
+    @keyframes glow { 0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 4px rgba(200,235,229,0.3)); } 50% { opacity: 1; filter: drop-shadow(0 0 14px rgba(200,235,229,0.6)); } }
+
+    .island-caption { position: relative; z-index: 2; text-align: center; }
+    .island-caption-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 0.3rem; }
+    .island-caption-sub { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── CHALLENGE SECTION ── */
+    .challenge-section { padding: 7rem 0; background: var(--dusk); overflow: hidden; }
+    .challenge-section::before { content: 'CRAFT'; position: absolute; bottom: -0.1em; right: -0.05em; font-family: 'Teko', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(46,155,132,0.06); pointer-events: none; line-height: 1; }
+    .challenge-section .section-title { color: #fff; }
+    .challenge-section .section-label { color: var(--aqua); }
+    .challenge-section .eyebrow-line { background: var(--aqua); }
+    .challenge-section .section-desc { color: rgba(255,255,255,0.45); max-width: 600px; }
+
+    .challenge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .challenge-card-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.2rem; transition: transform 0.3s, background 0.3s; }
+    .challenge-card-item:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+    .challenge-card-item .c-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .challenge-card-item .c-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .challenge-card-item .c-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.7; }
+    .challenge-card-item:nth-child(1) { border-top: 2px solid var(--ocean); }
+    .challenge-card-item:nth-child(2) { border-top: 2px solid var(--teal); }
+    .challenge-card-item:nth-child(3) { border-top: 2px solid var(--aqua); }
+
+    /* ── LOGO SECTION ── */
+    .logo-section { padding: 7rem 0; background: var(--bg); }
+    .logo-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Logo showcase */
+    .logo-showcase { background: var(--deep); border-radius: 24px; padding: 4rem 3rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; position: sticky; top: 6rem; box-shadow: 0 24px 60px rgba(6,21,16,0.35); overflow: hidden; }
+    .logo-showcase::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(26,107,92,0.2) 0%, transparent 70%); pointer-events: none; }
+    .logo-showcase::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(94,196,174,0.1) 0%, transparent 70%); pointer-events: none; }
+    .logo-showcase img { width: 100%; max-width: 280px; height: auto; filter: drop-shadow(0 8px 28px rgba(46,155,132,0.35)); transition: transform 0.4s; position: relative; z-index: 1; }
+    .logo-showcase:hover img { transform: scale(1.06); }
+
+    /* Before / After comparison bar */
+    .ba-label { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.07em; }
+
+    .logo-variations { display: flex; gap: 1rem; width: 100%; }
+    .logo-var { flex: 1; border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; }
+    .logo-var img { width: 100%; max-width: 80px; height: auto; object-fit: contain; }
+    .lv-black { background: #000; }
+    .lv-white { background: #fff; }
+    .lv-teal  { background: var(--ocean); }
+
+    /* Before analog card */
+    .analog-card { background: var(--sand); border-radius: 16px; padding: 1.8rem; display: flex; align-items: center; gap: 1.2rem; width: 100%; position: relative; z-index: 1; }
+    .analog-icon { font-size: 2.4rem; }
+    .analog-title { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink2); margin-bottom: 0.2rem; }
+    .analog-desc { font-size: 0.75rem; color: var(--muted); font-weight: 400; line-height: 1.5; }
+    .analog-badge { margin-left: auto; flex-shrink: 0; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ocean); background: rgba(26,107,92,0.12); border: 1px solid rgba(26,107,92,0.2); border-radius: 100px; padding: 0.3rem 0.7rem; white-space: nowrap; }
+
+    /* Logo facts */
+    .logo-facts { display: flex; flex-direction: column; gap: 0; }
+    .logo-fact { display: flex; gap: 1.2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .logo-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+    .fact-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── TECHNIQUE SECTION ── */
+    .technique-section { padding: 7rem 0; background: var(--bg2); }
+    .technique-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    .technique-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.2rem; }
+    .technique-headline em { font-style: italic; color: var(--ocean); }
+    .technique-body p { font-size: 0.95rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1rem; }
+
+    .spec-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .spec-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.4rem; background: var(--card); border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--muted); font-weight: 500; }
+    .spec-val { color: var(--ink); font-weight: 600; }
+
+    /* Deliverables card */
+    .deliverables-card { background: var(--deep); border: 1px solid rgba(46,155,132,0.2); border-radius: 24px; padding: 3rem 2.5rem; }
+    .deliverables-title { font-family: 'Teko', sans-serif; font-size: 2.8rem; letter-spacing: 0.08em; color: var(--teal); line-height: 1; margin-bottom: 0.4rem; }
+    .deliverables-sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); font-weight: 400; letter-spacing: 0.04em; margin-bottom: 1.8rem; }
+    .deliverable-items { display: flex; flex-direction: column; gap: 0.75rem; }
+    .deliverable-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.65); font-weight: 400; }
+    .deliverable-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .deliverable-check { margin-left: auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); background: rgba(26,107,92,0.15); border: 1px solid rgba(46,155,132,0.2); border-radius: 100px; padding: 0.2rem 0.6rem; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 7rem 0; background: var(--bg); }
+    .process-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; }
+    .process-steps-grid::before { content: ''; position: absolute; top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 1px; background: linear-gradient(to right, var(--ocean), var(--teal), var(--aqua), var(--ocean)); z-index: 0; }
+    .pstep { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.5rem; position: relative; z-index: 1; transition: transform 0.3s, box-shadow 0.3s; }
+    .pstep:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(11,31,26,0.1); }
+    .pstep-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Teko', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .pstep:nth-child(1) .pstep-num { background: var(--ocean); }
+    .pstep:nth-child(2) .pstep-num { background: var(--teal); }
+    .pstep:nth-child(3) .pstep-num { background: var(--aqua); color: var(--ink); }
+    .pstep:nth-child(4) .pstep-num { background: linear-gradient(135deg, var(--ocean), var(--teal)); }
+    .pstep-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .pstep-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── IMPACT ── */
+    .impact-section { padding: 7rem 0; background: var(--ocean); overflow: hidden; position: relative; }
+    .impact-section::before { content: 'ISLAND'; position: absolute; right: -0.05em; top: 50%; transform: translateY(-50%); font-family: 'Teko', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.06); pointer-events: none; line-height: 1; }
+    .impact-section .section-title { color: #fff; }
+    .impact-section .section-label { color: rgba(255,255,255,0.7); }
+    .impact-section .eyebrow-line { background: rgba(255,255,255,0.6); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .impact-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.16); }
+    .impact-num { font-family: 'Teko', sans-serif; font-size: 3.5rem; color: #fff; letter-spacing: 0.04em; line-height: 1; margin-bottom: 0.5rem; }
+    .impact-label { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+    .impact-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 9rem 0; background: var(--bg); text-align: center; overflow: hidden; position: relative; }
+    .cta-section::before { content: 'CAULKER'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-4deg); font-family: 'Teko', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(11,31,26,0.04); pointer-events: none; white-space: nowrap; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: italic; color: var(--ocean); }
+    .cta-sub { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ocean); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(26,107,92,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,107,92,0.4); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--ink); font-weight: 500; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--ocean); background: rgba(26,107,92,0.04); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: rgba(244,248,247,0.8); }
+    .footer-copy { font-size: 0.78rem; color: rgba(244,248,247,0.35); }
+    .footer-email a { font-size: 0.82rem; color: var(--aqua); text-decoration: none; }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-pill, .hero-badge { display: none; }
+      .hero-stats { flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+      .container { padding: 0 1.5rem; }
+      .story-layout, .logo-layout, .technique-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .challenge-grid { grid-template-columns: 1fr 1fr; }
+      .logo-showcase { position: static; }
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #ffc94d;
-      text-shadow: 0 0 12px rgba(255, 201, 77, 0.4);
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #f5d7a1;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #ff914d;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: rgba(255, 145, 77, 0.08);
-      border-radius: 15px;
-      padding: 25px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 201, 77, 0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(255,145,77,0.25), transparent 70%);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: #ff914d;
-      box-shadow: 0 0 20px rgba(255,145,77,0.3);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card h3 {
-      color: #ffc94d;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #f5d7a1;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      background: #120a05;
-      color: #caa76b;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 201, 77, 0.2);
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background: #25D366;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
+    @media (max-width: 580px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .challenge-grid { grid-template-columns: 1fr; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
+    </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
 
-<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-streak"></div>
+    <div class="hero-bg-word">CAULKER</div>
 
-<header>
-  <h1>M&N Guest House</h1>
-  <p><strong>Logo Vectorization & Digital Recreation</strong></p>
-  <p>
-    Transforming a hand-painted identity into a scalable digital brand.
-  </p>
-</header>
+    <div class="hero-pill">
+      <span class="pill-dot"></span>
+      Live · Caye Caulker, Belize
+    </div>
 
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    This project involved digitally recreating an existing logo that was originally hand-painted on a physical sign.
-    The goal was to preserve its unique identity while transforming it into a clean, scalable digital format.
-  </p>
+    <div class="hero-badge">
+      <span class="badge-label">Completed</span>
+      <span class="badge-val">2023</span>
+    </div>
 
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    Since the original design did not have accessible digital assets, we carefully analyzed the lettering and visual elements,
-    identified matching fonts, and manually traced components to achieve a highly accurate vector version.
-  </p>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics Case Study · Logo Vectorization & Digital Recreation</span>
+      </div>
 
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    The final result maintains the authenticity of the original artwork while allowing the client to use the logo across
-    modern platforms, including social media, print materials, and web.
-  </p>
-</section>
+      <h1 class="hero-headline">
+        M&N
+        <em>Guest House.</em>
+        <span class="sub">From hand-painted sign to a scalable digital brand.</span>
+      </h1>
 
-<section>
-  <h2>Gallery</h2>
-  <div class="card-container">
-    <div class="card fade-up">
-      <img src="images/M&NLogo.png" alt="M&N Guest House Logo">
-      <h3>Final Logo</h3>
-      <p>
-        A fully vectorized version of the original hand-painted logo, preserving its identity while making it usable across all digital and print platforms.
-      </p>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          A logo preservation and vectorization project — taking a hand-crafted identity painted on a physical sign and recreating it faithfully in a clean, professional digital format ready for every modern platform.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-teal">✏️ Logo Vectorization</span>
+          <span class="chip chip-teal">🖼️ Digital Recreation</span>
+          <span class="chip chip-night">🏨 Hospitality</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num"><span>1</span></div>
+          <div class="hstat-label">Analog Original</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100<span>%</span></div>
+          <div class="hstat-label">Faithful Accuracy</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">Scalability</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">4<span>+</span></div>
+          <div class="hstat-label">File Formats</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Digital Recreation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Hospitality Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Font Matching</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Hand-Painted to Digital</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Guest House Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Social Media Ready</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Print-Ready Files</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Preservation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Vectorization</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Digital Recreation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Hospitality Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Font Matching</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Hand-Painted to Digital</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Guest House Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Social Media Ready</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Print-Ready Files</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Preservation</span>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Build a professional identity that grows with your business.
-  </p>
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Story</span>
+      </div>
+      <h2 class="section-title">A hand-painted identity,<br>built to last digitally.</h2>
 
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
-    </a>
-  </div>
-</section>
+      <div class="story-layout">
+        <div>
+          <div class="story-body">
+            <p>M&N Guest House is a welcoming accommodation on Caye Caulker — one of Belize's most beloved island destinations, known for its calm turquoise waters, unhurried pace, and its famous motto: "Go Slow." The guest house had already built a reputation through word of mouth and a loyal returning clientele.</p>
+            <p>The brand, however, lived entirely on a hand-painted sign. There were no digital files — no logo the owners could send to a printer, drop onto a Facebook page, or use when listing the property on booking platforms. The identity existed only in the physical world, and the physical world alone.</p>
+            <p>The brief was precise: don't reimagine the brand — preserve it. Take what was painted by hand with care and character, and recreate it digitally with the same level of craft. Every letter, every proportion, every visual element faithfully reconstructed for the modern platforms a thriving guest house needs.</p>
+          </div>
 
-</main>
+          <div class="challenge-card">
+            <span class="challenge-icon">🖌️</span>
+            <div>
+              <div class="challenge-title">No Digital Assets — Only a Physical Sign</div>
+              <p class="challenge-desc">Without source files or original artwork to work from, the only reference was the painted sign itself. Fonts were identified by eye, elements were traced, and the entire mark was rebuilt vector-by-vector.</p>
+            </div>
+            <span class="challenge-arrow">VECTORIZED →</span>
+          </div>
 
-<footer>
-  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
-</footer>
+          <div class="meta-grid">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">M&N Guest House</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">Caye Caulker, Belize</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Discipline</div>
+              <div class="meta-val">Logo Vectorization & Recreation</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Status</div>
+              <div class="meta-val">Live · In Active Use</div>
+            </div>
+          </div>
+        </div>
 
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const position = el.getBoundingClientRect().top;
-      if (position < window.innerHeight - 100) {
-        el.classList.add('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+        <!-- Island scene visual -->
+        <div class="island-scene">
+          <div class="water-lines">
+            <div class="wline"></div>
+            <div class="wline"></div>
+            <div class="wline"></div>
+            <div class="wline"></div>
+          </div>
+          <div class="island-stars">
+            <div class="star" style="top:8%;left:12%;animation-delay:0s;"></div>
+            <div class="star" style="top:15%;left:70%;animation-delay:0.8s;"></div>
+            <div class="star" style="top:22%;left:40%;animation-delay:1.5s;"></div>
+            <div class="star" style="top:10%;left:85%;animation-delay:0.4s;"></div>
+            <div class="star" style="top:30%;left:22%;animation-delay:2s;"></div>
+            <div class="star" style="top:18%;left:55%;animation-delay:1.1s;"></div>
+            <div class="star" style="top:5%;left:48%;animation-delay:1.8s;"></div>
+          </div>
+          <div class="island-moon">🌙</div>
+          <div class="island-visual">🌴</div>
+          <div class="island-caption">
+            <div class="island-caption-title">"Go Slow." — Caye Caulker</div>
+            <div class="island-caption-sub">Caribbean · Belize · Island Life</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CHALLENGE -->
+  <section class="challenge-section" id="scope">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · The Challenge</span>
+      </div>
+      <h2 class="section-title">Three problems.<br><em style="font-style:italic;color:var(--aqua)">One solution.</em></h2>
+      <p class="section-desc">Recreating a hand-painted logo without source files demands a specific combination of technical skill, artistic sensitivity, and patience. Here's what we were working against.</p>
+
+      <div class="challenge-grid">
+        <div class="challenge-card-item">
+          <span class="c-icon">🔍</span>
+          <div class="c-name">No Source Files</div>
+          <p class="c-desc">The original logo had never been created digitally. There were no AI, EPS, or even PDF files to work from — only a photograph of the hand-painted sign. Every element had to be identified, analyzed, and rebuilt from scratch.</p>
+        </div>
+        <div class="challenge-card-item">
+          <span class="c-icon">🔤</span>
+          <div class="c-name">Font Identification</div>
+          <p class="c-desc">Matching typefaces to hand-painted lettering is a precise craft. The letterforms were studied carefully — examining weight, width, and distinctive character shapes — until matching fonts were identified and confirmed against the original artwork.</p>
+        </div>
+        <div class="challenge-card-item">
+          <span class="c-icon">✏️</span>
+          <div class="c-name">Manual Tracing & Accuracy</div>
+          <p class="c-desc">Visual elements that couldn't be matched to existing fonts or assets were manually traced and drawn — preserving the unique character of the original while producing clean, scalable vector paths that perform at any size.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SECTION -->
+  <section class="logo-section" id="logo">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Result</span>
+      </div>
+      <h2 class="section-title">The original, perfected<br><em style="font-style:italic;color:var(--ocean)">for every screen and surface.</em></h2>
+
+      <div class="logo-layout">
+        <div class="logo-showcase">
+          <img src="images/M&NLogo.png" alt="M&N Guest House Logo"/>
+          <div class="analog-card">
+            <span class="analog-icon">🪧</span>
+            <div>
+              <div class="analog-title">Original: Hand-Painted Sign</div>
+              <p class="analog-desc">Created with paint and brush — unique, characterful, irreplaceable.</p>
+            </div>
+            <span class="analog-badge">PRESERVED ✓</span>
+          </div>
+          <div class="logo-variations">
+            <div class="logo-var lv-black">
+              <img src="images/M&NLogo.png" alt="Logo on black"/>
+            </div>
+            <div class="logo-var lv-white">
+              <img src="images/M&NLogo.png" alt="Logo on white"/>
+            </div>
+            <div class="logo-var lv-teal">
+              <img src="images/M&NLogo.png" alt="Logo on teal"/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-desc" style="margin-bottom:2rem">The result is a pixel-perfect digital recreation that honors every decision made when the original was painted. The character is intact. The proportions are right. And now, it's infinitely scalable — ready for wherever M&N Guest House needs to put its name.</p>
+
+          <div class="logo-facts">
+            <div class="logo-fact">
+              <span class="fact-icon">🎯</span>
+              <div>
+                <div class="fact-name">Faithful to the Original</div>
+                <p class="fact-desc">The goal was never to redesign or improve — it was to preserve. The vectorized logo carries the exact personality and proportions of the hand-painted original, translated cleanly into digital form.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">📐</span>
+              <div>
+                <div class="fact-name">Infinitely Scalable</div>
+                <p class="fact-desc">As a true vector file, the logo can be printed at any size without quality loss — from a business card to a wall mural. That's something no photograph of a painted sign can offer.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">📱</span>
+              <div>
+                <div class="fact-name">Platform-Ready</div>
+                <p class="fact-desc">Facebook, Instagram, Airbnb, Booking.com, printed menus, room keycards — the logo is now ready for every platform a modern guest house needs to operate on and grow through.</p>
+              </div>
+            </div>
+            <div class="logo-fact">
+              <span class="fact-icon">🏝️</span>
+              <div>
+                <div class="fact-name">An Identity Worth Keeping</div>
+                <p class="fact-desc">Not every brand needs reinvention. M&N's hand-painted mark had its own charm and recognition. The right move was to protect that — not replace it — and that's exactly what this project achieved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNIQUE & DELIVERABLES -->
+  <section class="technique-section" id="technique">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · Technique & Deliverables</span>
+      </div>
+      <h2 class="section-title">Precision work for<br>a Caribbean landmark.</h2>
+
+      <div class="technique-layout">
+        <div>
+          <h3 class="technique-headline">Analog soul,<br><em>digital precision.</em></h3>
+          <div class="technique-body">
+            <p>Vectorization work of this kind sits at the intersection of technical skill and artistic judgment. It's not just tracing — it's understanding what made the original compelling and making sure that quality transfers fully to the new medium.</p>
+            <p>For M&N Guest House, that meant carefully studying the painted letterforms, isolating each font used in the composition, matching them against thousands of typeface options, and rebuilding every element as clean, editable vector paths.</p>
+            <p>Where exact font matches couldn't be found, components were manually redrawn — curve by curve — ensuring the final file looks exactly as it should while giving the client full ownership of a professional, editable design asset they can use forever.</p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Input Material</span><span class="spec-val">Hand-Painted Physical Sign</span></div>
+            <div class="spec-row"><span class="spec-key">Method</span><span class="spec-val">Font ID + Manual Vector Tracing</span></div>
+            <div class="spec-row"><span class="spec-key">Output Format</span><span class="spec-val">SVG · PNG · PDF · All Variants</span></div>
+            <div class="spec-row"><span class="spec-key">Color Variants</span><span class="spec-val">Light, Dark & Transparent BG</span></div>
+            <div class="spec-row"><span class="spec-key">Scalability</span><span class="spec-val">Fully Infinite — Any Size</span></div>
+          </div>
+        </div>
+
+        <div class="deliverables-card">
+          <div class="deliverables-title">What's Delivered</div>
+          <div class="deliverables-sub">Every file the business will ever need.</div>
+          <div class="deliverable-items">
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">📄</span>
+              Vector SVG — Fully Editable
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">🖼️</span>
+              PNG — Transparent Background
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">📋</span>
+              PDF — Print-Ready
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">🌙</span>
+              Dark Background Variant
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">☀️</span>
+              Light Background Variant
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-item-icon">📲</span>
+              Social Media–Optimized Export
+              <span class="deliverable-check">Included ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · Process</span>
+      </div>
+      <h2 class="section-title">How a painted sign<br>becomes a digital brand.</h2>
+      <p class="section-desc">No shortcuts. Just careful, methodical work — the same four steps that guide every Visual Graphics project, applied here with the detail this kind of preservation demands.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Analyze</div>
+          <p class="pstep-desc">We studied every element of the original sign — letterforms, proportions, visual marks, and color. Understanding what existed before building anything new was the only path to accuracy.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Identify</div>
+          <p class="pstep-desc">Typefaces were matched letter-by-letter against thousands of options until exact or near-exact matches were confirmed. Elements that couldn't be matched were flagged for manual tracing.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Reconstruct</div>
+          <p class="pstep-desc">Every element was rebuilt as clean vector paths — using matched fonts for typography and manual Bézier drawing for custom marks — until the digital version stood side-by-side with the original.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Deliver</div>
+          <p class="pstep-desc">Final files packaged and delivered in every format needed — SVG, PNG, PDF, and all background variants — ready for immediate use across digital and print platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · Why It Matters</span>
+      </div>
+      <h2 class="section-title">A local gem, ready<br>for the world to find.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-num">∞</div>
+          <div class="impact-label">Endless Scalability</div>
+          <p class="impact-desc">A hand-painted sign is fixed in place and fixed in size. A vector logo goes everywhere — from a phone screen to a hotel banner — without losing a single pixel of quality.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">↑</div>
+          <div class="impact-label">Booking Platform Ready</div>
+          <p class="impact-desc">Airbnb, Booking.com, TripAdvisor, and every platform that lists Caye Caulker accommodations now has a professional logo to display. That means more trust, more bookings, more guests.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">✓</div>
+          <div class="impact-label">Identity Preserved</div>
+          <p class="impact-desc">The charm and authenticity that made the original sign worth keeping? It's all still there — just no longer locked behind a coat of paint on an island wall. It belongs to every platform now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline">
+        Your identity deserves<br>to <em>live everywhere.</em>
+      </h2>
+      <p class="cta-sub">Whether you have a brand that needs digitizing, or you're building one from scratch — we'll make sure it looks the part on every platform.</p>
+      <div class="cta-actions">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5016220740" target="_blank" class="btn-primary" style="background:var(--accent3);box-shadow:0 4px 20px rgba(14,74,61,0.3);">
+          WhatsApp Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
