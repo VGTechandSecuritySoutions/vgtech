@@ -1,254 +1,1002 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Creative Haven | Visual Graphics Project</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Haven — Visual Graphics Case Study</title>
+  <meta name="description" content="Creative Haven — a custom logo design by Visual Graphics for a growing custom printing & engraving business in Belize."/>
+  <meta property="og:title" content="Creative Haven — Logo Design Case Study"/>
+  <meta property="og:description" content="A bold, colorful brand identity built for a fast-growing custom printing and engraving business."/>
+  <link rel="icon" href="images/VisualGraphicsNoBackground.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --bg:        #fdf6ff;
+      --bg2:       #fff5fb;
+      --ink:       #1a0a2e;
+      --ink2:      #2d1150;
+      --muted:     #7a5a8a;
+      --border:    rgba(26,10,46,0.1);
+      --card:      #faf0ff;
+      /* Brand palette — Creative Haven */
+      --violet:    #7c3aed;
+      --purple:    #a855f7;
+      --fuchsia:   #d946ef;
+      --rose:      #f43f5e;
+      --coral:     #fb923c;
+      --gold:      #f59e0b;
+      --teal:      #0d9488;
+      --sky:       #38bdf8;
+      --dark:      #0f0520;
+      --deep:      #1a0836;
+      --foam:      #fdf4ff;
+      /* Gradients */
+      --grad1:     linear-gradient(135deg, var(--violet), var(--fuchsia));
+      --grad2:     linear-gradient(135deg, var(--fuchsia), var(--rose), var(--coral));
+      --grad3:     linear-gradient(135deg, var(--gold), var(--coral), var(--rose));
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #0a0f1c;
-      color: #e6f1ff;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(253,246,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--grad1); color: #fff;
+      padding: 0.5rem 1.3rem; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background: #050910;
-      position: sticky;
-      top: 0;
+    /* Big background word */
+    .hero-bg-word {
+      position: absolute;
+      bottom: -0.1em; right: -0.05em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(10rem, 22vw, 30rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(168,85,247,0.07);
+      pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -0.02em;
     }
 
-    /* 🔴 RED */
-    nav h3 {
-      color: #ff4d4d;
+    /* Colorful blobs */
+    .hero-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); pointer-events: none;
+    }
+    .hb1 { width: 650px; height: 650px; background: rgba(124,58,237,0.18); top: -180px; right: -100px; animation: drift 11s ease-in-out infinite alternate; }
+    .hb2 { width: 400px; height: 400px; background: rgba(217,70,239,0.12); bottom: 5%; left: -5%; animation: drift 14s ease-in-out infinite alternate-reverse; }
+    .hb3 { width: 300px; height: 300px; background: rgba(244,63,94,0.1); top: 30%; left: 30%; animation: drift 9s ease-in-out infinite alternate; }
+    .hb4 { width: 200px; height: 200px; background: rgba(245,158,11,0.08); bottom: 20%; right: 15%; animation: drift 7s ease-in-out infinite alternate-reverse; }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(18px, 14px) scale(1.05); }
     }
 
-    nav a {
-      color: #e6f1ff;
-      margin-left: 20px;
-      text-decoration: none;
+    /* Light streaks */
+    .hero-streak {
+      position: absolute;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(217,70,239,0.2) 50%, transparent);
+    }
+    .hero-streak-1 { top: 0; left: 60%; }
+    .hero-streak-2 { top: 0; left: 30%; background: linear-gradient(to bottom, transparent, rgba(245,158,11,0.1) 50%, transparent); }
+
+    /* Status pill */
+    .hero-pill {
+      position: absolute; top: 7rem; left: 4rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 100px; padding: 0.5rem 1.1rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple);
+      animation: fadeIn 0.8s 0.4s ease both; opacity: 0;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--fuchsia); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+
+    /* Floating badge */
+    .hero-badge {
+      position: absolute; top: 7rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem;
+      animation: fadeIn 1s 0.6s ease both; opacity: 0;
+    }
+    .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--purple); letter-spacing: 0.08em; line-height: 1; }
+
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--grad1); display: inline-block; }
+    .eyebrow-text { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-weight: 900; line-height: 0.92;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.1s ease both; animation-fill-mode: both;
+    }
+    .hero-headline em {
+      font-style: italic; display: block;
+      background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-headline .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 300; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.01em; display: block; margin-top: 0.5rem;
+      -webkit-text-fill-color: rgba(255,255,255,0.4);
     }
 
-    /* 🌈 GRADIENT MIX */
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle at top, #ff4d4d, #3b82f6, #050910);
+    .hero-bottom {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.2s ease both; animation-fill-mode: both;
+    }
+    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 420px; line-height: 1.75; }
+    .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+    .chip-violet { background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.35); color: var(--purple); }
+    .chip-fuchsia { background: rgba(217,70,239,0.15); border: 1px solid rgba(217,70,239,0.3); color: #e879f9; }
+    .chip-gold { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: #fbbf24; }
+    .chip-night { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex; gap: 0;
+      margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      animation: fadeUp 0.6s 0.3s ease both; animation-fill-mode: both;
+    }
+    .hstat { flex: 1; padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.07); margin-right: 2rem; }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #fff; letter-spacing: 0.04em; line-height: 1; }
+    .hstat-num.grad { background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      padding: 0.7rem 0; overflow: hidden;
+      background: linear-gradient(90deg, var(--violet), var(--fuchsia), var(--rose), var(--coral), var(--gold), var(--fuchsia), var(--violet));
+      background-size: 300% 100%;
+      animation: gradShift 8s ease-in-out infinite;
+    }
+    @keyframes gradShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .ticker-track { display: flex; width: max-content; animation: ticker 28s linear infinite; }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 2rem; white-space: nowrap; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+
+    /* ── SHARED ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    section { position: relative; }
+    .section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.98rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.75; }
+
+    /* ── STORY ── */
+    .story { padding: 7rem 0; background: var(--bg); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body p { font-size: 0.97rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    /* Origin card */
+    .origin-card {
+      background: var(--deep);
+      border-radius: 20px; padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .origin-icon { font-size: 2rem; flex-shrink: 0; }
+    .origin-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .origin-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; }
+    .origin-arrow { margin-left: auto; flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--purple); }
+
+    /* Meta grid */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 2rem; }
+    .meta-cell { background: var(--card); padding: 1.2rem 1.5rem; }
+    .meta-key { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+    /* Creative visual */
+    .creative-scene {
+      background: var(--deep);
+      border-radius: 24px; padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      min-height: 380px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .creative-scene::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 40% 30%, rgba(124,58,237,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(217,70,239,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,158,11,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Color orbs floating */
+    .orbs { position: absolute; inset: 0; pointer-events: none; }
+    .orb {
+      position: absolute; border-radius: 50%;
+      animation: floatOrb 6s ease-in-out infinite;
+    }
+    .orb1 { width: 60px; height: 60px; background: radial-gradient(circle, rgba(124,58,237,0.7), transparent); top: 15%; left: 20%; animation-delay: 0s; }
+    .orb2 { width: 40px; height: 40px; background: radial-gradient(circle, rgba(217,70,239,0.7), transparent); top: 25%; right: 25%; animation-delay: 1s; }
+    .orb3 { width: 50px; height: 50px; background: radial-gradient(circle, rgba(244,63,94,0.6), transparent); top: 50%; left: 40%; animation-delay: 2s; }
+    .orb4 { width: 35px; height: 35px; background: radial-gradient(circle, rgba(245,158,11,0.7), transparent); top: 35%; right: 15%; animation-delay: 0.5s; }
+    .orb5 { width: 45px; height: 45px; background: radial-gradient(circle, rgba(56,189,248,0.5), transparent); top: 60%; left: 15%; animation-delay: 1.5s; }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+      50% { transform: translateY(-12px) scale(1.1); opacity: 1; }
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #f97316; /* 🟠 ORANGE */
+    .scene-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); font-size: 5rem; filter: drop-shadow(0 0 30px rgba(168,85,247,0.5)); z-index: 1; animation: bob 4s ease-in-out infinite; }
+    @keyframes bob { 0%, 100% { transform: translate(-50%, -60%); } 50% { transform: translate(-50%, -66%); } }
+
+    .color-swatches { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.6rem; z-index: 2; }
+    .swatch { width: 10px; height: 10px; border-radius: 50%; animation: glimmer 2.5s ease-in-out infinite; }
+    .sw1 { background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+    .sw2 { background: var(--fuchsia); box-shadow: 0 0 10px var(--fuchsia); animation-delay: 0.3s; }
+    .sw3 { background: var(--rose); box-shadow: 0 0 10px var(--rose); animation-delay: 0.6s; }
+    .sw4 { background: var(--coral); box-shadow: 0 0 10px var(--coral); animation-delay: 0.9s; }
+    .sw5 { background: var(--gold); box-shadow: 0 0 10px var(--gold); animation-delay: 1.2s; }
+    .sw6 { background: var(--sky); box-shadow: 0 0 10px var(--sky); animation-delay: 1.5s; }
+    @keyframes glimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .scene-caption { position: relative; z-index: 2; text-align: center; }
+    .scene-caption-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 0.3rem; }
+    .scene-caption-sub { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── SCOPE ── */
+    .scope { padding: 7rem 0; background: var(--deep); overflow: hidden; }
+    .scope::before { content: 'BRAND'; position: absolute; bottom: -0.1em; right: -0.05em; font-family: 'Bebas Neue', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(168,85,247,0.05); pointer-events: none; line-height: 1; }
+    .scope .section-title { color: #fff; }
+    .scope .section-label { color: var(--purple); }
+    .scope .eyebrow-line { background: var(--grad1); }
+
+    .scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .scope-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.2rem; transition: transform 0.3s, background 0.3s; }
+    .scope-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
+    .scope-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .scope-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .scope-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.7; }
+    .scope-card:nth-child(1) { border-top: 2px solid var(--violet); }
+    .scope-card:nth-child(2) { border-top: 2px solid var(--fuchsia); }
+    .scope-card:nth-child(3) { border-top: 2px solid var(--rose); }
+
+    /* ── SHOWCASE SECTION ── */
+    .showcase-section { padding: 7rem 0; background: var(--bg); }
+    .showcase-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Logo display card */
+    .logo-showcase {
+      background: var(--deep);
+      border-radius: 24px; padding: 0;
+      display: flex; flex-direction: column;
+      position: sticky; top: 6rem;
+      box-shadow: 0 24px 60px rgba(26,8,54,0.4);
+      overflow: hidden;
+    }
+    .browser-bar {
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.7rem 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .browser-dots { display: flex; gap: 0.35rem; }
+    .bdot { width: 9px; height: 9px; border-radius: 50%; }
+    .bdot-r { background: rgba(255,80,80,0.5); }
+    .bdot-y { background: rgba(255,200,0,0.5); }
+    .bdot-g { background: rgba(124,58,237,0.6); }
+    .browser-url {
+      flex: 1; background: rgba(255,255,255,0.06); border-radius: 100px;
+      padding: 0.3rem 0.9rem; font-size: 0.68rem; color: rgba(255,255,255,0.35);
+      font-weight: 500; letter-spacing: 0.02em;
     }
 
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #c7d2fe; /* 🔵 SOFT BLUE */
+    .logo-screen {
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 2rem;
+      position: relative;
+    }
+    /* Rainbow glow behind logo */
+    .logo-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      width: 220px; height: 220px;
+      background: conic-gradient(from 0deg, var(--violet), var(--fuchsia), var(--rose), var(--coral), var(--gold), var(--sky), var(--violet));
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.25;
+      animation: spin 8s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes spin { from { transform: translate(-50%, -55%) rotate(0deg); } to { transform: translate(-50%, -55%) rotate(360deg); } }
+
+    .logo-screen img { width: 100%; max-width: 260px; height: auto; position: relative; z-index: 1; transition: transform 0.5s; filter: drop-shadow(0 8px 32px rgba(168,85,247,0.4)); }
+    .logo-showcase:hover .logo-screen img { transform: scale(1.06) rotate(1deg); }
+
+    /* Color palette display */
+    .palette-display { width: 100%; position: relative; z-index: 1; }
+    .palette-label { font-size: 0.65rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; text-align: center; }
+    .palette-swatches { display: flex; gap: 0.5rem; justify-content: center; }
+    .palette-swatch {
+      flex: 1; max-width: 44px; height: 44px; border-radius: 12px;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .palette-swatch:hover { transform: translateY(-4px) scale(1.1); }
+    .ps1 { background: var(--violet); box-shadow: 0 4px 12px rgba(124,58,237,0.5); }
+    .ps2 { background: var(--fuchsia); box-shadow: 0 4px 12px rgba(217,70,239,0.5); }
+    .ps3 { background: var(--rose); box-shadow: 0 4px 12px rgba(244,63,94,0.5); }
+    .ps4 { background: var(--coral); box-shadow: 0 4px 12px rgba(251,146,60,0.5); }
+    .ps5 { background: var(--gold); box-shadow: 0 4px 12px rgba(245,158,11,0.5); }
+
+    /* Design facts */
+    .design-facts { display: flex; flex-direction: column; gap: 0; }
+    .design-fact { display: flex; gap: 1.2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .design-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+    .fact-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── DESIGN SECTION ── */
+    .design-section { padding: 7rem 0; background: var(--bg2); }
+    .design-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Canvas mockup */
+    .canvas-mockup {
+      background: var(--deep); border-radius: 24px;
+      position: relative; overflow: hidden; padding: 3rem;
+      min-height: 360px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .canvas-mockup::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: conic-gradient(from 135deg at 30% 30%, rgba(124,58,237,0.08), rgba(217,70,239,0.06), rgba(244,63,94,0.04), transparent 60%);
+    }
+    .canvas-products { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; position: relative; z-index: 1; margin-bottom: 1.5rem; }
+    .canvas-product { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 1.2rem; text-align: center; transition: transform 0.3s, background 0.3s; }
+    .canvas-product:hover { transform: translateY(-3px); background: rgba(255,255,255,0.09); }
+    .canvas-product-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; }
+    .canvas-product-name { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    .canvas-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.2); padding: 0.4rem 0.9rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: var(--purple); letter-spacing: 0.06em; position: relative; z-index: 1; }
+
+    .design-right {}
+    .design-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
+    .design-headline em { font-style: italic; background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .design-body p { font-size: 0.95rem; color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1rem; }
+
+    .spec-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .spec-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.4rem; background: var(--card); border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--muted); font-weight: 500; }
+    .spec-val { color: var(--ink); font-weight: 600; }
+    .spec-val.grad { background: var(--grad1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 7rem 0; background: var(--bg); }
+    .process-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; }
+    .process-steps-grid::before { content: ''; position: absolute; top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 2px; background: linear-gradient(to right, var(--violet), var(--fuchsia), var(--rose), var(--gold)); z-index: 0; }
+    .pstep { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.5rem; position: relative; z-index: 1; transition: transform 0.3s, box-shadow 0.3s; }
+    .pstep:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(124,58,237,0.12); }
+    .pstep-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .pstep:nth-child(1) .pstep-num { background: var(--violet); }
+    .pstep:nth-child(2) .pstep-num { background: var(--fuchsia); }
+    .pstep:nth-child(3) .pstep-num { background: var(--rose); }
+    .pstep:nth-child(4) .pstep-num { background: var(--grad3); }
+    .pstep-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .pstep-desc { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── IMPACT ── */
+    .impact-section { padding: 7rem 0; overflow: hidden; position: relative; background: var(--deep); }
+    .impact-section::before { content: 'IMPACT'; position: absolute; right: -0.05em; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 2px rgba(168,85,247,0.06); pointer-events: none; line-height: 1; }
+    /* Colorful gradient strip at top */
+    .impact-section::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--violet), var(--fuchsia), var(--rose), var(--coral), var(--gold)); }
+    .impact-section .section-title { color: #fff; }
+    .impact-section .section-label { color: var(--purple); }
+    .impact-section .eyebrow-line { background: var(--grad1); }
+
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .impact-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.09); }
+    .impact-card:nth-child(1) { border-top: 2px solid var(--violet); }
+    .impact-card:nth-child(2) { border-top: 2px solid var(--fuchsia); }
+    .impact-card:nth-child(3) { border-top: 2px solid var(--gold); }
+    .impact-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; margin-bottom: 0.5rem; }
+    .impact-num.v { color: var(--purple); }
+    .impact-num.f { color: var(--fuchsia); }
+    .impact-num.g { color: #fbbf24; }
+    .impact-label { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+    .impact-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 9rem 0; background: var(--bg); text-align: center; overflow: hidden; position: relative; }
+    .cta-section::before { content: 'CREATE'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-4deg); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 1px rgba(124,58,237,0.04); pointer-events: none; white-space: nowrap; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: italic; background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-sub { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--grad1); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.45); }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.45); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--ink); font-weight: 500; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--violet); background: rgba(124,58,237,0.04); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: rgba(253,246,255,0.8); }
+    .footer-copy { font-size: 0.78rem; color: rgba(253,246,255,0.35); }
+    .footer-email a { font-size: 0.82rem; color: var(--purple); text-decoration: none; }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-pill, .hero-badge { display: none; }
+      .hero-stats { flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+      .container { padding: 0 1.5rem; }
+      .story-layout, .showcase-layout, .design-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+      .logo-showcase { position: static; }
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
     }
 
-    main {
-      flex: 1;
+    @media (max-width: 580px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
+      .canvas-products { grid-template-columns: 1fr 1fr; }
     }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    /* 🔵 BLUE HEADINGS */
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #60a5fa;
-    }
-
-    .card-container {
-      display: grid;
-      gap: 25px;
-    }
-
-    /* 🔵 + 🟢 MIXED CARD */
-    .card {
-      background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(34,197,94,0.2));
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid rgba(255,165,0,0.2); /* 🟠 subtle */
-      backdrop-filter: blur(10px);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px rgba(255,77,77,0.3); /* 🔴 glow */
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    /* 🟠 ORANGE SUBHEAD */
-    .card h3 {
-      color: #f97316;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #050910;
-      text-align: center;
-      padding: 20px;
-      color: #86efac; /* 🟢 GREEN */
-      border-top: 1px solid rgba(96,165,250,0.2);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.6s;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* 🟢 GREEN CTA */
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: linear-gradient(135deg, #22c55e, #4ade80);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(34,197,94,0.4);
-    }
-
-    .cta-button:hover {
-      transform: scale(1.05);
-    }
-
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
+    </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
 
-<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-blob hb4"></div>
+    <div class="hero-streak hero-streak-1"></div>
+    <div class="hero-streak hero-streak-2"></div>
+    <div class="hero-bg-word">CREATIVE</div>
 
-<header>
-  <h1>Creative Haven</h1>
-  <p><strong>Logo Design for a Custom Printing & Engraving Business</strong></p>
-  <p>
-    A clean and professional brand identity created for a growing small business specializing in customized products.
-  </p>
-</header>
-
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Creative Haven is a small but fast-growing business offering custom printing and engraving services,
-    including personalized cups, bags, keychains, party items, and more.
-  </p>
-
-  <p style="text-align:center; max-width:750px; margin:auto; margin-top:15px;">
-    With a high demand for custom orders and limited time for marketing, the goal was to create a strong,
-    professional logo that could represent the business consistently across all products.
-  </p>
-</section>
-
-<section>
-  <h2>Design Approach</h2>
-
-  <div class="card-container">
-
-    <div class="card fade-up">
-      <h3>Logo Design</h3>
-
-      <img src="images/CreativeHeavenLogoOriginal.png">
-
-      <p>
-        The logo was designed from scratch with a focus on simplicity, clarity, and professionalism.
-        The goal was to create a flexible identity that works across a wide range of custom products.
-      </p>
-
-      <p style="margin-top:10px;">
-        Since the business produces a variety of items—from engraved products to printed packaging—the design needed
-        to remain clean and adaptable for different sizes, surfaces, and materials.
-      </p>
-
-      <p style="margin-top:10px;">
-        The final result is a modern and recognizable brand mark that supports the business as it continues to grow.
-      </p>
+    <div class="hero-pill">
+      <span class="pill-dot"></span>
+      Live · Custom Printing & Engraving
     </div>
 
+    <div class="hero-badge">
+      <span class="badge-label">Delivered</span>
+      <span class="badge-val">2025 – 2026</span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics Case Study · Brand Identity Design</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Creative
+        <em>Haven.</em>
+        <span class="sub">A bold, colorful identity for a fast-growing custom print business.</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          A growing custom printing and engraving business needed a professional logo that could live on everything — from personalized cups to keychains to party items. We built it from scratch.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-violet">🎨 Logo Design</span>
+          <span class="chip chip-fuchsia">✏️ Brand Identity</span>
+          <span class="chip chip-gold">🖨️ Print & Engraving</span>
+          <span class="chip chip-night">📐 Multi-Format Files</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num grad">1</div>
+          <div class="hstat-label">Logo Designed</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">Surfaces It Works On</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100<span style="color:var(--purple)">%</span></div>
+          <div class="hstat-label">Custom Work</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num grad">↑</div>
+          <div class="hstat-label">Brand Confidence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Custom Printing</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Laser Engraving</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Personalized Cups</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Keychains & Bags</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Party Items</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> SVG · PDF · PNG</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Scalable Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker, Belize, CA</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Creative Haven</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Custom Printing</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Laser Engraving</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Personalized Cups</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Keychains & Bags</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Party Items</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> SVG · PDF · PNG</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Scalable Branding</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker, Belize, CA</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Creative Haven</span>
+    </div>
   </div>
-</section>
 
-<section>
-  <h2>Real Business Impact</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Even without heavy marketing, Creative Haven continues to receive a steady flow of orders,
-    showing strong demand for their services. The new logo provides a consistent and professional
-    identity that supports customer trust and brand recognition.
-  </p>
-</section>
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Story</span>
+      </div>
+      <h2 class="section-title reveal">A business with <em style="font-style:italic;color:var(--violet)">real demand</em><br>and no brand to show for it.</h2>
 
-<section>
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center;">
-    Build a professional identity that grows with your business.
-  </p>
+      <div class="story-layout">
+        <div>
+          <div class="story-body reveal">
+            <p>Creative Haven had already built something impressive: a growing base of customers ordering custom cups, engraved keychains, printed bags, and personalized party items — all without heavy marketing. The demand was there. The product was there. The brand wasn't.</p>
+            <p>With orders coming in and a reputation building by word of mouth, the business needed a logo that could keep up — something professional, flexible, and confident enough to live on every surface they engrave or print.</p>
+            <p>The challenge: design a mark that felt creative and warm without being chaotic, and that could scale cleanly from a tiny keychain to a full-size printed banner.</p>
+          </div>
 
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
-    </a>
-  </div>
-</section>
+          <div class="origin-card reveal">
+            <span class="origin-icon">🎨</span>
+            <div>
+              <div class="origin-title">Identity Before Marketing: The Right Order of Operations</div>
+              <p class="origin-desc">A business with real traction needed a brand that matched. We designed the logo first — so every future campaign, sticker, or product already starts from a strong foundation.</p>
+            </div>
+            <span class="origin-arrow">BUILT FROM SCRATCH →</span>
+          </div>
 
-</main>
+          <div class="meta-grid reveal">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">Creative Haven</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">Caye Caulker</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Discipline</div>
+              <div class="meta-val">Logo & Brand Identity</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Status</div>
+              <div class="meta-val">Live · In Active Use</div>
+            </div>
+          </div>
+        </div>
 
-<footer>
-  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
-</footer>
+        <!-- Creative scene visual -->
+        <div class="creative-scene reveal">
+          <div class="orbs">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
+            <div class="orb orb3"></div>
+            <div class="orb orb4"></div>
+            <div class="orb orb5"></div>
+          </div>
+          <div class="color-swatches">
+            <div class="swatch sw1"></div>
+            <div class="swatch sw2"></div>
+            <div class="swatch sw3"></div>
+            <div class="swatch sw4"></div>
+            <div class="swatch sw5"></div>
+            <div class="swatch sw6"></div>
+          </div>
+          <div class="scene-icon">🖌️</div>
+          <div class="scene-caption">
+            <div class="scene-caption-title">"The orders were coming. Now the brand can too."</div>
+            <div class="scene-caption-sub">Custom Printing · Engraving · Belize</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const pos = el.getBoundingClientRect().top;
-      if (pos < window.innerHeight - 100) {
-        el.classList.add('show');
-      }
+  <!-- SCOPE -->
+  <section class="scope" id="scope">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · Scope of Work</span>
+      </div>
+      <h2 class="section-title reveal">A logo that works<br><em style="font-style:italic;color:var(--purple)">everywhere they do.</em></h2>
+
+      <div class="scope-grid">
+        <div class="scope-card reveal">
+          <span class="scope-icon">✏️</span>
+          <div class="scope-name">Logo Design from Scratch</div>
+          <p class="scope-desc">No templates, no stock marks. The Creative Haven logo was designed from the ground up with a clear vision: colorful, professional, and built to carry a growing brand across every product and platform.</p>
+        </div>
+        <div class="scope-card reveal reveal-delay-1">
+          <span class="scope-icon">🎨</span>
+          <div class="scope-name">Color & Identity System</div>
+          <p class="scope-desc">A rich, multi-color palette was developed that feels vibrant and welcoming — reflecting the variety and creativity of the products — while staying cohesive enough to feel like one unified brand.</p>
+        </div>
+        <div class="scope-card reveal reveal-delay-2">
+          <span class="scope-icon">📐</span>
+          <div class="scope-name">Multi-Format Delivery</div>
+          <p class="scope-desc">The logo was delivered in SVG, PDF, and PNG formats — print-ready at any size, suitable for laser engraving masks, digital platforms, and everything in between.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SHOWCASE SECTION -->
+  <section class="showcase-section" id="showcase">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Logo</span>
+      </div>
+      <h2 class="section-title reveal">Clean, colorful, and<br><em style="font-style:italic;color:var(--violet)">built to scale.</em></h2>
+
+      <div class="showcase-layout">
+        <!-- Logo showcase -->
+        <div class="logo-showcase reveal">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <div class="bdot bdot-r"></div>
+              <div class="bdot bdot-y"></div>
+              <div class="bdot bdot-g"></div>
+            </div>
+            <div class="browser-url">Creative Haven · Brand Identity</div>
+          </div>
+          <div class="logo-screen">
+            <div class="logo-glow"></div>
+            <img src="images/CreativeHeavenLogoOriginal.png" alt="Creative Haven Logo"/>
+            <div class="palette-display">
+              <div class="palette-label">Brand Color Palette</div>
+              <div class="palette-swatches">
+                <div class="palette-swatch ps1" title="Violet"></div>
+                <div class="palette-swatch ps2" title="Fuchsia"></div>
+                <div class="palette-swatch ps3" title="Rose"></div>
+                <div class="palette-swatch ps4" title="Coral"></div>
+                <div class="palette-swatch ps5" title="Gold"></div>
+              </div>
+            </div>
+            <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:0.07em;text-transform:uppercase;">Logo · Custom Design · Visual Graphics</div>
+          </div>
+        </div>
+
+        <!-- Design facts -->
+        <div>
+          <p class="section-desc reveal" style="margin-bottom:2rem">The logo was designed with one goal: to be instantly recognizable and flexibly functional. Whether it's stamped on a keychain, printed on a tote bag, or displayed on a social media profile, it needs to carry the same confidence.</p>
+          <div class="design-facts">
+            <div class="design-fact reveal">
+              <span class="fact-icon">🎯</span>
+              <div>
+                <div class="fact-name">Simplicity as Strategy</div>
+                <p class="fact-desc">With so many product types — cups, bags, keychains, party items — the logo needed to stay clean enough to work on all of them. Complexity would have broken at small sizes; this mark holds up everywhere.</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">🌈</span>
+              <div>
+                <div class="fact-name">Color as Identity</div>
+                <p class="fact-desc">Creative Haven's colorful palette isn't decorative — it's strategic. The warmth and vibrancy of the colors communicate creativity, personalization, and celebration, which is exactly what their customers are buying.</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">📦</span>
+              <div>
+                <div class="fact-name">Ready for Every Surface</div>
+                <p class="fact-desc">From a digital storefront to a laser engraver's file, the logo was built to adapt. SVG files for screens, print-ready PDFs for production, and clean PNGs for quick social use — all delivered and ready to go.</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">📈</span>
+              <div>
+                <div class="fact-name">Built for a Growing Business</div>
+                <p class="fact-desc">The design isn't locked to where Creative Haven is today. As the business expands its product range, the logo will grow with it — a mark that can carry a much bigger brand down the line.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN APPROACH SECTION -->
+  <section class="design-section" id="design">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · Design Approach</span>
+      </div>
+      <h2 class="section-title reveal">One mark.<br>Every product.</h2>
+
+      <div class="design-layout">
+        <!-- Canvas mockup -->
+        <div class="canvas-mockup reveal">
+          <div class="canvas-products">
+            <div class="canvas-product">
+              <span class="canvas-product-emoji">☕</span>
+              <span class="canvas-product-name">Cups</span>
+            </div>
+            <div class="canvas-product">
+              <span class="canvas-product-emoji">👜</span>
+              <span class="canvas-product-name">Bags</span>
+            </div>
+            <div class="canvas-product">
+              <span class="canvas-product-emoji">🔑</span>
+              <span class="canvas-product-name">Keychains</span>
+            </div>
+            <div class="canvas-product">
+              <span class="canvas-product-emoji">🎉</span>
+              <span class="canvas-product-name">Party Items</span>
+            </div>
+          </div>
+          <div class="canvas-tag">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Logo works across all product surfaces
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="design-right reveal">
+          <h3 class="design-headline">A logo tourists recognize. A brand that <em>closes every custom order.</em></h3>
+          <div class="design-body">
+            <p>The design process started with the product range. Creative Haven makes a huge variety of items — and the logo had to feel at home on all of them without being retrofitted. That meant simplicity, flexibility, and color confidence.</p>
+            <p>We focused on a mark that was friendly and approachable (because customers are buying personalized gifts and celebrations) while still feeling professional enough to build lasting business trust.</p>
+            <p>The result: a logo that's as comfortable on a laser-engraved acrylic keychain as it is on an Instagram profile. Clean at 16px, striking at full bleed.</p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Type</span><span class="spec-val">Logo Mark + Wordmark</span></div>
+            <div class="spec-row"><span class="spec-key">Palette</span><span class="spec-val grad">Full Spectrum · Colorful</span></div>
+            <div class="spec-row"><span class="spec-key">Formats</span><span class="spec-val">SVG · PDF · PNG</span></div>
+            <div class="spec-row"><span class="spec-key">Use Cases</span><span class="spec-val">Print · Digital · Engraving</span></div>
+            <div class="spec-row"><span class="spec-key">Scalability</span><span class="spec-val">Keychain to Banner · ✓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · Process</span>
+      </div>
+      <h2 class="section-title reveal">From brief to<br>brand-ready files.</h2>
+      <p class="section-desc reveal">A focused four-step design process that turned a business need into a complete, production-ready brand identity.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep reveal">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Discover</div>
+          <p class="pstep-desc">We explored the products, the customers, and the tone the business needed to project — cheerful but professional, creative but reliable. That brief became the design brief.</p>
+        </div>
+        <div class="pstep reveal reveal-delay-1">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Concept</div>
+          <p class="pstep-desc">Color direction and mark concepts were explored with the product range in mind. Every choice was tested against the core question: does this work on a keychain? A bag? A website?</p>
+        </div>
+        <div class="pstep reveal reveal-delay-2">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Refine</div>
+          <p class="pstep-desc">The chosen direction was refined until the mark felt confident at every size — from a 16px favicon to a full-bleed print, the logo had to hold its clarity and character throughout.</p>
+        </div>
+        <div class="pstep reveal reveal-delay-3">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Deliver</div>
+          <p class="pstep-desc">Final files delivered in SVG, PDF, and PNG — ready for laser engravers, digital platforms, printers, and social media profiles. A complete brand kit, production-ready on day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · Real Impact</span>
+      </div>
+      <h2 class="section-title reveal">Steady orders.<br>Stronger identity. Real growth.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card reveal">
+          <div class="impact-num v">↑</div>
+          <div class="impact-label">Customer Trust</div>
+          <p class="impact-desc">A professional logo signals that Creative Haven is a real, established business — not a side project. That confidence shift is felt by every customer who sees the brand before they order.</p>
+        </div>
+        <div class="impact-card reveal reveal-delay-1">
+          <div class="impact-num f">∞</div>
+          <div class="impact-label">Surfaces It Works On</div>
+          <p class="impact-desc">From laser-engraved acrylic to printed tote bags to a phone screen, the logo performs. Scalable, flexible, and consistent — no matter what Creative Haven puts their name on.</p>
+        </div>
+        <div class="impact-card reveal reveal-delay-2">
+          <div class="impact-num g">📦</div>
+          <div class="impact-label">Ready to Grow With</div>
+          <p class="impact-desc">The brand foundation is built to scale. New product lines, new marketing channels, new team members — the logo is the constant that holds it all together as Creative Haven expands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline reveal">
+        Your business deserves<br>a brand this <em>colorful.</em>
+      </h2>
+      <p class="cta-sub reveal">Whether you need a logo, a full identity, or a digital presence — we build brands that grow with the business behind them.</p>
+      <div class="cta-actions reveal">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5016220740" target="_blank" class="btn-whatsapp">
+          WhatsApp Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics & VG Tech & Security Solutions. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Palette swatch tooltip on hover
+    document.querySelectorAll('.palette-swatch').forEach(swatch => {
+      swatch.addEventListener('mouseenter', () => {
+        swatch.style.boxShadow = `0 0 20px currentColor`;
+      });
+      swatch.addEventListener('mouseleave', () => {
+        swatch.style.boxShadow = '';
+      });
     });
-  };
-
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
-
+  </script>
 </body>
 </html>
