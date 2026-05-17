@@ -1,310 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Seaing Reality Adventures | Visual Graphics Project</title>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seaing Reality Adventures — Visual Graphics Case Study</title>
+  <meta name="description" content="Seaing Reality Adventures — Full brand identity and marketing setup by Visual Graphics for a snorkeling, fishing, and tour company in Caye Caulker, Belize."/>
+  <meta property="og:title" content="Seaing Reality Adventures — Full Brand Identity Case Study"/>
+  <meta property="og:description" content="Logo, business cards, flyers, Facebook setup, and video editing for a Belizean marine tour company."/>
+  <link rel="icon" href="images/VisualGraphicsNoBackground.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --bg:        #f0fdfc;
+      --bg2:       #e6faf9;
+      --ink:       #052824;
+      --ink2:      #0a3d38;
+      --muted:     #2d7a72;
+      --border:    rgba(5,40,36,0.1);
+      --card:      #edfaf9;
+
+      /* Core brand — Seaing Reality */
+      --aqua:      #00e8e4;
+      --aqua2:     #00c4c0;
+      --aqua3:     #00a8a5;
+      --teal:      #009e9a;
+      --deep-teal: #007572;
+      --dark:      #031a18;
+      --deep:      #041f1e;
+      --ocean:     #051a19;
+      --navy:      #03100f;
+      --foam:      #e0ffff;
+
+      --grad1:     linear-gradient(135deg, #00e8e4, #00b8b4);
+      --grad2:     linear-gradient(135deg, #00e8e4, #00c8f8, #0094ff);
+      --grad3:     linear-gradient(135deg, #00e8e4, #00d4a0);
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #0a0f1c;
-      color: #e6f1ff;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Syne', sans-serif;
+      overflow-x: hidden;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
+    /* ── NAV ── */
     nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
-      background: #050910;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 1rem 4rem;
+      background: rgba(240,253,252,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
-
-    nav h3 {
-      color: #fa0035;
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 600; transition: color 0.2s;
     }
-
-    nav a {
-      color: #e6f1ff;
-      margin-left: 20px;
-      text-decoration: none;
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--aqua); color: var(--ink);
+      padding: 0.5rem 1.3rem; border-radius: 100px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; transition: opacity 0.2s;
+      letter-spacing: 0.01em;
     }
+    .nav-cta:hover { opacity: 0.85; }
 
-    nav a:hover {
-      color: #fa0035;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: radial-gradient(circle at top, #00334d, #050910);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #00e0ff;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 10px auto;
-      color: #bdf6ff;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #00e0ff;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: rgba(0, 51, 77, 0.5);
-      border-radius: 15px;
-      padding: 25px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0,224,255,0.2);
-      transition: all 0.3s ease;
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
     }
 
-    .card::before {
-      content: "";
+    .hero-bg-word {
       position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(0,224,255,0.2), transparent 70%);
-      top: -50%;
-      left: -50%;
-      opacity: 0;
-      transition: 0.4s;
+      bottom: -0.12em; right: -0.04em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(10rem, 24vw, 32rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0,232,228,0.06);
+      pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -0.02em;
     }
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: #00e0ff;
-      box-shadow: 0 0 20px rgba(0,224,255,0.3);
+    /* Animated water shimmer */
+    .hero-shimmer {
+      position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(0,232,228,0.015) 60px,
+        rgba(0,232,228,0.015) 61px
+      );
+      animation: shimmerMove 12s linear infinite;
+    }
+    @keyframes shimmerMove { from { transform: translateY(0); } to { transform: translateY(61px); } }
+
+    /* Blobs */
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .hb1 { width: 700px; height: 700px; background: rgba(0,232,228,0.12); top: -200px; right: -150px; animation: drift 12s ease-in-out infinite alternate; }
+    .hb2 { width: 450px; height: 450px; background: rgba(0,180,220,0.08); bottom: 0%; left: -5%; animation: drift 15s ease-in-out infinite alternate-reverse; }
+    .hb3 { width: 280px; height: 280px; background: rgba(0,148,255,0.06); top: 35%; left: 32%; animation: drift 9s ease-in-out infinite alternate; }
+    .hb4 { width: 160px; height: 160px; background: rgba(0,232,228,0.1); bottom: 25%; right: 20%; animation: drift 7s ease-in-out infinite alternate-reverse; }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(20px, 16px) scale(1.06); }
     }
 
-    .card:hover::before {
-      opacity: 1;
+    /* Light streaks */
+    .hero-streak { position: absolute; width: 1px; height: 100%; pointer-events: none; }
+    .hs1 { top: 0; left: 62%; background: linear-gradient(to bottom, transparent, rgba(0,232,228,0.18) 50%, transparent); }
+    .hs2 { top: 0; left: 28%; background: linear-gradient(to bottom, transparent, rgba(0,180,220,0.08) 50%, transparent); }
+
+    /* Pill & badge */
+    .hero-pill {
+      position: absolute; top: 7rem; left: 4rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,232,228,0.1); border: 1px solid rgba(0,232,228,0.25);
+      border-radius: 100px; padding: 0.5rem 1.1rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--aqua);
+      animation: fadeIn 0.8s 0.4s ease both; opacity: 0;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--aqua); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.6); } }
+
+    .hero-badge {
+      position: absolute; top: 7rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem;
+      animation: fadeIn 1s 0.6s ease both; opacity: 0;
+    }
+    .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--aqua); letter-spacing: 0.08em; line-height: 1; }
+
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--aqua); display: inline-block; }
+    .eyebrow-text { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7.5vw, 7rem);
+      font-weight: 900; line-height: 0.92;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.1s ease both; animation-fill-mode: both;
+    }
+    .hero-headline em {
+      font-style: italic; display: block;
+      color: var(--aqua);
+    }
+    .hero-headline .sub {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+      font-weight: 400; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.01em; display: block; margin-top: 0.6rem;
     }
 
-    .card h3 {
-      color: #00e0ff;
-      margin-bottom: 10px;
+    .hero-bottom {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.2s ease both; animation-fill-mode: both;
+    }
+    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.45); font-weight: 400; max-width: 420px; line-height: 1.8; }
+    .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; }
+    .chip-aqua  { background: rgba(0,232,228,0.12); border: 1px solid rgba(0,232,228,0.28); color: var(--aqua); }
+    .chip-blue  { background: rgba(0,148,255,0.1);  border: 1px solid rgba(0,148,255,0.22); color: #60c8ff; }
+    .chip-night { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.45); }
+
+    .hero-stats {
+      display: flex; gap: 0;
+      margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      animation: fadeUp 0.6s 0.3s ease both; animation-fill-mode: both;
+    }
+    .hstat { flex: 1; padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.07); margin-right: 2rem; }
+    .hstat:last-child { border-right: none; margin-right: 0; }
+    .hstat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 0.04em; line-height: 1; color: #fff; }
+    .hstat-num.aq { color: var(--aqua); }
+    .hstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.28); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      padding: 0.75rem 0; overflow: hidden;
+      background: var(--aqua);
+    }
+    .ticker-track { display: flex; width: max-content; animation: ticker 28s linear infinite; }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 2rem; white-space: nowrap; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: rgba(3,16,15,0.8); }
+    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(3,16,15,0.4); flex-shrink: 0; }
+
+    /* ── SHARED ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    section { position: relative; }
+    .section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.98rem; color: var(--muted); font-weight: 400; max-width: 520px; line-height: 1.8; }
+
+    /* ── STORY ── */
+    .story { padding: 7rem 0; background: var(--bg); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .story-body p { font-size: 0.97rem; color: var(--ink2); font-weight: 400; line-height: 1.85; margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    .origin-card {
+      background: var(--ocean);
+      border-radius: 20px; padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .origin-icon { font-size: 2rem; flex-shrink: 0; }
+    .origin-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+    .origin-desc { font-size: 0.8rem; color: rgba(255,255,255,0.38); font-weight: 400; line-height: 1.6; }
+    .origin-arrow { margin-left: auto; flex-shrink: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--aqua); white-space: nowrap; }
+
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 2rem; }
+    .meta-cell { background: var(--card); padding: 1.2rem 1.5rem; }
+    .meta-key { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+    .meta-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+    /* Ocean scene */
+    .ocean-scene {
+      background: var(--navy);
+      border-radius: 24px; padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      min-height: 380px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .ocean-scene::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 20%, rgba(0,232,228,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 75%, rgba(0,148,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Animated water ripples */
+    .ripples { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .ripple {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0,232,228,0.2), transparent);
+      animation: rippleWave 6s ease-in-out infinite;
+    }
+    .ripple:nth-child(1) { top: 28%; animation-delay: 0s; }
+    .ripple:nth-child(2) { top: 42%; animation-delay: 1s; }
+    .ripple:nth-child(3) { top: 56%; animation-delay: 2s; }
+    .ripple:nth-child(4) { top: 70%; animation-delay: 3s; }
+    .ripple:nth-child(5) { top: 82%; animation-delay: 1.5s; }
+    @keyframes rippleWave {
+      0%,100% { transform: scaleX(0.8) translateX(-4%); opacity: 0.3; }
+      50%      { transform: scaleX(1.05) translateX(4%); opacity: 1; }
     }
 
-    .card p {
-      color: #d6faff;
+    .scene-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -62%); font-size: 5rem; filter: drop-shadow(0 0 32px rgba(0,232,228,0.5)); z-index: 1; animation: bob 4.5s ease-in-out infinite; }
+    @keyframes bob { 0%,100% { transform: translate(-50%, -62%); } 50% { transform: translate(-50%, -68%); } }
+
+    .dot-row { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.7rem; z-index: 2; }
+    .dot-light { width: 8px; height: 8px; border-radius: 50%; background: var(--aqua); box-shadow: 0 0 12px var(--aqua), 0 0 4px var(--aqua2); animation: glimmer 2.8s ease-in-out infinite; }
+    .dot-light:nth-child(2) { animation-delay: 0.4s; }
+    .dot-light:nth-child(3) { animation-delay: 0.8s; }
+    .dot-light:nth-child(4) { animation-delay: 1.2s; }
+    .dot-light:nth-child(5) { animation-delay: 1.6s; }
+    @keyframes glimmer { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+    .scene-caption { position: relative; z-index: 2; text-align: center; }
+    .scene-caption-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 0.3rem; }
+    .scene-caption-sub { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── SCOPE ── */
+    .scope { padding: 7rem 0; background: var(--ocean); overflow: hidden; }
+    .scope::before { content: 'LAUNCH'; position: absolute; bottom: -0.1em; right: -0.04em; font-family: 'Bebas Neue', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(0,232,228,0.05); pointer-events: none; line-height: 1; }
+    .scope .section-title { color: #fff; }
+    .scope .section-label { color: var(--aqua); }
+    .scope .eyebrow-line { background: var(--aqua); }
+    .scope .section-desc { color: rgba(255,255,255,0.4); }
+
+    .scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .scope-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.2rem; transition: transform 0.3s, background 0.3s; }
+    .scope-card:hover { transform: translateY(-5px); background: rgba(0,232,228,0.06); }
+    .scope-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .scope-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .scope-desc { font-size: 0.85rem; color: rgba(255,255,255,0.42); font-weight: 400; line-height: 1.7; }
+    .scope-card:nth-child(1) { border-top: 2px solid var(--aqua); }
+    .scope-card:nth-child(2) { border-top: 2px solid var(--aqua2); }
+    .scope-card:nth-child(3) { border-top: 2px solid var(--aqua3); }
+    .scope-card:nth-child(4) { border-top: 2px solid rgba(0,232,228,0.5); }
+    .scope-card:nth-child(5) { border-top: 2px solid rgba(0,200,200,0.4); }
+
+    /* ── LOGO SHOWCASE ── */
+    .showcase-section { padding: 7rem 0; background: var(--bg); }
+    .showcase-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    .logo-showcase {
+      background: var(--ocean);
+      border-radius: 24px; overflow: hidden;
+      position: sticky; top: 6rem;
+      box-shadow: 0 28px 70px rgba(0,40,38,0.5);
+      display: flex; flex-direction: column;
+    }
+    .browser-bar {
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.7rem 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .browser-dots { display: flex; gap: 0.35rem; }
+    .bdot { width: 9px; height: 9px; border-radius: 50%; }
+    .bdot-r { background: rgba(255,80,80,0.5); }
+    .bdot-y { background: rgba(255,200,0,0.5); }
+    .bdot-g { background: rgba(0,232,228,0.6); }
+    .browser-url { flex: 1; background: rgba(255,255,255,0.05); border-radius: 100px; padding: 0.3rem 0.9rem; font-size: 0.68rem; color: rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 0.02em; }
+
+    .logo-screen { padding: 3rem 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; position: relative; }
+    .logo-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 240px; height: 240px; background: radial-gradient(circle, rgba(0,232,228,0.3), transparent 70%); border-radius: 50%; animation: pulse-glow 3s ease-in-out infinite; pointer-events: none; }
+    @keyframes pulse-glow { 0%,100% { transform: translate(-50%,-55%) scale(1); opacity:0.6; } 50% { transform: translate(-50%,-55%) scale(1.15); opacity:1; } }
+
+    .logo-screen img { width: 100%; max-width: 270px; height: auto; position: relative; z-index: 1; transition: transform 0.5s; filter: drop-shadow(0 8px 32px rgba(0,232,228,0.45)); }
+    .logo-showcase:hover .logo-screen img { transform: scale(1.05); }
+
+    /* Concept tags */
+    .concept-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; position: relative; z-index: 1; }
+    .concept-tag { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(0,232,228,0.08); border: 1px solid rgba(0,232,228,0.2); border-radius: 100px; padding: 0.35rem 0.85rem; font-size: 0.68rem; font-weight: 700; color: var(--aqua); letter-spacing: 0.06em; transition: background 0.2s; }
+    .concept-tag:hover { background: rgba(0,232,228,0.15); }
+
+    .logo-note { font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; text-transform: uppercase; position: relative; z-index: 1; text-align: center; }
+
+    /* Design facts */
+    .design-facts { display: flex; flex-direction: column; gap: 0; }
+    .design-fact { display: flex; gap: 1.2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .design-fact:first-child { border-top: 1px solid var(--border); }
+    .fact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fact-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+    .fact-desc { font-size: 0.85rem; color: var(--muted); font-weight: 400; line-height: 1.7; }
+
+    /* ── MATERIALS SECTION ── */
+    .materials-section { padding: 7rem 0; background: var(--bg2); }
+    .materials-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+
+    /* Materials grid */
+    .mat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .mat-card { background: var(--deep); border-radius: 16px; overflow: hidden; position: relative; transition: transform 0.3s; }
+    .mat-card:hover { transform: translateY(-4px); }
+    .mat-card.wide { grid-column: span 2; }
+    .mat-card-inner { padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; position: relative; }
+    .mat-card.wide .mat-card-inner { min-height: 120px; flex-direction: row; gap: 2rem; justify-content: flex-start; }
+    .mat-emoji { font-size: 2.5rem; }
+    .mat-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 0.6rem; }
+    .mat-card.wide .mat-label { margin-top: 0; }
+    .mat-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--aqua); }
+    .mat-card:nth-child(2) .mat-card-accent { background: var(--aqua2); }
+    .mat-card:nth-child(3) .mat-card-accent { background: var(--aqua3); }
+    .mat-card:nth-child(4) .mat-card-accent { background: linear-gradient(90deg, var(--aqua), var(--aqua3)); }
+
+    /* Description right */
+    .mat-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
+    .mat-headline em { font-style: italic; color: var(--teal); }
+    .mat-body p { font-size: 0.95rem; color: var(--ink2); font-weight: 400; line-height: 1.85; margin-bottom: 1rem; }
+
+    .spec-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .spec-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.4rem; background: var(--card); border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--muted); font-weight: 600; }
+    .spec-val { color: var(--ink); font-weight: 700; }
+    .spec-val.aq { color: var(--teal); }
+
+    /* ── DIGITAL SECTION ── */
+    .digital-section { padding: 7rem 0; background: var(--ocean); overflow: hidden; position: relative; }
+    .digital-section::before { content: 'ONLINE'; position: absolute; bottom: -0.1em; right: -0.04em; font-family: 'Bebas Neue', sans-serif; font-size: 18vw; color: transparent; -webkit-text-stroke: 1px rgba(0,232,228,0.04); pointer-events: none; line-height: 1; }
+    .digital-section .section-title { color: #fff; }
+    .digital-section .section-label { color: var(--aqua); }
+    .digital-section .eyebrow-line { background: var(--aqua); }
+    .digital-section .section-desc { color: rgba(255,255,255,0.4); }
+
+    .digital-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .digital-desc { font-size: 0.97rem; color: rgba(255,255,255,0.48); font-weight: 400; line-height: 1.85; }
+    .digital-desc p { margin-bottom: 1rem; }
+    .digital-desc p:last-child { margin-bottom: 0; }
+
+    .digital-card { background: rgba(0,232,228,0.06); border: 1px solid rgba(0,232,228,0.18); border-radius: 24px; padding: 3rem 2.5rem; }
+    .digital-emoji { font-size: 3.5rem; display: block; margin-bottom: 1rem; }
+    .digital-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.08em; color: var(--aqua); line-height: 1; margin-bottom: 0.4rem; }
+    .digital-sub { font-size: 0.82rem; color: rgba(255,255,255,0.35); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 1.5rem; }
+    .digital-items { display: flex; flex-direction: column; gap: 0.75rem; }
+    .digital-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+    .digital-item-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .digital-item-check { margin-left: auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua); background: rgba(0,232,228,0.1); border: 1px solid rgba(0,232,228,0.2); border-radius: 100px; padding: 0.2rem 0.6rem; white-space: nowrap; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 7rem 0; background: var(--bg); }
+    .process-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; }
+    .process-steps-grid::before { content: ''; position: absolute; top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 1px; background: linear-gradient(to right, var(--aqua), var(--aqua2), var(--teal), var(--aqua)); z-index: 0; }
+    .pstep { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.5rem; position: relative; z-index: 1; transition: transform 0.3s, box-shadow 0.3s; }
+    .pstep:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,118,114,0.12); }
+    .pstep-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .pstep:nth-child(1) .pstep-num { background: var(--aqua); }
+    .pstep:nth-child(2) .pstep-num { background: var(--aqua2); }
+    .pstep:nth-child(3) .pstep-num { background: var(--aqua3); }
+    .pstep:nth-child(4) .pstep-num { background: linear-gradient(135deg, var(--aqua), var(--teal)); }
+    .pstep-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .pstep-desc { font-size: 0.83rem; color: var(--muted); font-weight: 400; line-height: 1.7; }
+
+    /* ── IMPACT ── */
+    .impact-section { padding: 7rem 0; background: var(--aqua); overflow: hidden; position: relative; }
+    .impact-section::before { content: 'RANKED'; position: absolute; right: -0.04em; top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 22vw; color: transparent; -webkit-text-stroke: 2px rgba(3,16,15,0.08); pointer-events: none; line-height: 1; }
+    .impact-section .section-title { color: var(--ink); }
+    .impact-section .section-label { color: rgba(3,16,15,0.6); }
+    .impact-section .eyebrow-line { background: rgba(3,16,15,0.4); }
+
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+    .impact-card { background: rgba(3,16,15,0.08); border: 1px solid rgba(3,16,15,0.12); border-radius: 20px; padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(3,16,15,0.14); }
+    .impact-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--ink); letter-spacing: 0.04em; line-height: 1; margin-bottom: 0.5rem; }
+    .impact-label { font-size: 1rem; font-weight: 700; color: rgba(3,16,15,0.85); margin-bottom: 0.5rem; }
+    .impact-desc { font-size: 0.82rem; color: rgba(3,16,15,0.6); font-weight: 400; line-height: 1.65; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 9rem 0; background: var(--bg); text-align: center; overflow: hidden; position: relative; }
+    .cta-section::before { content: 'SEA'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-4deg); font-family: 'Bebas Neue', sans-serif; font-size: 28vw; color: transparent; -webkit-text-stroke: 1px rgba(0,118,114,0.04); pointer-events: none; white-space: nowrap; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: italic; color: var(--teal); }
+    .cta-sub { font-size: 1rem; color: var(--muted); font-weight: 400; margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--aqua); color: var(--ink); font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,232,228,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,232,228,0.5); }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.45); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--ink); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--aqua); background: rgba(0,232,228,0.06); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.5rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: rgba(240,253,252,0.8); }
+    .footer-copy { font-size: 0.78rem; color: rgba(240,253,252,0.3); }
+    .footer-email a { font-size: 0.82rem; color: var(--aqua); text-decoration: none; }
+    .footer-email a:hover { color: #fff; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-right { gap: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-pill, .hero-badge { display: none; }
+      .hero-stats { flex-wrap: wrap; }
+      .hstat { flex: 0 0 calc(50% - 0.6rem); margin-right: 0; border-right: none; padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hstat:last-child, .hstat:nth-last-child(2):nth-child(odd) { border-bottom: none; margin-bottom: 0; }
+      .container { padding: 0 1.5rem; }
+      .story-layout, .showcase-layout, .materials-layout, .digital-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+      .logo-showcase { position: static; }
+      .process-steps-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps-grid::before { display: none; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    @media (max-width: 640px) {
+      .hero { padding: 7rem 1.2rem 2.5rem; }
+      .hero-headline { font-size: clamp(2.4rem, 11vw, 3.5rem); }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .mat-grid { grid-template-columns: 1fr; }
+      .mat-card.wide { grid-column: span 1; }
+      .mat-card.wide .mat-card-inner { flex-direction: column; align-items: center; }
+      .process-steps-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-whatsapp, .btn-ghost { justify-content: center; }
+      footer .footer-inner { flex-direction: column; align-items: flex-start; }
+      .logo-screen img { max-width: 200px; }
+      .concept-tags { gap: 0.4rem; }
+      .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+      .hero-chips { gap: 0.4rem; }
+      .chip { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
     }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      background: #050910;
-      color: #bdf6ff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(0,224,255,0.2);
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background: #25D366;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37,211,102,0.5);
+    @media (max-width: 400px) {
+      .hero-headline { font-size: 2.2rem; }
+      .container { padding: 0 1rem; }
+      nav { padding: 1rem; }
     }
   </style>
 </head>
-
 <body>
 
-<nav>
-  <h3>Visual Graphics</h3>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="visual-graphics.html">Visual Graphics</a>
-  </div>
-</nav>
-
-<main>
-
-<header>
-  <h1>Seaing Reality Adventures</h1>
-  <p><strong>Full Brand Identity & Marketing Setup</strong></p>
-  <p>
-    A complete branding and launch project for a local tour company in Caye Caulker, Belize.
-  </p>
-</header>
-
-<section>
-  <h2>Project Story</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Seaing Reality Adventures is a snorkeling, fishing, and private tour company focused on delivering authentic and adventurous island experiences.
-    The goal was to create a strong, professional identity that reflects both the local culture and the excitement of marine tours.
-
-<section>
-  <h2>Project Breakdown</h2>
-  <div class="card-container">
-
-    <div class="card fade-up">
-  <h3>Logo Design</h3>
-
-  <img src="images/SeaingRealityLogo.png" alt="Seaing Reality Logo">
-
-  <p>
-    The original logo provided by the client was built from layered images and lacked structure and scalability.
-    This redesign transformed it into a clean, professional, and meaningful brand identity.
-  </p>
-
-  <p style="margin-top:10px;">
-    The concept centers around a circular ocean-inspired layout, featuring a snorkel mask that visually captures
-    the essence of the business. Inside the mask, the ocean scene includes a fishing boat silhouette,
-    representing both fishing and adventure tours.
-  </p>
-
-  <p style="margin-top:10px;">
-    Additional elements such as marine life and a bold cyan color palette reflect the vibrant waters of Belize,
-    while the map of Belize is subtly integrated into the typography, reinforcing the company’s local identity.
-  </p>
-</div>
-
-    <div class="card fade-up">
-      <h3>Business Card Design</h3>
-      <p>
-        Designed a clean and functional business card including WhatsApp contact, location, and Facebook presence,
-        making it easy for customers to connect and book tours.
-      </p>
-   
-    </div>
-
-    <div class="card fade-up">
-      <h3>Flyer Design</h3>
-      <p>
-        Created promotional flyers to be distributed at hotels, highlighting available tours and services.
-        The design focused on attracting tourists and encouraging referrals from hotel staff.
-      </p>
-   
-    </div>
-
-    <div class="card fade-up">
-      <h3>Facebook Page Setup</h3>
-      <p>
-        Complete setup including profile and cover design, business description, and initial content,
-        giving the company a professional and trustworthy online presence.
-      </p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>Video Editing</h3>
-      <p>
-        Edited promotional video content from raw footage provided by the client, helping showcase real tour experiences
-        and attract potential customers online.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <h2>Results & Impact</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    The new branding and marketing materials significantly improved the company's professional image,
-    helping build trust with potential customers. The business began receiving inquiries and gained visibility
-    both through physical promotion and online presence.
-  </p>
-</section>
-
-<section>
-  <h2>Interested in Your Own Branding?</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    Launch your business with a complete professional identity and marketing setup.
-  </p>
-  <div style="text-align:center;">
-    <a href="https://wa.me/5016220740" class="cta-button" target="_blank">
-      WhatsApp Visual Graphics
+  <!-- NAV -->
+  <nav>
+    <a href="visual-graphics.html" class="nav-logo">
+      <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics Logo"/>
+      <span class="nav-wordmark">Visual Graphics</span>
     </a>
+    <div class="nav-right">
+      <a href="visual-graphics.html" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Work
+      </a>
+      <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <div class="hero-blob hb3"></div>
+    <div class="hero-blob hb4"></div>
+    <div class="hero-shimmer"></div>
+    <div class="hero-streak hs1"></div>
+    <div class="hero-streak hs2"></div>
+    <div class="hero-bg-word">SEAING</div>
+
+    <div class="hero-pill">
+      <span class="pill-dot"></span>
+      Live · Caye Caulker, Belize
+    </div>
+
+    <div class="hero-badge">
+      <span class="badge-label">Launched</span>
+      <span class="badge-val">2025 – 2026</span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Visual Graphics Case Study · Full Brand Identity & Marketing Launch</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Seaing Reality
+        <em>Adventures.</em>
+        <span class="sub">From no brand to a full professional identity — built for Belize's waters.</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          A complete branding and launch project for a snorkeling, fishing, and private tour company in Caye Caulker — logo, business cards, flyers, Facebook presence, and video, all from scratch.
+        </p>
+        <div class="hero-chips">
+          <span class="chip chip-aqua">🎨 Logo Design</span>
+          <span class="chip chip-aqua">🪪 Business Cards</span>
+          <span class="chip chip-aqua">📄 Flyers</span>
+          <span class="chip chip-blue">📘 Facebook Setup</span>
+          <span class="chip chip-night">🎬 Video Editing</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num aq">5</div>
+          <div class="hstat-label">Deliverables</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">100<span class="aq">%</span></div>
+          <div class="hstat-label">Built from Scratch</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num aq">↑</div>
+          <div class="hstat-label">Visibility & Trust</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">Scalable Brand</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Business Cards</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Facebook Page Setup</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Video Editing</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Snorkeling Tours</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Fishing Tours</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Private Adventures</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marine Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Launch</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Logo Design</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Business Cards</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Flyers</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Facebook Page Setup</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Video Editing</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Snorkeling Tours</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Fishing Tours</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Private Adventures</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Caye Caulker · Belize</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Marine Identity</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Brand Launch</span>
+    </div>
   </div>
-</section>
 
-</main>
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">01 · The Story</span>
+      </div>
+      <h2 class="section-title reveal">A real tour business<br>with <em style="font-style:italic;color:var(--teal)">no brand to show for it.</em></h2>
 
-<footer>
-  <p>© 2026 Visual Graphics. Designed in collaboration with Visual Graphics, the creative partner of VG Tech.</p>
-</footer>
+      <div class="story-layout">
+        <div>
+          <div class="story-body reveal">
+            <p>Seaing Reality Adventures was already out on the water — running snorkeling trips, fishing charters, and private tours through the vibrant reefs of Caye Caulker. The experience was authentic. The guides knew the island. But when a tourist searched for them or got handed a business card, there was nothing that reflected the quality of what they were actually offering.</p>
+            <p>The original logo was built from layered images with no structure or scalability. There were no marketing materials, no digital presence, and no visual identity that could build the trust international tourists expect before they book an adventure.</p>
+            <p>We came in and built all of it — logo, print materials, social media, and video — so that the brand finally matched the water.</p>
+          </div>
 
-<script>
-  const elements = document.querySelectorAll('.fade-up');
-  const reveal = () => {
-    elements.forEach(el => {
-      const position = el.getBoundingClientRect().top;
-      const screenHeight = window.innerHeight;
-      if (position < screenHeight - 100) {
-        el.classList.add('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+          <div class="origin-card reveal">
+            <span class="origin-icon">🌊</span>
+            <div>
+              <div class="origin-title">No Brand → Full Identity: Logo to Facebook to Film</div>
+              <p class="origin-desc">Five disciplines executed from scratch — giving Seaing Reality Adventures a complete, professional presence that builds trust before a tourist ever sets foot on the boat.</p>
+            </div>
+            <span class="origin-arrow">FULL LAUNCH →</span>
+          </div>
 
+          <div class="meta-grid reveal">
+            <div class="meta-cell">
+              <div class="meta-key">Client</div>
+              <div class="meta-val">Seaing Reality Adventures</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Location</div>
+              <div class="meta-val">Caye Caulker, Belize</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Disciplines</div>
+              <div class="meta-val">Brand · Print · Digital · Film</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-key">Status</div>
+              <div class="meta-val">Live · Fully Launched</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ocean scene -->
+        <div class="ocean-scene reveal">
+          <div class="ripples">
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+          </div>
+          <div class="dot-row">
+            <div class="dot-light"></div>
+            <div class="dot-light"></div>
+            <div class="dot-light"></div>
+            <div class="dot-light"></div>
+            <div class="dot-light"></div>
+          </div>
+          <div class="scene-icon">🤿</div>
+          <div class="scene-caption">
+            <div class="scene-caption-title">"Authentic adventures. Now with a brand to match."</div>
+            <div class="scene-caption-sub">Caye Caulker · Marine Tours · Fully Branded</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section class="scope" id="scope">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">02 · Scope of Work</span>
+      </div>
+      <h2 class="section-title reveal">Every touchpoint.<br><em style="font-style:italic;color:var(--aqua)">Built to convert.</em></h2>
+      <p class="section-desc reveal">From the logo tourists see on a flyer to the video they watch before booking — five deliverables, all built to work together.</p>
+
+      <div class="scope-grid">
+        <div class="scope-card reveal">
+          <span class="scope-icon">✏️</span>
+          <div class="scope-name">Logo Redesign</div>
+          <p class="scope-desc">The original layered image logo was rebuilt into a clean, scalable mark — featuring a snorkel mask, ocean scene, fishing boat, marine life, and a subtle Belize map integrated into the typography. Bold cyan, built for the reef.</p>
+        </div>
+        <div class="scope-card reveal reveal-delay-1">
+          <span class="scope-icon">🪪</span>
+          <div class="scope-name">Business Card Design</div>
+          <p class="scope-desc">A clean, functional card with WhatsApp contact, location, and Facebook presence — giving guides something professional to hand to every tourist they meet, whether at the dock or a hotel lobby.</p>
+        </div>
+        <div class="scope-card reveal reveal-delay-2">
+          <span class="scope-icon">📄</span>
+          <div class="scope-name">Promotional Flyers</div>
+          <p class="scope-desc">Hotel-ready flyers showcasing available tours and services — designed to attract tourists and drive referrals from hotel staff, turning every reception desk into a booking channel.</p>
+        </div>
+        <div class="scope-card reveal">
+          <span class="scope-icon">📘</span>
+          <div class="scope-name">Facebook Page Setup</div>
+          <p class="scope-desc">Complete page setup including branded profile and cover design, business description, and initial content — giving the company a trustworthy online presence for tourists researching before they book.</p>
+        </div>
+        <div class="scope-card reveal reveal-delay-1">
+          <span class="scope-icon">🎬</span>
+          <div class="scope-name">Video Editing</div>
+          <p class="scope-desc">Raw client footage was transformed into polished promotional video content that showcases real tour experiences — the kind of authentic, exciting content that builds instant confidence and drives bookings online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SHOWCASE -->
+  <section class="showcase-section" id="showcase">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">03 · The Logo</span>
+      </div>
+      <h2 class="section-title reveal">Ocean-inspired.<br><em style="font-style:italic;color:var(--teal)">Unmistakably Belizean.</em></h2>
+
+      <div class="showcase-layout">
+        <!-- Logo card -->
+        <div class="logo-showcase reveal">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <div class="bdot bdot-r"></div>
+              <div class="bdot bdot-y"></div>
+              <div class="bdot bdot-g"></div>
+            </div>
+            <div class="browser-url">Seaing Reality Adventures · Brand Mark</div>
+          </div>
+          <div class="logo-screen">
+            <div class="logo-glow"></div>
+            <img src="images/SeaingRealityLogo.png" alt="Seaing Reality Adventures Logo"/>
+            <div class="concept-tags">
+              <span class="concept-tag">🤿 Snorkel Mask</span>
+              <span class="concept-tag">⛵ Fishing Boat</span>
+              <span class="concept-tag">🐠 Marine Life</span>
+              <span class="concept-tag">🗺️ Belize Map</span>
+              <span class="concept-tag">🌊 Cyan Palette</span>
+            </div>
+            <div class="logo-note">Logo Design · Visual Graphics · Caye Caulker</div>
+          </div>
+        </div>
+
+        <!-- Design facts -->
+        <div>
+          <p class="section-desc reveal" style="margin-bottom:2rem">The logo wasn't just cleaned up — it was completely reimagined. Every element tells a story about who Seaing Reality Adventures is and where they operate, without needing a single word of explanation.</p>
+          <div class="design-facts">
+            <div class="design-fact reveal">
+              <span class="fact-icon">🎯</span>
+              <div>
+                <div class="fact-name">Concept Over Decoration</div>
+                <p class="fact-desc">Every element in the mark was chosen deliberately. The circular layout reflects the ocean. The snorkel mask frames the world inside it. The fishing boat sits inside the mask's lens — making it a window into the adventure itself.</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">🗺️</span>
+              <div>
+                <div class="fact-name">Belizean Identity Built In</div>
+                <p class="fact-desc">The subtle Belize map integrated into the typography grounds the brand in its home. International tourists immediately understand where this adventure happens — and local pride is baked right into the identity.</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">🌊</span>
+              <div>
+                <div class="fact-name">Cyan That Commands Attention</div>
+                <p class="fact-desc">The bold cyan palette — #00e8e4 — was chosen to mirror the vibrant, electric waters of the Belize Barrier Reef. On a hotel flyer, a Facebook cover, or a business card, it stops eyes and says "the ocean is right here."</p>
+              </div>
+            </div>
+            <div class="design-fact reveal">
+              <span class="fact-icon">📐</span>
+              <div>
+                <div class="fact-name">Scalable from Sticker to Screen</div>
+                <p class="fact-desc">Rebuilt from layered images into a proper vector mark, the logo now holds its detail at any size — from a small business card corner to a Facebook cover photo to a banner at the dock.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALS SECTION -->
+  <section class="materials-section" id="materials">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">04 · Print & Marketing Materials</span>
+      </div>
+      <h2 class="section-title reveal">A brand tourists can<br>hold in their hands.</h2>
+
+      <div class="materials-layout">
+        <!-- Materials grid -->
+        <div class="mat-grid reveal">
+          <div class="mat-card">
+            <div class="mat-card-accent"></div>
+            <div class="mat-card-inner">
+              <span class="mat-emoji">🪪</span>
+              <span class="mat-label">Business Card</span>
+            </div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-card-accent"></div>
+            <div class="mat-card-inner">
+              <span class="mat-emoji">📄</span>
+              <span class="mat-label">Hotel Flyer</span>
+            </div>
+          </div>
+          <div class="mat-card wide">
+            <div class="mat-card-accent"></div>
+            <div class="mat-card-inner">
+              <span class="mat-emoji">📘</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.3rem;">Facebook Page</div>
+                <span class="mat-label">Profile · Cover · Content</span>
+              </div>
+            </div>
+          </div>
+          <div class="mat-card wide">
+            <div class="mat-card-accent"></div>
+            <div class="mat-card-inner">
+              <span class="mat-emoji">🎬</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.3rem;">Promotional Video</div>
+                <span class="mat-label">Edited from Raw Client Footage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="reveal">
+          <h3 class="mat-headline">Marketing tools that <em>close bookings</em> before the first hello.</h3>
+          <div class="mat-body">
+            <p>The business card was built to be handed to a tourist at the dock and immediately communicate professionalism — WhatsApp contact, location, and Facebook all visible at a glance, no confusion about how to get in touch or where to find more information.</p>
+            <p>The hotel flyers were designed to sit in lobby stands and desk displays — catching a tourist's eye during the same moment they're deciding what to do for the day. Every tour and service is clearly listed. The design does the selling.</p>
+            <p>The Facebook page setup gave the company a complete online home — so when a tourist searches for Seaing Reality Adventures after hearing about them from another guest, what they find looks as good as the experience they were promised.</p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row"><span class="spec-key">Business Card</span><span class="spec-val">WhatsApp · Location · Facebook</span></div>
+            <div class="spec-row"><span class="spec-key">Flyers</span><span class="spec-val">Hotel-Ready · Tour Listing</span></div>
+            <div class="spec-row"><span class="spec-key">Facebook</span><span class="spec-val">Profile · Cover · Bio · Content</span></div>
+            <div class="spec-row"><span class="spec-key">Video</span><span class="spec-val aq">Raw Footage → Promo Film</span></div>
+            <div class="spec-row"><span class="spec-key">Files</span><span class="spec-val">Print-Ready · Digital-Ready</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL / FACEBOOK SECTION -->
+  <section class="digital-section" id="digital">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">05 · Digital Presence</span>
+      </div>
+      <h2 class="section-title reveal">Found online.<br><em style="font-style:italic;color:var(--aqua)">Trusted before booking.</em></h2>
+
+      <div class="digital-layout">
+        <div class="digital-desc reveal">
+          <p>Before any tourist commits to a tour, they search. They look for photos, reviews, a contact method, and something that confirms the business is real. A generic or non-existent Facebook page fails that test every time.</p>
+          <p>The Seaing Reality Adventures Facebook page was set up as a complete brand destination — a profile image and cover photo designed to stop the scroll, a clear business description, and initial content that shows what tours actually look like.</p>
+          <p>Combined with the promotional video, the Facebook page becomes the digital equivalent of standing at the dock and showing a tourist exactly what they're signing up for. Real footage, real ocean, real adventure — edited to make it undeniable.</p>
+          <p>The result: inquiries started coming in. Visibility improved. The business had a presence that matched what tourists expect from a professional operation in 2025.</p>
+        </div>
+
+        <div class="digital-card reveal">
+          <span class="digital-emoji">📱</span>
+          <div class="digital-title">Digital Launch</div>
+          <div class="digital-sub">Everything the business needed online</div>
+          <div class="digital-items">
+            <div class="digital-item">
+              <span class="digital-item-icon">🖼️</span>
+              Facebook Profile & Cover Design
+              <span class="digital-item-check">Done ✓</span>
+            </div>
+            <div class="digital-item">
+              <span class="digital-item-icon">📝</span>
+              Business Description & Bio
+              <span class="digital-item-check">Done ✓</span>
+            </div>
+            <div class="digital-item">
+              <span class="digital-item-icon">📸</span>
+              Initial Content Published
+              <span class="digital-item-check">Done ✓</span>
+            </div>
+            <div class="digital-item">
+              <span class="digital-item-icon">🎬</span>
+              Promo Video Edited & Ready
+              <span class="digital-item-check">Done ✓</span>
+            </div>
+            <div class="digital-item">
+              <span class="digital-item-icon">🌐</span>
+              Professional Brand Online · Live
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">06 · Process</span>
+      </div>
+      <h2 class="section-title reveal">From no brand to<br>full launch-ready identity.</h2>
+      <p class="section-desc reveal">Five deliverables, one clear process — building each piece so it supports the next.</p>
+
+      <div class="process-steps-grid">
+        <div class="pstep reveal">
+          <div class="pstep-num">01</div>
+          <div class="pstep-name">Discover</div>
+          <p class="pstep-desc">Understood the tours, the audience, and the location. Snorkeling, fishing, private charters — a diverse offering that needed one unified identity to tie it all together for international tourists.</p>
+        </div>
+        <div class="pstep reveal reveal-delay-1">
+          <div class="pstep-num">02</div>
+          <div class="pstep-name">Design</div>
+          <p class="pstep-desc">Built the logo first — conceptually rich, ocean-inspired, and rooted in Belize. Every other piece cascaded from that mark: cards, flyers, and Facebook all pull from the same visual language.</p>
+        </div>
+        <div class="pstep reveal reveal-delay-2">
+          <div class="pstep-num">03</div>
+          <div class="pstep-name">Produce</div>
+          <p class="pstep-desc">Print materials were designed for hotel distribution. The Facebook page was built and populated. Raw footage was reviewed, cut, and edited into a promotional film that shows — not just tells — what the tours are.</p>
+        </div>
+        <div class="pstep reveal reveal-delay-3">
+          <div class="pstep-num">04</div>
+          <div class="pstep-name">Launch</div>
+          <p class="pstep-desc">Delivered all five assets: logo files, print-ready cards and flyers, a live Facebook page, and final video content — everything needed to go from invisible to fully operational, immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+    <div class="container">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">07 · Real Impact</span>
+      </div>
+      <h2 class="section-title reveal">More inquiries.<br>Better presence. Built to grow.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card reveal">
+          <div class="impact-num">↑</div>
+          <div class="impact-label">Inquiries & Visibility</div>
+          <p class="impact-desc">With a professional identity in place — across print, social, and video — Seaing Reality Adventures started receiving inquiries and gained the kind of visibility that word-of-mouth alone can't build.</p>
+        </div>
+        <div class="impact-card reveal reveal-delay-1">
+          <div class="impact-num">5</div>
+          <div class="impact-label">Disciplines Delivered</div>
+          <p class="impact-desc">Logo, business cards, flyers, Facebook, and video — five separate assets, all built in the same brand language. A tourist can move from a hotel flyer to Facebook to a booking conversation without the experience ever breaking.</p>
+        </div>
+        <div class="impact-card reveal reveal-delay-2">
+          <div class="impact-num">∞</div>
+          <div class="impact-label">A Foundation to Build On</div>
+          <p class="impact-desc">The identity is built to grow with the business. New tours, new platforms, new materials — all start from a strong visual foundation. Seaing Reality Adventures has a brand that can carry them wherever the water takes them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:1.2rem">
+        <span class="eyebrow-line"></span>
+        <span class="section-label">Start Your Project</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 class="cta-headline reveal">
+        Your business deserves<br>a brand this <em>clear.</em>
+      </h2>
+      <p class="cta-sub reveal">Whether you need a logo, print materials, social media setup, or video — we build complete brand identities that make customers trust you before they even make contact.</p>
+      <div class="cta-actions reveal">
+        <a href="mailto:visualgraphicscc@gmail.com" class="btn-primary">
+          Email Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5016220740" target="_blank" class="btn-whatsapp">
+          WhatsApp Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a href="visual-graphics.html" class="btn-ghost">
+          See All Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="visual-graphics.html" class="footer-logo">
+          <img src="images/VisualGraphicsNoBackground.png" alt="Visual Graphics"/>
+          <span class="footer-logo-text">Visual Graphics</span>
+        </a>
+        <span class="footer-copy">© 2026 Visual Graphics & VG Tech & Security Solutions. Designed by Jordy Gonzalez.</span>
+        <span class="footer-email">
+          <a href="mailto:visualgraphicscc@gmail.com">visualgraphicscc@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
 </body>
 </html>
