@@ -17,11 +17,12 @@
       --ink:     #1a1410;
       --ink2:    #3d3028;
       --muted:   #8a7a6e;
-      --accent:  #ff0000;
-      --accent2: #f0a500;
+      /* UI accent changed from red to ice blue */
+      --accent:  #1e8fcf;
+      --accent2: #42A1D8;
       --border:  rgba(26,20,16,0.1);
       --card:    #fff9f4;
-      /* Brand palette */
+      /* Brand palette — untouched */
       --lobster: #DC2329;
       --sky:     #42A1D8;
       --sea:     #5A9CD0;
@@ -145,7 +146,7 @@
     }
     .hb2 {
       width: 350px; height: 350px;
-      background: rgba(220,35,41,0.12);
+      background: rgba(66,161,216,0.10);
       bottom: 0; right: 10%;
       animation: drift 9s ease-in-out infinite alternate-reverse;
     }
@@ -159,6 +160,19 @@
       from { transform: translate(0,0) scale(1); }
       to   { transform: translate(20px, 15px) scale(1.05); }
     }
+
+    /* Ice crystal SVG decorations */
+    .ice-crystal {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.10;
+    }
+    .ic1 { top: 8%; left: 3%; width: 180px; animation: spinSlow 40s linear infinite; }
+    .ic2 { top: 20%; right: 12%; width: 120px; animation: spinSlow 28s linear infinite reverse; }
+    .ic3 { bottom: 15%; left: 8%; width: 90px; animation: spinSlow 34s linear infinite; }
+    .ic4 { top: 55%; right: 4%; width: 60px; animation: spinSlow 20s linear infinite reverse; }
+    @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
     /* Frost diagonal line */
     .hero-line {
@@ -211,7 +225,7 @@
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s ease both;
     }
-    .eyebrow-line { width: 40px; height: 2px; background: var(--lobster); display: inline-block; }
+    .eyebrow-line { width: 40px; height: 2px; background: var(--accent); display: inline-block; }
     .eyebrow-text {
       font-size: 0.72rem;
       font-weight: 600;
@@ -280,11 +294,6 @@
       border: 1px solid rgba(66,161,216,0.3);
       color: var(--sky);
     }
-    .chip-lobster {
-      background: rgba(220,35,41,0.12);
-      border: 1px solid rgba(220,35,41,0.3);
-      color: var(--sky);
-    }
 
     /* Hero stats strip */
     .hero-stats {
@@ -330,9 +339,9 @@
       to   { opacity: 1; }
     }
 
-    /* ── TICKER ── */
+    /* ── TICKER — blue instead of red ── */
     .ticker-wrap {
-      background: var(--lobster);
+      background: var(--box);
       padding: 0.7rem 0;
       overflow: hidden;
     }
@@ -355,12 +364,12 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.75);
     }
     .ticker-dot {
       width: 5px; height: 5px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: rgba(90,156,208,0.7);
       flex-shrink: 0;
     }
 
@@ -559,11 +568,11 @@
       font-weight: 300;
       line-height: 1.7;
     }
-    .pillar:nth-child(1) .pillar-num { color: rgba(220,35,41,0.25); }
-    .pillar:nth-child(2) .pillar-num { color: rgba(66,161,216,0.25); }
+    .pillar:nth-child(1) .pillar-num { color: rgba(66,161,216,0.3); }
+    .pillar:nth-child(2) .pillar-num { color: rgba(90,156,208,0.3); }
     .pillar:nth-child(3) .pillar-num { color: rgba(49,47,136,0.5); }
-    .pillar:nth-child(1) { border-top: 2px solid var(--lobster); }
-    .pillar:nth-child(2) { border-top: 2px solid var(--sky); }
+    .pillar:nth-child(1) { border-top: 2px solid var(--sky); }
+    .pillar:nth-child(2) { border-top: 2px solid var(--sea); }
     .pillar:nth-child(3) { border-top: 2px solid var(--box); }
 
     /* ── LOGO SECTION ── */
@@ -694,7 +703,6 @@
       letter-spacing: 0.04em;
       font-family: 'Courier New', monospace;
     }
-    /* Big swatch role badge */
     .swatch-role {
       font-size: 0.6rem;
       font-weight: 600;
@@ -715,7 +723,7 @@
       margin-top: 3.5rem;
       position: relative;
     }
-    /* Connecting line */
+    /* Connecting line — blue gradient instead of red-led */
     .process-steps-grid::before {
       content: '';
       position: absolute;
@@ -723,7 +731,7 @@
       left: calc(12.5% + 1rem);
       right: calc(12.5% + 1rem);
       height: 1px;
-      background: linear-gradient(to right, var(--lobster), var(--sky), var(--box), var(--trees));
+      background: linear-gradient(to right, var(--sky), var(--sea), var(--box), var(--trees));
       z-index: 0;
     }
     .pstep {
@@ -751,8 +759,8 @@
       margin-bottom: 1.2rem;
       letter-spacing: 0.05em;
     }
-    .pstep:nth-child(1) .pstep-num { background: var(--lobster); }
-    .pstep:nth-child(2) .pstep-num { background: var(--sky); }
+    .pstep:nth-child(1) .pstep-num { background: var(--sky); }
+    .pstep:nth-child(2) .pstep-num { background: var(--sea); }
     .pstep:nth-child(3) .pstep-num { background: var(--box); }
     .pstep:nth-child(4) .pstep-num { background: var(--trees); }
     .pstep-name {
@@ -806,7 +814,7 @@
 
     .app-bg-bag    { background: linear-gradient(135deg, #193157 0%, #312F88 100%); }
     .app-bg-cart   { background: linear-gradient(135deg, #42A1D8 0%, #193157 100%); }
-    .app-bg-sticker{ background: linear-gradient(135deg, #DC2329 0%, #f0a500 100%); }
+    .app-bg-sticker{ background: linear-gradient(135deg, #42A1D8 0%, #5A9CD0 100%); }
 
     .app-logo-wrap {
       display: flex;
@@ -824,7 +832,6 @@
     }
     .app-card:hover .app-logo-wrap img { transform: scale(1.07); }
 
-    /* Sticker circular mock */
     .sticker-ring {
       width: 140px; height: 140px;
       border-radius: 50%;
@@ -841,7 +848,6 @@
       object-fit: contain;
     }
 
-    /* Mock label for bag */
     .bag-mock {
       position: relative;
       width: 160px; height: 200px;
@@ -881,7 +887,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent2);
-      border: 1px solid rgba(240,165,0,0.25);
+      border: 1px solid rgba(66,161,216,0.3);
       border-radius: 100px;
       padding: 0.2rem 0.55rem;
     }
@@ -950,6 +956,7 @@
       color: var(--ink);
       margin-bottom: 1.2rem;
     }
+    /* accent on "incredible" — blue instead of red */
     .cta-headline em { font-style: italic; color: var(--accent); }
 
     .cta-sub {
@@ -981,11 +988,11 @@
       border-radius: 100px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(224,92,42,0.25);
+      box-shadow: 0 4px 20px rgba(30,143,207,0.28);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(224,92,42,0.35);
+      box-shadow: 0 8px 30px rgba(30,143,207,0.4);
     }
     .btn-ghost {
       display: inline-flex;
@@ -1003,7 +1010,7 @@
     }
     .btn-ghost:hover {
       border-color: var(--accent);
-      background: rgba(224,92,42,0.04);
+      background: rgba(30,143,207,0.05);
     }
 
     /* ── FOOTER ── */
@@ -1065,10 +1072,17 @@
 
       .apps-grid { grid-template-columns: 1fr 1fr; }
       .app-card.wide { grid-column: span 2; }
+
+      .ic1 { width: 100px; }
+      .ic2 { width: 70px; }
     }
 
     @media (max-width: 580px) {
-      .hero { padding: 7rem 1.2rem 2.5rem; }
+      nav { padding: 0.9rem 1rem; }
+      .nav-wordmark { font-size: 0.88rem; }
+      .nav-back span { display: none; }
+
+      .hero { padding: 6.5rem 1.2rem 2.5rem; }
       .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 
       .swatches { grid-template-columns: repeat(2, 1fr); }
@@ -1081,6 +1095,14 @@
       .meta-grid { grid-template-columns: 1fr; }
 
       footer .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-stats { flex-direction: column; gap: 0; }
+      .hstat { flex: 1 0 100%; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+      .hstat:last-child { border-bottom: none; }
+      .hero-chips { flex-direction: column; align-items: flex-start; }
+      .container { padding: 0 1rem; }
     }
   </style>
 </head>
@@ -1095,7 +1117,7 @@
     <div class="nav-right">
       <a href="visual-graphics.html" class="nav-back">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        All Work
+        <span>All Work</span>
       </a>
       <a href="mailto:visualgraphicscc@gmail.com" class="nav-cta">Work With Us</a>
     </div>
@@ -1108,6 +1130,42 @@
     <div class="hero-blob hb3"></div>
     <div class="hero-line"></div>
     <div class="hero-bg-num">IBIF</div>
+
+    <!-- Subtle ice crystals -->
+    <svg class="ice-crystal ic1" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1.5"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="1.5"/>
+      <line x1="19" y1="19" x2="81" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="81" y1="19" x2="19" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="50" y1="5" x2="38" y2="18" stroke="white" stroke-width="1"/>
+      <line x1="50" y1="5" x2="62" y2="18" stroke="white" stroke-width="1"/>
+      <line x1="50" y1="95" x2="38" y2="82" stroke="white" stroke-width="1"/>
+      <line x1="50" y1="95" x2="62" y2="82" stroke="white" stroke-width="1"/>
+      <line x1="5" y1="50" x2="18" y2="38" stroke="white" stroke-width="1"/>
+      <line x1="5" y1="50" x2="18" y2="62" stroke="white" stroke-width="1"/>
+      <line x1="95" y1="50" x2="82" y2="38" stroke="white" stroke-width="1"/>
+      <line x1="95" y1="50" x2="82" y2="62" stroke="white" stroke-width="1"/>
+    </svg>
+    <svg class="ice-crystal ic2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1.5"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="1.5"/>
+      <line x1="19" y1="19" x2="81" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="81" y1="19" x2="19" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="50" y1="5" x2="38" y2="18" stroke="white" stroke-width="1"/>
+      <line x1="50" y1="5" x2="62" y2="18" stroke="white" stroke-width="1"/>
+    </svg>
+    <svg class="ice-crystal ic3" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1.5"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="1.5"/>
+      <line x1="19" y1="19" x2="81" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="81" y1="19" x2="19" y2="81" stroke="white" stroke-width="1.5"/>
+    </svg>
+    <svg class="ice-crystal ic4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1.5"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="1.5"/>
+      <line x1="19" y1="19" x2="81" y2="81" stroke="white" stroke-width="1.5"/>
+      <line x1="81" y1="19" x2="19" y2="81" stroke="white" stroke-width="1.5"/>
+    </svg>
 
     <div class="hero-tag">
       <span class="tag-label">Caye Caulker</span>
@@ -1132,7 +1190,7 @@
         </p>
         <div class="hero-chips">
           <span class="chip chip-ice">❄ Brand Identity</span>
-          <span class="chip chip-lobster">🦞 Caye Caulker</span>
+          <span class="chip chip-ice">🦞 Caye Caulker</span>
           <span class="chip chip-ice">🧊 Full System</span>
         </div>
       </div>
@@ -1264,7 +1322,7 @@
         <span class="eyebrow-line"></span>
         <span class="section-label">03 · The Mark</span>
       </div>
-      <h2 class="section-title">A logo that reads<br><em style="font-style:italic;color:var(--lobster)">at fifty feet</em><br>and on a sticker.</h2>
+      <h2 class="section-title">A logo that reads<br><em style="font-style:italic;color:var(--accent)">at fifty feet</em><br>and on a sticker.</h2>
 
       <div class="logo-layout">
         <div>
@@ -1324,7 +1382,7 @@
     </div>
   </section>
 
-  <!-- ── PALETTE ── -->
+  <!-- ── PALETTE — original brand colors restored ── -->
   <section class="palette-section" id="system">
     <div class="container">
       <div class="section-eyebrow">
